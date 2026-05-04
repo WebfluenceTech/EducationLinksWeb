@@ -1,46 +1,93 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, PlayCircle } from 'lucide-react';
-import { useScrollAnimation } from '../../hooks/useScrollAnimation';
-import { useCountUp } from '../../hooks/useCountUp';
+import { ArrowRight, PlayCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-const STATS = [
-  { value: 20, suffix: '+', label: 'Years Experience' },
-  { value: 11, suffix: '+', label: 'Study Destinations' },
-  { value: 50, suffix: '+', label: 'University Partners' },
-  { value: 50, suffix: 'K+', label: 'Alumni Network' },
+const SLIDES = [
+  {
+    image: 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
+    alt: 'University campus',
+  },
+  {
+    image: 'https://images.pexels.com/photos/1462630/pexels-photo-1462630.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
+    alt: 'Students studying abroad',
+  },
+  {
+    image: 'https://images.pexels.com/photos/256490/pexels-photo-256490.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
+    alt: 'World class education',
+  },
+  {
+    image: 'https://images.pexels.com/photos/1205651/pexels-photo-1205651.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop',
+    alt: 'Graduation success',
+  },
 ];
 
-function StatCard({ value, suffix, label, isVisible }: { value: number; suffix: string; label: string; isVisible: boolean }) {
-  const count = useCountUp(value, isVisible);
-  return (
-    <div className="bg-white rounded-2xl p-5 md:p-6 shadow-lg shadow-black/5 text-center">
-      <div className="text-3xl md:text-4xl font-bold font-heading text-brand-blue">
-        {count}{suffix}
-      </div>
-      <div className="mt-1 text-sm text-brand-gray font-medium">{label}</div>
-    </div>
-  );
-}
-
 export default function Hero() {
-  const { ref, isVisible } = useScrollAnimation(0.1);
-
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
-        <img
-          src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop"
-          alt="University campus"
-          className="h-full w-full object-cover"
-          loading="eager"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/80 to-brand-dark/50" />
+
+      {/* Carousel — full background, z-0 */}
+      <div className="absolute inset-0 z-0">
+        <Carousel
+          autoPlay
+          infiniteLoop
+          interval={4000}
+          transitionTime={800}
+          showThumbs={false}
+          showStatus={false}
+          showArrows={true}
+          showIndicators={true}
+          stopOnHover={false}
+          swipeable={true}
+          className="h-full"
+          renderArrowPrev={(clickHandler) => (
+            <button
+              onClick={clickHandler}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 backdrop-blur-sm border border-white/30 text-white rounded-full p-3 transition-all duration-200 hover:scale-110"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+          )}
+          renderArrowNext={(clickHandler) => (
+            <button
+              onClick={clickHandler}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 backdrop-blur-sm border border-white/30 text-white rounded-full p-3 transition-all duration-200 hover:scale-110"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          )}
+          renderIndicator={(clickHandler, isSelected, index) => (
+            <button
+              key={index}
+              onClick={clickHandler}
+              className={`inline-block mx-1 rounded-full transition-all duration-300 ${
+                isSelected ? 'w-8 h-2 bg-white' : 'w-2 h-2 bg-white/50'
+              }`}
+              aria-label={`Slide ${index + 1}`}
+            />
+          )}
+        >
+          {SLIDES.map((slide) => (
+            <div key={slide.alt} className="h-[90vh]">
+              <img
+                src={slide.image}
+                alt={slide.alt}
+                className="h-full w-full object-cover"
+                loading="eager"
+              />
+            </div>
+          ))}
+        </Carousel>
+
+        {/* Dark gradient covering left half */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/70 to-transparent pointer-events-none" />
       </div>
 
-      {/* Content */}
-      <div className="relative container-custom py-24 md:py-32">
-        <div className="max-w-2xl">
+      {/* Content — above carousel, left side, z-10 */}
+      <div className="relative z-10 w-full container-custom py-24 md:py-32">
+        <div className="max-w-xl">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
             <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse" />
             Trusted by 50,000+ students since 2009
@@ -52,7 +99,7 @@ export default function Hero() {
             Education Abroad
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl">
+          <p className="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed">
             Pakistan's largest study abroad consultancy. Expert guidance for universities across Europe, UK, Canada, Australia, and more.
           </p>
 
@@ -74,14 +121,8 @@ export default function Hero() {
             </Link>
           </div>
         </div>
-
-        {/* Stats */}
-        <div ref={ref} className="mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {STATS.map((stat) => (
-            <StatCard key={stat.label} {...stat} isVisible={isVisible} />
-          ))}
-        </div>
       </div>
+
     </section>
   );
 }

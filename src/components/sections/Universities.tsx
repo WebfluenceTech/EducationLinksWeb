@@ -1,10 +1,11 @@
 import SectionHeading from '../ui/SectionHeading';
 import { PARTNER_UNIVERSITIES } from '../../lib/constants';
+import React from 'react';
 
-function MarqueeRow({ items, reverse }: { items: string[]; reverse?: boolean }) {
+export function MarqueeRow({ items, reverse }: { items: string[] | React.ReactNode[]; reverse?: boolean }) {
   const doubled = [...items, ...items];
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden w-full">
       <div className={`flex gap-4 ${reverse ? 'animate-marquee-right' : 'animate-marquee-left'}`}>
         {doubled.map((uni, i) => (
           <div

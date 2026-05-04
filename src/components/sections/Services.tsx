@@ -39,9 +39,8 @@ export default function Services() {
             return (
               <div
                 key={service.title}
-                className={`bg-white rounded-2xl p-6 border border-gray-100 hover:border-brand-blue/30 hover:shadow-lg hover:shadow-brand-blue/5 hover:-translate-y-1 transition-all duration-300 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-                }`}
+                className={`bg-white rounded-2xl p-6 border border-gray-100 hover:border-brand-blue/30 hover:shadow-lg hover:shadow-brand-blue/5 hover:-translate-y-1 transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                  }`}
                 style={{ transitionDelay: isVisible ? `${i * 80}ms` : '0ms' }}
               >
                 <div className="flex items-center justify-center h-12 w-12 rounded-xl bg-brand-blue/10 text-brand-blue mb-4">
