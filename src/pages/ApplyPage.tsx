@@ -53,7 +53,8 @@ export default function ApplyPage() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
-  const inputClass = 'w-full border border-gray-200 rounded-xl px-4 py-3 text-sm text-brand-dark placeholder:text-brand-gray-light focus:outline-none focus:ring-2 focus:ring-brand-blue/20 focus:border-brand-blue transition-colors';
+  const inputClass = 'w-full bg-transparent border-0 border-b-2 border-gray-200 focus:border-brand-blue focus:outline-none py-2.5 text-sm text-brand-dark placeholder:text-brand-gray-light transition-colors duration-200';
+  const selectClass = `${inputClass} appearance-none cursor-pointer`;
 
   const canNext = () => {
     if (step === 0) return form.first_name && form.last_name && form.email && form.phone;
@@ -131,69 +132,126 @@ export default function ApplyPage() {
         </div>
 
         {/* Form Card */}
-        <div className="max-w-3xl mx-auto bg-white rounded-3xl p-6 md:p-10 shadow-lg border border-gray-100">
+        <div className="max-w-3xl mx-auto bg-white rounded-3xl px-8 py-10 md:px-12 md:py-12 shadow-lg border border-gray-100">
           {/* Step 1: Personal */}
           {step === 0 && (
-            <div className="space-y-5">
-              <h3 className="text-lg font-semibold text-brand-dark mb-1">Personal Information</h3>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <input type="text" placeholder="First Name *" required value={form.first_name} onChange={update('first_name')} className={inputClass} />
-                <input type="text" placeholder="Last Name *" required value={form.last_name} onChange={update('last_name')} className={inputClass} />
-                <input type="email" placeholder="Email Address *" required value={form.email} onChange={update('email')} className={inputClass} />
-                <input type="tel" placeholder="Phone Number *" required value={form.phone} onChange={update('phone')} className={inputClass} />
-                <input type="tel" placeholder="WhatsApp Number" value={form.whatsapp} onChange={update('whatsapp')} className={inputClass} />
-                <input type="date" placeholder="Date of Birth" value={form.date_of_birth} onChange={update('date_of_birth')} className={inputClass} />
-                <select value={form.gender} onChange={update('gender')} className={inputClass}>
-                  <option value="">Gender</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Other">Other</option>
-                </select>
-                <input type="text" placeholder="Nationality" value={form.nationality} onChange={update('nationality')} className={inputClass} />
-                <input type="text" placeholder="City" value={form.city} onChange={update('city')} className={inputClass} />
-                <input type="text" placeholder="Full Address" value={form.address} onChange={update('address')} className={inputClass} />
+            <div className="space-y-7">
+              <h3 className="font-heading text-xl font-bold text-brand-dark text-center tracking-wide">· Personal Information ·</h3>
+              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-7">
+                <div>
+                  <label className="flex items-center gap-1.5 text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1"><span className="text-brand-blue text-base leading-none">·</span>First Name</label>
+                  <input type="text" placeholder="First Name" required value={form.first_name} onChange={update('first_name')} className={inputClass} />
+                </div>
+                <div>
+                  <label className="flex items-center gap-1.5 text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1"><span className="text-brand-blue text-base leading-none">·</span>Last Name</label>
+                  <input type="text" placeholder="Last Name" required value={form.last_name} onChange={update('last_name')} className={inputClass} />
+                </div>
+                <div>
+                  <label className="flex items-center gap-1.5 text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1"><span className="text-brand-blue text-base leading-none">·</span>Email Address</label>
+                  <input type="email" placeholder="Email Address" required value={form.email} onChange={update('email')} className={inputClass} />
+                </div>
+                <div>
+                  <label className="flex items-center gap-1.5 text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1"><span className="text-brand-blue text-base leading-none">·</span>Phone Number</label>
+                  <input type="tel" placeholder="Phone Number" required value={form.phone} onChange={update('phone')} className={inputClass} />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">WhatsApp Number</label>
+                  <input type="tel" placeholder="WhatsApp Number" value={form.whatsapp} onChange={update('whatsapp')} className={inputClass} />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">Date of Birth</label>
+                  <input type="date" value={form.date_of_birth} onChange={update('date_of_birth')} className={inputClass} />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">Gender</label>
+                  <select value={form.gender} onChange={update('gender')} className={selectClass}>
+                    <option value="">Select gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">Nationality</label>
+                  <input type="text" placeholder="Nationality" value={form.nationality} onChange={update('nationality')} className={inputClass} />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">City</label>
+                  <input type="text" placeholder="City" value={form.city} onChange={update('city')} className={inputClass} />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">Full Address</label>
+                  <input type="text" placeholder="Full Address" value={form.address} onChange={update('address')} className={inputClass} />
+                </div>
               </div>
             </div>
           )}
 
           {/* Step 2: Education */}
           {step === 1 && (
-            <div className="space-y-5">
-              <h3 className="text-lg font-semibold text-brand-dark mb-1">Educational Background</h3>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <select value={form.last_education} onChange={update('last_education')} className={inputClass}>
-                  <option value="">Last Education Level</option>
-                  {EDUCATION_LEVELS.map((l) => <option key={l} value={l}>{l}</option>)}
-                </select>
-                <input type="text" placeholder="Institution Name" value={form.institution_name} onChange={update('institution_name')} className={inputClass} />
-                <input type="number" placeholder="Graduation Year" value={form.graduation_year} onChange={update('graduation_year')} className={inputClass} min="1990" max="2030" />
-                <input type="text" placeholder="GPA / Percentage" value={form.gpa_or_percentage} onChange={update('gpa_or_percentage')} className={inputClass} />
+            <div className="space-y-7">
+              <h3 className="font-heading text-xl font-bold text-brand-dark text-center tracking-wide">· Educational Background ·</h3>
+              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-7">
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">Last Education Level</label>
+                  <select value={form.last_education} onChange={update('last_education')} className={selectClass}>
+                    <option value="">Select level</option>
+                    {EDUCATION_LEVELS.map((l) => <option key={l} value={l}>{l}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">Institution Name</label>
+                  <input type="text" placeholder="Institution Name" value={form.institution_name} onChange={update('institution_name')} className={inputClass} />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">Graduation Year</label>
+                  <input type="number" placeholder="e.g. 2023" value={form.graduation_year} onChange={update('graduation_year')} className={inputClass} min="1990" max="2030" />
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">GPA / Percentage</label>
+                  <input type="text" placeholder="e.g. 3.5 / 85%" value={form.gpa_or_percentage} onChange={update('gpa_or_percentage')} className={inputClass} />
+                </div>
               </div>
             </div>
           )}
 
           {/* Step 3: Study Preferences */}
           {step === 2 && (
-            <div className="space-y-5">
-              <h3 className="text-lg font-semibold text-brand-dark mb-1">Study Preferences</h3>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <select value={form.preferred_destination} onChange={update('preferred_destination')} className={inputClass}>
-                  <option value="">Preferred Destination</option>
-                  {DESTINATIONS.map((d) => <option key={d.name} value={d.name}>{d.flag} {d.name}</option>)}
-                </select>
-                <select value={form.study_level} onChange={update('study_level')} className={inputClass}>
-                  <option value="">Study Level</option>
-                  {STUDY_LEVELS.map((l) => <option key={l} value={l}>{l}</option>)}
-                </select>
-                <select value={form.preferred_program} onChange={update('preferred_program')} className={inputClass}>
-                  <option value="">Preferred Field of Study</option>
-                  {STUDY_FIELDS.map((f) => <option key={f} value={f}>{f}</option>)}
-                </select>
-                <select value={form.preferred_intake} onChange={update('preferred_intake')} className={inputClass}>
-                  <option value="">Preferred Intake</option>
-                  {INTAKES.map((i) => <option key={i} value={i}>{i}</option>)}
-                </select>
-                <input type="text" placeholder="IELTS / English Test Score" value={form.ielts_score} onChange={update('ielts_score')} className={`${inputClass} sm:col-span-2`} />
+            <div className="space-y-7">
+              <h3 className="font-heading text-xl font-bold text-brand-dark text-center tracking-wide">· Study Preferences ·</h3>
+              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-7">
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">Preferred Destination</label>
+                  <select value={form.preferred_destination} onChange={update('preferred_destination')} className={selectClass}>
+                    <option value="">Select destination</option>
+                    {DESTINATIONS.map((d) => <option key={d.name} value={d.name}>{d.flag} {d.name}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">Study Level</label>
+                  <select value={form.study_level} onChange={update('study_level')} className={selectClass}>
+                    <option value="">Select level</option>
+                    {STUDY_LEVELS.map((l) => <option key={l} value={l}>{l}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">Field of Study</label>
+                  <select value={form.preferred_program} onChange={update('preferred_program')} className={selectClass}>
+                    <option value="">Select field</option>
+                    {STUDY_FIELDS.map((f) => <option key={f} value={f}>{f}</option>)}
+                  </select>
+                </div>
+                <div>
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">Preferred Intake</label>
+                  <select value={form.preferred_intake} onChange={update('preferred_intake')} className={selectClass}>
+                    <option value="">Select intake</option>
+                    {INTAKES.map((i) => <option key={i} value={i}>{i}</option>)}
+                  </select>
+                </div>
+                <div className="sm:col-span-2">
+                  <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">IELTS / English Test Score</label>
+                  <input type="text" placeholder="e.g. 6.5" value={form.ielts_score} onChange={update('ielts_score')} className={inputClass} />
+                </div>
               </div>
             </div>
           )}
@@ -201,7 +259,7 @@ export default function ApplyPage() {
           {/* Step 4: Review */}
           {step === 3 && (
             <div className="space-y-6">
-              <h3 className="text-lg font-semibold text-brand-dark mb-1">Review Your Application</h3>
+              <h3 className="font-heading text-xl font-bold text-brand-dark text-center tracking-wide">· Review Your Application ·</h3>
 
               <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
                 {([
@@ -216,20 +274,20 @@ export default function ApplyPage() {
                   ['Program', form.preferred_program], ['Intake', form.preferred_intake],
                 ] as [string, string][]).map(([label, value]) => (
                   <div key={label} className="flex justify-between py-2 border-b border-gray-100">
-                    <span className="text-brand-gray">{label}</span>
-                    <span className="font-medium text-brand-dark">{value || '--'}</span>
+                    <span className="text-brand-gray text-xs uppercase tracking-wider">{label}</span>
+                    <span className="font-medium text-brand-dark text-sm">{value || '--'}</span>
                   </div>
                 ))}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-brand-dark mb-2">Additional Notes</label>
+                <label className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block">Additional Notes</label>
                 <textarea
                   rows={3}
                   placeholder="Any additional information..."
                   value={form.additional_notes}
                   onChange={update('additional_notes')}
-                  className={inputClass}
+                  className="w-full bg-transparent border-0 border-b-2 border-gray-200 focus:border-brand-blue focus:outline-none py-2.5 text-sm text-brand-dark placeholder:text-brand-gray-light transition-colors duration-200 resize-none"
                 />
               </div>
 
@@ -248,7 +306,7 @@ export default function ApplyPage() {
           )}
 
           {/* Navigation */}
-          <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-100">
+          <div className="flex items-center justify-between mt-10 pt-6 border-t border-gray-100">
             <button
               onClick={() => setStep((s) => s - 1)}
               disabled={step === 0}
@@ -261,7 +319,7 @@ export default function ApplyPage() {
               <button
                 onClick={() => setStep((s) => s + 1)}
                 disabled={!canNext()}
-                className="flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-light text-white font-semibold px-6 py-3 rounded-xl disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                className="flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-light text-white font-bold px-8 py-3 rounded-xl uppercase tracking-widest text-sm disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
                 Next <ChevronRight className="h-4 w-4" />
               </button>
@@ -269,7 +327,7 @@ export default function ApplyPage() {
               <button
                 onClick={handleSubmit}
                 disabled={!agree || loading}
-                className="flex items-center gap-2 bg-brand-red hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-xl disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                className="flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-light text-white font-bold px-8 py-3 rounded-xl uppercase tracking-widest text-sm disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
                 {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : 'Submit Application'}
               </button>

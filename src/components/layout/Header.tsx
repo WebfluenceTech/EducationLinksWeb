@@ -3,8 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import {
   Menu, X, Phone, Mail, MapPin, ChevronDown,
   Facebook, Instagram, Youtube,
-  GraduationCap,
 } from 'lucide-react';
+import logoSrc from '../../assets/logo.png';
 import { COMPANY, DESTINATIONS } from '../../lib/constants';
 
 const NAV_LINKS = [
@@ -48,7 +48,7 @@ export default function Header() {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-brand-dark text-white text-sm hidden md:block">
+      <div className="bg-slate-900 text-white text-sm hidden md:block">
         <div className="container-custom flex items-center justify-between py-2">
           <div className="flex items-center gap-6">
             <a href={`tel:${COMPANY.whatsapp}`} className="flex items-center gap-1.5 hover:text-brand-blue-light transition-colors">
@@ -73,20 +73,11 @@ export default function Header() {
       </div>
 
       {/* Main Nav */}
-      <header className={`sticky top-0 z-50 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
+      <header className={`sticky top-0 z-50 bg-[#EEEDED] transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
         <div className="container-custom flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2.5 shrink-0" onClick={() => handleNavClick('/')}>
-            <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-brand-blue text-white">
-              <GraduationCap className="h-6 w-6" />
-            </div>
-            <div className="leading-tight">
-              <span className="block text-lg font-bold font-heading">
-                <span className="text-brand-red">Education</span>
-                <span className="text-brand-blue">Links</span>
-              </span>
-              <span className="block text-[10px] tracking-wider text-brand-gray uppercase">Adding to your future</span>
-            </div>
+          <Link to="/" className="shrink-0" onClick={() => handleNavClick('/')}>
+            <img src={logoSrc} alt="Education Links" className="h-12 md:h-14 w-auto object-contain" />
           </Link>
 
           {/* Desktop Nav */}

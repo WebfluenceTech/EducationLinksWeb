@@ -18,6 +18,8 @@ export default {
       fontFamily: {
         heading: ['Poppins', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
+        bebas: ['"Bebas Neue"', 'sans-serif'],
+        serif: ['"Noto Serif"', 'serif'],
       },
       animation: {
         'marquee-left': 'marquee-left 40s linear infinite',

@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  GraduationCap, MapPin, Phone, Mail, Facebook,
+  MapPin, Phone, Mail, Facebook,
   Instagram, Youtube, Send, ArrowRight,
 } from 'lucide-react';
+import logoSrc from '../../assets/logo.png';
+import footerLogoSrc from '../../assets/footerlogo.png';
 import { COMPANY, OFFICES } from '../../lib/constants';
 import { supabase } from '../../lib/supabase';
 import Toast from '../ui/Toast';
@@ -40,34 +42,25 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-brand-dark text-white">
+    <footer className="text-white" style={{ backgroundColor: '#1E202C' }}>
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* About */}
           <div>
-            <Link to="/" className="flex items-center gap-2.5 mb-5">
-              <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-brand-blue text-white">
-                <GraduationCap className="h-6 w-6" />
-              </div>
-              <div className="leading-tight">
-                <span className="block text-lg font-bold font-heading">
-                  <span className="text-brand-red">Education</span>
-                  <span className="text-brand-blue-light">Links</span>
-                </span>
-                <span className="block text-[10px] tracking-wider text-brand-gray-light uppercase">Adding to your future</span>
-              </div>
+            <Link to="/" className="inline-block mb-5">
+              <img src={footerLogoSrc} alt="Education Links" className="h-16 w-auto object-contain" />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
               Pakistan's leading study abroad consultancy since 2009. Helping students achieve their dreams of international education across 11+ destinations worldwide.
             </p>
             <div className="flex items-center gap-3">
-              <a href={COMPANY.social.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-9 w-9 rounded-lg bg-white/10 hover:bg-brand-blue transition-colors" aria-label="Facebook">
+              <a href={COMPANY.social.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-9 w-9 rounded-lg bg-white/10 text-slate-300 hover:bg-brand-blue hover:text-white transition-colors" aria-label="Facebook">
                 <Facebook className="h-4 w-4" />
               </a>
-              <a href={COMPANY.social.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-9 w-9 rounded-lg bg-white/10 hover:bg-brand-blue transition-colors" aria-label="Instagram">
+              <a href={COMPANY.social.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-9 w-9 rounded-lg bg-white/10 text-slate-300 hover:bg-brand-blue hover:text-white transition-colors" aria-label="Instagram">
                 <Instagram className="h-4 w-4" />
               </a>
-              <a href={COMPANY.social.youtube} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-9 w-9 rounded-lg bg-white/10 hover:bg-brand-blue transition-colors" aria-label="YouTube">
+              <a href={COMPANY.social.youtube} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-9 w-9 rounded-lg bg-white/10 text-slate-300 hover:bg-brand-blue hover:text-white transition-colors" aria-label="YouTube">
                 <Youtube className="h-4 w-4" />
               </a>
             </div>
@@ -80,7 +73,7 @@ export default function Footer() {
               {QUICK_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link to={link.to} className="group flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
-                    <ArrowRight className="h-3.5 w-3.5 text-brand-blue opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <ArrowRight className="h-3.5 w-3.5 text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {link.label}
                   </Link>
                 </li>
@@ -94,7 +87,7 @@ export default function Footer() {
             <ul className="space-y-4">
               {OFFICES.map((office) => (
                 <li key={office.name} className="flex gap-3 text-sm">
-                  <MapPin className="h-4 w-4 text-brand-blue shrink-0 mt-0.5" />
+                  <MapPin className="h-4 w-4 text-slate-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="block font-medium text-white">{office.name}</span>
                     <span className="block text-gray-400 leading-relaxed">{office.address}</span>
@@ -118,12 +111,12 @@ export default function Footer() {
             <ul className="space-y-3 mb-6">
               <li>
                 <a href={`tel:${COMPANY.whatsapp}`} className="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors">
-                  <Phone className="h-4 w-4 text-brand-blue" /> {COMPANY.whatsapp}
+                  <Phone className="h-4 w-4 text-slate-400" /> {COMPANY.whatsapp}
                 </a>
               </li>
               <li>
                 <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors">
-                  <Mail className="h-4 w-4 text-brand-blue" /> {COMPANY.email}
+                  <Mail className="h-4 w-4 text-slate-400" /> {COMPANY.email}
                 </a>
               </li>
             </ul>

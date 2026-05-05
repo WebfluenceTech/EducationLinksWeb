@@ -1,91 +1,119 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Quote, Star, ChevronLeft, ChevronRight } from 'lucide-react';
-import SectionHeading from '../ui/SectionHeading';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { TESTIMONIALS } from '../../lib/constants';
+
+const AVATAR_COLORS = ['bg-brand-blue', 'bg-brand-red', 'bg-slate-700'];
 
 export default function Testimonials() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
-  const next = useCallback(() => {
-    setActive((prev) => (prev + 1) % TESTIMONIALS.length);
-  }, []);
-
-  const prev = useCallback(() => {
-    setActive((prev) => (prev - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
-  }, []);
+  const next = useCallback(() => setActive((p) => (p + 1) % TESTIMONIALS.length), []);
+  const prev = useCallback(() => setActive((p) => (p - 1 + TESTIMONIALS.length) % TESTIMONIALS.length), []);
 
   useEffect(() => {
     if (paused) return;
-    const timer = setInterval(next, 5000);
-    return () => clearInterval(timer);
+    const t = setInterval(next, 5000);
+    return () => clearInterval(t);
   }, [paused, next]);
 
-  const t = TESTIMONIALS[active];
-
   return (
-    <section className="section-padding bg-gradient-to-b from-blue-50/50 to-white">
+    <section
+      className="section-padding bg-white overflow-hidden"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
       <div className="container-custom">
-        <SectionHeading
-          title="What Our Students Say"
-          subtitle="Hear from the students who trusted us with their dreams and are now studying at top universities worldwide."
-        />
+        <div className="grid lg:grid-cols-[5fr_7fr] gap-12 lg:gap-20 items-center">
 
-        <div
-          className="relative max-w-3xl mx-auto"
-          onMouseEnter={() => setPaused(true)}
-          onMouseLeave={() => setPaused(false)}
-        >
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl shadow-brand-blue/5 border border-gray-100 text-center">
-            <Quote className="h-10 w-10 text-brand-blue/20 mx-auto mb-6" />
-
-            <p className="text-lg md:text-xl text-brand-dark leading-relaxed font-medium italic">
-              "{t.quote}"
+          {/* Left — heading */}
+          <div>
+            <p className="text-brand-blue text-xs font-bold uppercase tracking-[0.2em] mb-4">
+              Testimonials
             </p>
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-dark leading-tight mb-8">
+              Don't take our word for it. Hear it from our students.
+            </h2>
 
-            <div className="mt-6 flex justify-center gap-1">
-              {Array.from({ length: t.rating }).map((_, i) => (
-                <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" />
-              ))}
-            </div>
+            {/* Arrows */}
+            <div className="flex items-center gap-3">
+              <button
+                onClick={prev}
+                className="flex items-center justify-center h-11 w-11 rounded-full border border-gray-200 text-brand-dark hover:bg-brand-blue hover:border-brand-blue hover:text-white transition-all duration-200"
+                aria-label="Previous"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={next}
+                className="flex items-center justify-center h-11 w-11 rounded-full border border-gray-200 text-brand-dark hover:bg-brand-blue hover:border-brand-blue hover:text-white transition-all duration-200"
+                aria-label="Next"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
 
-            <div className="mt-4">
-              <div className="text-base font-semibold text-brand-dark">{t.name}</div>
-              <div className="text-sm text-brand-gray">Studying in {t.destination}</div>
+              {/* Dots */}
+              <div className="flex items-center gap-2 ml-2">
+                {TESTIMONIALS.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActive(i)}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === active ? 'w-6 bg-brand-blue' : 'w-2 bg-gray-200'
+                    }`}
+                    aria-label={`Testimonial ${i + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <button
-              onClick={prev}
-              className="flex items-center justify-center h-10 w-10 rounded-full border border-gray-200 hover:bg-brand-blue hover:border-brand-blue hover:text-white text-brand-gray transition-colors"
-              aria-label="Previous testimonial"
+          {/* Right — carousel */}
+          <div className="relative overflow-hidden">
+            <div
+              className="flex gap-5 transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(calc(-${active} * (100% + 20px) * 0.88))` }}
             >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-
-            <div className="flex gap-2">
-              {TESTIMONIALS.map((_, i) => (
-                <button
-                  key={i}
+              {TESTIMONIALS.map((t, i) => (
+                <div
+                  key={t.name}
                   onClick={() => setActive(i)}
-                  className={`h-2.5 rounded-full transition-all ${
-                    i === active ? 'w-8 bg-brand-blue' : 'w-2.5 bg-gray-200 hover:bg-gray-300'
+                  className={`shrink-0 w-[88%] rounded-2xl border p-8 cursor-pointer transition-all duration-300 ${
+                    i === active
+                      ? 'bg-white border-gray-200 shadow-xl shadow-gray-100'
+                      : 'bg-[#f8f9fa] border-transparent opacity-60 scale-95'
                   }`}
-                  aria-label={`Go to testimonial ${i + 1}`}
-                />
+                >
+                  {/* Avatar + meta */}
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className={`flex items-center justify-center h-11 w-11 rounded-full text-white text-sm font-bold shrink-0 ${AVATAR_COLORS[i % AVATAR_COLORS.length]}`}>
+                      {t.name.split(' ').map((n) => n[0]).join('').slice(0, 2)}
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-brand-dark">{t.name}</p>
+                      <p className="text-xs text-brand-gray">Studying in {t.destination}</p>
+                    </div>
+                  </div>
+
+                  {/* Quote */}
+                  <p className="text-brand-dark text-sm leading-relaxed mb-8">
+                    "{t.quote}"
+                  </p>
+
+                  {/* Signature */}
+                  <div className="border-t border-gray-100 pt-5">
+                    <p className="font-heading text-xl font-semibold text-brand-dark italic">
+                      {t.name}
+                    </p>
+                    <p className="text-xs text-brand-gray mt-0.5">
+                      Student — {t.destination}
+                    </p>
+                  </div>
+                </div>
               ))}
             </div>
-
-            <button
-              onClick={next}
-              className="flex items-center justify-center h-10 w-10 rounded-full border border-gray-200 hover:bg-brand-blue hover:border-brand-blue hover:text-white text-brand-gray transition-colors"
-              aria-label="Next testimonial"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
           </div>
+
         </div>
       </div>
     </section>

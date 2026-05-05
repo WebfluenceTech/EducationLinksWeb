@@ -8,7 +8,7 @@ import Universities from '../components/sections/Universities';
 import Testimonials from '../components/sections/Testimonials';
 import InquiryForm from '../components/sections/InquiryForm';
 import LatestNews from '../components/sections/LatestNews';
-import { MarqueeRow } from '../components/sections/Universities';
+
 export default function HomePage() {
   return (
     <>

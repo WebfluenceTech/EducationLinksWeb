@@ -56,7 +56,7 @@ export default function About() {
           <div>
             <SectionHeading
               title="Why Education Links?"
-              subtitle="We don't just send students abroad -- we build futures. Here's what sets us apart."
+              subtitle="We don't just send students abroad , We build futures. Here's what sets us apart."
               centered={false}
             />
             <div className="space-y-6">
