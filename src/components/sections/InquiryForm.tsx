@@ -84,7 +84,7 @@ export default function InquiryForm() {
             <p className="text-brand-blue-light text-xs font-bold uppercase tracking-[0.2em] mb-4">
               Free Consultation
             </p>
-            <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+            <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6 font-script tracking-tight text-3xl">
               Start Your <br />
               <span className="text-brand-blue">Journey</span> Today
             </h2>

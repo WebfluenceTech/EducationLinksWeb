@@ -7,8 +7,8 @@ interface SectionHeadingProps {
 
 export default function SectionHeading({ title, subtitle, light, centered = true }: SectionHeadingProps) {
   return (
-    <div className={`mb-12 md:mb-16 ${centered ? 'text-center' : ''}`}>
-      <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold leading-tight ${light ? 'text-white' : 'text-brand-dark'}`}>
+    <div className={`mb-12 md:mb-16  ${centered ? 'text-center' : ''}`}>
+      <h2 className={`font-script tracking-tight text-3xl text-3xl md:text-4xl lg:text-5xl font-bold leading-tight ${light ? 'text-white' : 'text-brand-dark'}`}>
         {title}
       </h2>
       <div className="mt-4 flex items-center gap-1.5 justify-center" style={centered ? undefined : { justifyContent: 'flex-start' }}>

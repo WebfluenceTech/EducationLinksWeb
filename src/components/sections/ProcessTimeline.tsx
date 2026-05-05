@@ -11,15 +11,15 @@ const ICON_MAP: Record<string, LucideIcon> = {
 };
 
 const STEPS = [
-  { title: 'Select Program',       description: 'Choose your desired program and destination',          icon: 'GraduationCap' },
-  { title: 'Submit Application',   description: 'Complete and submit your application package',         icon: 'Send' },
-  { title: 'Receive Offer Letter', description: 'Get your conditional offer from the university',       icon: 'Mail' },
-  { title: 'Fulfill Conditions',   description: 'Meet all requirements specified in your offer',        icon: 'CheckCircle' },
-  { title: 'Pay Tuition Deposit',  description: 'Secure your spot with the tuition deposit',           icon: 'CreditCard' },
-  { title: 'Unconditional Offer',  description: 'Receive your final unconditional offer letter',        icon: 'FileCheck' },
-  { title: 'Apply for Visa',       description: 'Submit your visa application with our guidance',       icon: 'Stamp' },
-  { title: 'Book Flight',          description: 'Arrange your travel and accommodation',                icon: 'Plane' },
-  { title: 'Start Program',        description: 'Begin your exciting journey abroad!',                  icon: 'PartyPopper' },
+  { title: 'Select Program', description: 'Choose your desired program and destination', icon: 'GraduationCap' },
+  { title: 'Submit Application', description: 'Complete and submit your application package', icon: 'Send' },
+  { title: 'Receive Offer Letter', description: 'Get your conditional offer from the university', icon: 'Mail' },
+  { title: 'Fulfill Conditions', description: 'Meet all requirements specified in your offer', icon: 'CheckCircle' },
+  { title: 'Pay Tuition Deposit', description: 'Secure your spot with the tuition deposit', icon: 'CreditCard' },
+  { title: 'Unconditional Offer', description: 'Receive your final unconditional offer letter', icon: 'FileCheck' },
+  { title: 'Apply for Visa', description: 'Submit your visa application with our guidance', icon: 'Stamp' },
+  { title: 'Book Flight', description: 'Arrange your travel and accommodation', icon: 'Plane' },
+  { title: 'Start Program', description: 'Begin your exciting journey abroad!', icon: 'PartyPopper' },
 ];
 
 export default function ProcessTimeline() {
@@ -44,7 +44,7 @@ export default function ProcessTimeline() {
           <p className="text-brand-blue text-xs font-bold uppercase tracking-[0.2em] mb-3">
             Step by Step
           </p>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-white">
+          <h2 className="font-heading font-script tracking-tight text-3xl text-3xl md:text-4xl font-bold text-white">
             Your Journey to Studying Abroad
           </h2>
           <div className="mx-auto mt-4 h-px w-16 bg-brand-blue" />
@@ -64,9 +64,8 @@ export default function ProcessTimeline() {
               return (
                 <div
                   key={step.title}
-                  className={`relative flex gap-4 lg:flex-col lg:items-center lg:text-center transition-all duration-500 ${
-                    isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-                  }`}
+                  className={`relative flex gap-4 lg:flex-col lg:items-center lg:text-center transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                    }`}
                   style={{ transitionDelay: isVisible ? `${i * 100}ms` : '0ms' }}
                 >
                   {/* Icon circle */}

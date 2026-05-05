@@ -31,7 +31,7 @@ export default function Testimonials() {
             <p className="text-brand-blue text-xs font-bold uppercase tracking-[0.2em] mb-4">
               Testimonials
             </p>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-dark leading-tight mb-8">
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-dark leading-tight mb-8 font-script tracking-tight text-3xl">
               Don't take our word for it. Hear it from our students.
             </h2>
 
@@ -58,9 +58,8 @@ export default function Testimonials() {
                   <button
                     key={i}
                     onClick={() => setActive(i)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      i === active ? 'w-6 bg-brand-blue' : 'w-2 bg-gray-200'
-                    }`}
+                    className={`h-2 rounded-full transition-all duration-300 ${i === active ? 'w-6 bg-brand-blue' : 'w-2 bg-gray-200'
+                      }`}
                     aria-label={`Testimonial ${i + 1}`}
                   />
                 ))}
@@ -78,11 +77,10 @@ export default function Testimonials() {
                 <div
                   key={t.name}
                   onClick={() => setActive(i)}
-                  className={`shrink-0 w-[88%] rounded-2xl border p-8 cursor-pointer transition-all duration-300 ${
-                    i === active
+                  className={`shrink-0 w-[88%] rounded-2xl border p-8 cursor-pointer transition-all duration-300 ${i === active
                       ? 'bg-white border-gray-200 shadow-xl shadow-gray-100'
                       : 'bg-[#f8f9fa] border-transparent opacity-60 scale-95'
-                  }`}
+                    }`}
                 >
                   {/* Avatar + meta */}
                   <div className="flex items-center gap-3 mb-6">

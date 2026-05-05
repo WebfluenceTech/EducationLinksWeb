@@ -20,6 +20,7 @@ export default {
         body: ['Inter', 'sans-serif'],
         bebas: ['"Bebas Neue"', 'sans-serif'],
         serif: ['"Noto Serif"', 'serif'],
+        script: ['"Dancing Script"', 'cursive'],
       },
       animation: {
         'marquee-left': 'marquee-left 40s linear infinite',

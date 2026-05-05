@@ -62,9 +62,8 @@ export default function Hero() {
             <button
               key={index}
               onClick={clickHandler}
-              className={`inline-block mx-1 rounded-full transition-all duration-300 ${
-                isSelected ? 'w-8 h-2 bg-white' : 'w-2 h-2 bg-white/50'
-              }`}
+              className={`inline-block mx-1 rounded-full transition-all duration-300 ${isSelected ? 'w-8 h-2 bg-white' : 'w-2 h-2 bg-white/50'
+                }`}
               aria-label={`Slide ${index + 1}`}
             />
           )}
@@ -93,7 +92,7 @@ export default function Hero() {
             Trusted by 50,000+ students since 2009
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+          <h1 className="text-4xl font-script tracking-tight text-3xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight">
             Your Gateway to{' '}
             <span className="text-brand-blue-light">World-Class</span>{' '}
             Education Abroad

@@ -11,14 +11,14 @@ const ICON_MAP: Record<string, LucideIcon> = {
 };
 
 const SERVICES = [
-  { title: 'Counseling',               description: 'Personalized career-focused counseling aligned with your academic goals and aspirations.', icon: 'MessageCircle' },
-  { title: 'Country & University',     description: 'Access to 20+ universities across 10+ countries to find your perfect academic match.', icon: 'Globe' },
-  { title: 'Test Preparation',         description: 'Engaging IELTS and language preparation classes with free demo sessions included.', icon: 'BookOpen' },
-  { title: 'Application & Admission',  description: 'Flawless application preparation with meticulous attention to detail for guaranteed results.', icon: 'FileText' },
-  { title: 'Scholarships Abroad',      description: 'Access to a database of 3,700+ scholarships to help fund your international education.', icon: 'Award' },
-  { title: 'Visa Assistance',          description: 'Complete documentation support and guidance with exceptional visa success rates.', icon: 'ShieldCheck' },
-  { title: 'Course Finder',            description: 'AI-powered university and course matching tool to discover the best programs for you.', icon: 'Search' },
-  { title: 'Admission Updates',        description: 'Real-time application tracking and admission status updates throughout your journey.', icon: 'Bell' },
+  { title: 'Counseling', description: 'Personalized career-focused counseling aligned with your academic goals and aspirations.', icon: 'MessageCircle' },
+  { title: 'Country & University', description: 'Access to 20+ universities across 10+ countries to find your perfect academic match.', icon: 'Globe' },
+  { title: 'Test Preparation', description: 'Engaging IELTS and language preparation classes with free demo sessions included.', icon: 'BookOpen' },
+  { title: 'Application & Admission', description: 'Flawless application preparation with meticulous attention to detail for guaranteed results.', icon: 'FileText' },
+  { title: 'Scholarships Abroad', description: 'Access to a database of 3,700+ scholarships to help fund your international education.', icon: 'Award' },
+  { title: 'Visa Assistance', description: 'Complete documentation support and guidance with exceptional visa success rates.', icon: 'ShieldCheck' },
+  { title: 'Course Finder', description: 'AI-powered university and course matching tool to discover the best programs for you.', icon: 'Search' },
+  { title: 'Admission Updates', description: 'Real-time application tracking and admission status updates throughout your journey.', icon: 'Bell' },
 ];
 
 const VISIBLE = 4; // cards visible at once
@@ -48,7 +48,7 @@ export default function Services() {
             <p className="text-brand-blue text-xs font-semibold uppercase tracking-[0.2em] mb-2">
               What We Do?
             </p>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-dark">
+            <h2 className="font-script tracking-tight text-3xl font-heading text-4xl md:text-5xl font-bold text-brand-dark">
               What We Do
             </h2>
           </div>
@@ -116,9 +116,8 @@ export default function Services() {
             <button
               key={i}
               onClick={() => setIndex(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                i === index ? 'w-6 bg-brand-blue' : 'w-2 bg-gray-300'
-              }`}
+              className={`h-2 rounded-full transition-all duration-300 ${i === index ? 'w-6 bg-brand-blue' : 'w-2 bg-gray-300'
+                }`}
               aria-label={`Go to slide ${i + 1}`}
             />
           ))}

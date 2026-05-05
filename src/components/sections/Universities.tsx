@@ -60,11 +60,11 @@ export default function Universities() {
         {/* Left — sticky heading */}
         <div className="shrink-0 lg:w-72 xl:w-80 px-4 sm:px-6 lg:pl-8 xl:pl-16">
           <p className="text-brand-blue text-xs font-bold uppercase tracking-[0.2em] mb-3">Our Network</p>
-          <h2 className="font-heading text-3xl xl:text-4xl font-extrabold text-brand-dark leading-tight">
+          <h2 className="font-heading text-3xl xl:text-4xl font-extrabold text-brand-dark leading-tight font-script tracking-tight text-3xl">
             Trusted by 50+ Leading Universities
           </h2>
           <div className="mt-4 h-1 w-12 rounded-full bg-brand-blue" />
-          <p className="mt-4 text-brand-gray text-sm leading-relaxed">
+          <p className="mt-4 text-brand-gray text-sm leading-relaxed ">
             Our partnerships with top universities worldwide ensure the best opportunities for our students.
           </p>
         </div>
