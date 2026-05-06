@@ -126,3 +126,56 @@ export const EDUCATION_LEVELS = [
 export const STUDY_LEVELS = ['Bachelor', 'Master', 'PhD'];
 
 export const INTAKES = ['Fall 2026', 'Spring 2027', 'Fall 2027', 'Spring 2028'];
+
+export const TEAM = [
+  {
+    name: 'Nadia Nazir',
+    role: 'Manager, Business Development',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    name: 'Saba Shafique',
+    role: 'Branch Manager, DHA Lahore',
+    image: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    name: 'Dilawar Hussain',
+    role: 'Branch Manager, Sialkot',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    name: 'Basit Ahmed',
+    role: 'Manager Head, Office Lahore',
+    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    name: 'Usman Munir',
+    role: 'Senior Student Counselor & Visa Processing Ireland',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    name: 'M. Rizwan Azeem',
+    role: 'Senior Student Counsellor / Admission & Visa Processing Officer',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    name: 'Abu Talha',
+    role: 'Senior Counsellor / Visa Processing Officer, UK',
+    image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    name: 'Noor Fatima',
+    role: 'Student Counsellor, Finland',
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    name: 'Sadia',
+    role: 'Student Counsellor, Finland',
+    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    name: 'Maryam Khan',
+    role: 'Student Counsellor, France & Belgium',
+    image: 'https://images.unsplash.com/photo-1548142813-c348350df52b?auto=compress&cs=tinysrgb&w=800',
+  },
+];

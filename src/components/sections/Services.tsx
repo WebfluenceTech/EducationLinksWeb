@@ -33,11 +33,26 @@ export default function Services() {
   const next = () => setIndex((i) => Math.min(i + 1, maxIndex));
 
   return (
-    <section id="services" className="scroll-offset section-padding bg-[#f8f9fa] relative overflow-hidden">
+    <section id="services" className="scroll-offset section-padding relative overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/services-bg.png" 
+          alt="" 
+          className="w-full h-full object-cover opacity-10"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f8f9fa] via-transparent to-[#f8f9fa]" />
+      </div>
+
       {/* World map watermark */}
       <div
-        className="absolute inset-0 bg-no-repeat bg-center bg-[length:85%_auto] pointer-events-none"
-        style={{ backgroundImage: "url('/world-map.svg')", opacity: 0.045 }}
+        className="absolute inset-0 bg-no-repeat bg-center bg-[length:85%_auto] pointer-events-none opacity-[0.02]"
+        style={{ backgroundImage: "url('/world-map.svg')" }}
+      />
+
+      <div 
+        className="absolute inset-0 opacity-[0.015] pointer-events-none" 
+        style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '30px 30px' }}
       />
 
       <div className="container-custom relative z-10">

@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/#about' },
   { label: 'Services', to: '/#services' },
+  { label: 'Our Team', to: '/#team' },
   { label: 'Destinations', to: '/#destinations', hasMega: true },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Contact', to: '/contact' },

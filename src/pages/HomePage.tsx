@@ -10,9 +10,10 @@ import Universities from '../components/sections/Universities';
 import Testimonials from '../components/sections/Testimonials';
 import InquiryForm from '../components/sections/InquiryForm';
 import LatestNews from '../components/sections/LatestNews';
+import OurTeam from '../components/sections/OurTeam';
 import Footer from '../components/layout/Footer';
 
-const SECTION_COUNT = 11;
+const SECTION_COUNT = 12;
 
 export default function HomePage() {
   return (
@@ -46,18 +47,22 @@ export default function HomePage() {
       </FullPageSection>
 
       <FullPageSection index={7}>
+        <OurTeam />
+      </FullPageSection>
+
+      <FullPageSection index={8}>
         <Testimonials />
       </FullPageSection>
 
-      <FullPageSection index={8} className="fp-section--scrollable">
+      <FullPageSection index={9} className="fp-section--scrollable">
         <InquiryForm />
       </FullPageSection>
 
-      <FullPageSection index={9} className="fp-section--scrollable">
+      <FullPageSection index={10} className="fp-section--scrollable">
         <LatestNews />
       </FullPageSection>
 
-      <FullPageSection index={10} className="fp-section--dark fp-section--scrollable">
+      <FullPageSection index={11} className="fp-section--dark fp-section--scrollable">
         <Footer />
       </FullPageSection>
     </FullPageScroll>
