@@ -9,7 +9,7 @@ const REGIONS = ['All', 'Europe', 'North America', 'Middle East', 'Oceania'] as 
 const DESTINATION_IMAGES: Record<string, string> = {
   Finland:        'https://images.pexels.com/photos/1544376/pexels-photo-1544376.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
   Sweden:         'https://images.pexels.com/photos/1534411/pexels-photo-1534411.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Belgium:        'https://images.pexels.com/photos/174260/pexels-photo-174260.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  Belgium:        'https://images.unsplash.com/photo-1559113202-c916b8e44373?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
   Netherlands:    'https://images.pexels.com/photos/2031706/pexels-photo-2031706.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
   France:         'https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
   Denmark:        'https://images.pexels.com/photos/416024/pexels-photo-416024.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',

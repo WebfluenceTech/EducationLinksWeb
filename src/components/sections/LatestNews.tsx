@@ -13,7 +13,7 @@ const NEWS = [
     title: 'Shared Goals Across Europe',
     excerpt: 'How European universities are collaborating to offer more opportunities and exchange programs for international students.',
     date: 'January 8, 2025',
-    image: 'https://images.pexels.com/photos/2693212/pexels-photo-2693212.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop',
+    image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop',
   },
   {
     title: 'February 1 Application Deadline',
@@ -52,6 +52,9 @@ export default function LatestNews() {
                   alt={item.title}
                   className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-500"
                   loading="lazy"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1523050337458-5bd812eb5e59?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop';
+                  }}
                 />
               </div>
               <div className="p-5">

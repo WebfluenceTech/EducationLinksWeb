@@ -97,6 +97,9 @@ export default function TiltedCard({
           alt={altText}
           className="tilted-card-img"
           style={{ width: '100%', height: '100%' }}
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop';
+          }}
         />
         {displayOverlayContent && overlayContent && (
           <motion.div className="tilted-card-overlay">{overlayContent}</motion.div>
