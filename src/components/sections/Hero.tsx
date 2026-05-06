@@ -24,7 +24,7 @@ const SLIDES = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative h-full w-full flex items-center overflow-hidden">
 
       {/* Carousel — full background, z-0 */}
       <div className="absolute inset-0 z-0">
@@ -69,7 +69,7 @@ export default function Hero() {
           )}
         >
           {SLIDES.map((slide) => (
-            <div key={slide.alt} className="h-[90vh]">
+            <div key={slide.alt} className="h-full">
               <img
                 src={slide.image}
                 alt={slide.alt}

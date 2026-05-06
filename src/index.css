@@ -35,3 +35,196 @@
     scroll-margin-top: 80px;
   }
 }
+
+/* ================================================================== */
+/*  Full-Page Scroll System                                            */
+/* ================================================================== */
+
+/* Lock body scroll while full-page mode is active */
+html.fp-active,
+html.fp-active body {
+  overflow: hidden !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+}
+
+/* Make the layout container fill the viewport */
+html.fp-active .fp-layout {
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+html.fp-active .fp-layout > main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The viewport container — dynamically fills remaining space */
+.fp-viewport {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* The vertically-sliding track (animated by Framer Motion) */
+.fp-track {
+  height: 100%;
+  will-change: transform;
+}
+
+/* Each section fills the viewport container exactly */
+.fp-section {
+  height: var(--fp-section-h, 100%);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Sections that need internal scrolling */
+.fp-section--scrollable {
+  overflow: hidden !important; /* Internal component handles scroll */
+}
+
+.fp-section--scrollable > .fp-section__inner {
+  height: 100%;
+  display: block; /* Allow content to flow naturally */
+}
+
+/* Dark sections like footer */
+.fp-section--dark {
+  background: #1E202C;
+}
+
+/* Inner wrapper (animated by FullPageSection) */
+.fp-section__inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  will-change: transform, opacity, filter;
+}
+
+/* Make sure child sections fill the space */
+.fp-section__inner > section,
+.fp-section__inner > footer {
+  width: 100%;
+  min-height: auto;
+  max-height: 100%;
+}
+
+/* ---- Side navigation dots ---- */
+.fp-dots {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .fp-dots {
+    right: 12px;
+    gap: 8px;
+  }
+}
+
+.fp-dot {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid rgba(3, 149, 218, 0.4);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  padding: 0;
+}
+
+.fp-dot:hover {
+  border-color: #0395DA;
+  transform: scale(1.3);
+}
+
+.fp-dot--active {
+  background: #0395DA;
+  border-color: #0395DA;
+  box-shadow: 0 0 0 4px rgba(3, 149, 218, 0.2);
+  transform: scale(1.2);
+}
+
+/* Tooltip */
+.fp-dot__tip {
+  position: absolute;
+  right: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+  color: #394236;
+  background: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s, transform 0.2s;
+  transform: translateY(-50%) translateX(8px);
+}
+
+.fp-dot:hover .fp-dot__tip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ---- Progress bar ---- */
+.fp-progress {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 3px;
+  height: 100vh;
+  background: rgba(3, 149, 218, 0.1);
+  z-index: 99;
+}
+
+.fp-progress__bar {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #0395DA 0%, #60B4DE 100%);
+  transform-origin: top center;
+  border-radius: 0 0 3px 3px;
+}
+
+/* ================================================================== */
+/*  Section height overrides for full-page mode                        */
+/* ================================================================== */
+
+/* Hero: fill section instead of using min-h-[90vh] */
+.fp-active .fp-section__inner > section.relative.min-h-\[90vh\] {
+  min-height: 100% !important;
+  height: 100%;
+}
+
+/* Section padding adjustments for tighter viewport fit */
+.fp-section .section-padding {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .fp-section .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}

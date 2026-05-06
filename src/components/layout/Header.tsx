@@ -40,7 +40,8 @@ export default function Header() {
     if (to.startsWith('/#')) {
       const id = to.slice(2);
       if (location.pathname === '/') {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        // Dispatch event for full-page scroll navigation
+        window.dispatchEvent(new CustomEvent('fp:goto', { detail: { id } }));
       }
     }
   };

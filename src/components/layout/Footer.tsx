@@ -42,7 +42,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="text-white" style={{ backgroundColor: '#1E202C' }}>
+    <footer data-fp-scrollable className="text-white h-full overflow-y-auto" style={{ backgroundColor: '#1E202C' }}>
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* About */}

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/layout/ScrollToTop';
@@ -8,13 +8,16 @@ import ApplyPage from './pages/ApplyPage';
 import ContactPage from './pages/ContactPage';
 import GalleryPage from './pages/GalleryPage';
 
-export default function App() {
+function AppLayout() {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
-      <div className="flex flex-col min-h-screen">
+      <div className={`flex flex-col ${isHome ? 'fp-layout' : 'min-h-screen'}`}>
         <Header />
-        <main className="flex-1">
+        <main className={isHome ? '' : 'flex-1'}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/apply" element={<ApplyPage />} />
@@ -22,9 +25,18 @@ export default function App() {
             <Route path="/gallery" element={<GalleryPage />} />
           </Routes>
         </main>
-        <Footer />
+        {/* Footer is part of FullPageScroll on homepage */}
+        {!isHome && <Footer />}
       </div>
-      <BackToTop />
+      {!isHome && <BackToTop />}
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppLayout />
     </BrowserRouter>
   );
 }

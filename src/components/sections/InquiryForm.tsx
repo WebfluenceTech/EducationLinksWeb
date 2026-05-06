@@ -58,21 +58,23 @@ export default function InquiryForm() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden" style={{ minHeight: '600px' }}>
-      {/* Parallax background */}
-      <div
-        ref={bgRef}
-        className="absolute inset-0 will-change-transform"
-        style={{
-          background: 'linear-gradient(135deg, #0f172a 0%, #0c2a4a 40%, #0395DA 100%)',
-          top: '-15%',
-          bottom: '-15%',
-        }}
-      >
-        {/* Subtle decorative circles */}
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-white/[0.03] -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-1/3 w-[350px] h-[350px] rounded-full bg-brand-blue/20" />
-        <div className="absolute top-0 right-0 w-[250px] h-[250px] rounded-full bg-white/[0.04]" />
+    <section ref={sectionRef} data-fp-scrollable className="relative overflow-y-auto h-full" style={{ minHeight: '600px' }}>
+      {/* Parallax background wrapper to prevent scrollHeight expansion */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          ref={bgRef}
+          className="absolute inset-0 will-change-transform"
+          style={{
+            background: 'linear-gradient(135deg, #0f172a 0%, #0c2a4a 40%, #0395DA 100%)',
+            top: '-15%',
+            bottom: '-15%',
+          }}
+        >
+          {/* Subtle decorative circles */}
+          <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-white/[0.03] -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-1/3 w-[350px] h-[350px] rounded-full bg-brand-blue/20" />
+          <div className="absolute top-0 right-0 w-[250px] h-[250px] rounded-full bg-white/[0.04]" />
+        </div>
       </div>
 
       {/* Content */}
