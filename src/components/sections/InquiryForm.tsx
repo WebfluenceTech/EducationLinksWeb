@@ -19,7 +19,7 @@ const INITIAL: FormData = {
   last_education: '', ielts_score: '', preferred_destination: '',
 };
 
-const field = 'w-full bg-transparent border-b border-white/20 focus:border-white focus:outline-none py-3 text-sm text-white placeholder:text-white/40 transition-colors duration-200';
+const field = 'w-full bg-transparent border-b border-white/20 focus:border-white focus:outline-none py-4 text-base text-white placeholder:text-white/30 transition-colors duration-200';
 const select = `${field} appearance-none cursor-pointer`;
 
 export default function InquiryForm() {
@@ -58,7 +58,7 @@ export default function InquiryForm() {
   }, []);
 
   return (
-    <section ref={sectionRef} data-fp-scrollable className="relative overflow-y-auto h-full" style={{ minHeight: '600px' }}>
+    <section ref={sectionRef} className="relative">
       {/* Parallax background wrapper to prevent scrollHeight expansion */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
@@ -78,33 +78,33 @@ export default function InquiryForm() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container-custom py-20 md:py-28">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 container-custom py-24 md:py-40">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
 
           {/* Left — heading */}
-          <div>
-            <p className="text-brand-blue-light text-xs font-bold uppercase tracking-[0.2em] mb-4">
+          <div className="max-w-xl">
+            <p className="text-brand-blue-light text-sm font-bold uppercase tracking-[0.3em] mb-6">
               Free Consultation
             </p>
-            <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6 font-script tracking-tight text-3xl">
+            <h2 className="font-heading font-bold text-white leading-tight mb-8" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}>
               Start Your <br />
               <span className="text-brand-blue">Journey</span> Today
             </h2>
-            <p className="text-white/50 text-sm leading-relaxed max-w-sm">
-              Fill in your details and our expert counselors will reach out with a personalized study-abroad plan — completely free.
+            <p className="text-white/60 text-base md:text-lg leading-relaxed mb-10">
+              Fill in your details and our expert counselors will reach out with a personalized study-abroad plan — completely free of charge and with no obligation.
             </p>
 
-            <div className="mt-10 space-y-4">
+            <div className="space-y-6">
               {[
                 ['No obligation', 'Completely free, cancel anytime'],
                 ['Expert counselors', 'Dedicated advisor assigned to you'],
                 ['24-hour response', 'We get back to you the same day'],
               ].map(([title, sub]) => (
-                <div key={title} className="flex items-start gap-3">
-                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-blue shrink-0" />
+                <div key={title} className="flex items-start gap-4">
+                  <span className="mt-2 h-2 w-2 rounded-full bg-brand-blue shrink-0 shadow-[0_0_10px_rgba(3,149,218,0.8)]" />
                   <div>
-                    <p className="text-white text-sm font-semibold">{title}</p>
-                    <p className="text-white/40 text-xs">{sub}</p>
+                    <p className="text-white text-base md:text-lg font-bold tracking-wide">{title}</p>
+                    <p className="text-white/50 text-sm">{sub}</p>
                   </div>
                 </div>
               ))}
@@ -116,33 +116,33 @@ export default function InquiryForm() {
             <div className="grid sm:grid-cols-2 gap-x-8 gap-y-7">
 
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">
+                <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/50 mb-2">
                   Full Name <span className="text-brand-blue">*</span>
                 </label>
                 <input type="text" required placeholder="e.g. Ali Raza" value={form.name} onChange={update('name')} className={field} />
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">
+                <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/50 mb-2">
                   Email <span className="text-brand-blue">*</span>
                 </label>
                 <input type="email" required placeholder="you@email.com" value={form.email} onChange={update('email')} className={field} />
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">
+                <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/50 mb-2">
                   Phone <span className="text-brand-blue">*</span>
                 </label>
                 <input type="tel" required placeholder="+92 300 0000000" value={form.phone} onChange={update('phone')} className={field} />
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">City</label>
+                <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/50 mb-2">City</label>
                 <input type="text" placeholder="Lahore" value={form.city} onChange={update('city')} className={field} />
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">Last Education</label>
+                <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/50 mb-2">Last Education</label>
                 <select value={form.last_education} onChange={update('last_education')} className={select}>
                   <option value="" className="text-brand-dark">Select level</option>
                   {EDUCATION_LEVELS.map((l) => <option key={l} value={l} className="text-brand-dark">{l}</option>)}
@@ -150,13 +150,13 @@ export default function InquiryForm() {
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">IELTS Score</label>
+                <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/50 mb-2">IELTS Score</label>
                 <input type="text" placeholder="e.g. 6.5" value={form.ielts_score} onChange={update('ielts_score')} className={field} />
               </div>
             </div>
 
             <div>
-              <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">Preferred Destination</label>
+              <label className="block text-xs font-bold uppercase tracking-[0.2em] text-white/50 mb-2">Preferred Destination</label>
               <select value={form.preferred_destination} onChange={update('preferred_destination')} className={select}>
                 <option value="" className="text-brand-dark">Select country</option>
                 {DESTINATIONS.map((d) => (
@@ -168,7 +168,7 @@ export default function InquiryForm() {
             <button
               type="submit"
               disabled={loading}
-              className="group flex items-center gap-3 bg-white text-brand-dark font-bold text-sm uppercase tracking-widest px-8 py-4 rounded-xl hover:bg-brand-blue hover:text-white transition-all duration-300 disabled:opacity-50"
+              className="group flex items-center justify-center gap-4 bg-white text-brand-dark font-bold text-base uppercase tracking-[0.2em] px-12 py-5 rounded-xl hover:bg-brand-blue hover:text-white transition-all duration-300 disabled:opacity-50 shadow-xl shadow-black/20"
             >
               {loading ? (
                 <span className="h-4 w-4 border-2 border-brand-dark/30 border-t-brand-dark rounded-full animate-spin" />

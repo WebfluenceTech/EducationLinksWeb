@@ -27,7 +27,7 @@ export default function ProcessTimeline() {
 
   return (
     <section
-      className="section-padding relative"
+      className="py-20 md:py-32 relative"
       style={{
         backgroundImage: `url('https://images.pexels.com/photos/290386/pexels-photo-290386.jpeg?auto=compress&cs=tinysrgb&w=1600')`,
         backgroundAttachment: 'fixed',
@@ -40,15 +40,15 @@ export default function ProcessTimeline() {
 
       <div className="relative z-10 container-custom">
         {/* Heading */}
-        <div className="text-center mb-14">
-          <p className="text-brand-blue text-xs font-bold uppercase tracking-[0.2em] mb-3">
+        <div className="text-center mb-16">
+          <p className="text-brand-blue text-sm font-bold uppercase tracking-[0.3em] mb-4">
             Step by Step
           </p>
-          <h2 className="font-heading font-script tracking-tight text-3xl text-3xl md:text-4xl font-bold text-white">
+          <h2 className="font-heading tracking-tight text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
             Your Journey to Studying Abroad
           </h2>
-          <div className="mx-auto mt-4 h-px w-16 bg-brand-blue" />
-          <p className="mt-4 text-white/60 text-sm max-w-xl mx-auto leading-relaxed">
+          <div className="mx-auto mt-6 h-1 w-20 bg-brand-blue" />
+          <p className="mt-6 text-white/70 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
             A simple 9-step process that takes you from dreaming to achieving your international education goals.
           </p>
         </div>
@@ -56,30 +56,30 @@ export default function ProcessTimeline() {
         {/* Steps */}
         <div ref={ref} className="relative">
           {/* Connector line on desktop */}
-          <div className="hidden lg:block absolute top-10 left-0 right-0 h-px bg-white/15" />
+          <div className="hidden lg:block absolute top-12 left-0 right-0 h-px bg-white/15" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-14">
             {STEPS.map((step, i) => {
               const Icon = ICON_MAP[step.icon];
               return (
                 <div
                   key={step.title}
-                  className={`relative flex gap-4 lg:flex-col lg:items-center lg:text-center transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                  className={`relative flex gap-6 lg:flex-col lg:items-center lg:text-center transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                     }`}
                   style={{ transitionDelay: isVisible ? `${i * 100}ms` : '0ms' }}
                 >
                   {/* Icon circle */}
-                  <div className="relative z-10 flex items-center justify-center h-14 w-14 lg:h-20 lg:w-20 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white shrink-0">
-                    <div className="absolute -top-1 -right-1 h-6 w-6 rounded-full bg-brand-blue text-white text-xs font-bold flex items-center justify-center">
+                  <div className="relative z-10 flex items-center justify-center h-16 w-16 lg:h-24 lg:w-24 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white shrink-0 hover:border-brand-blue/50 transition-colors duration-300">
+                    <div className="absolute -top-1 -right-1 h-7 w-7 rounded-full bg-brand-blue text-white text-sm font-bold flex items-center justify-center shadow-lg">
                       {i + 1}
                     </div>
-                    {Icon && <Icon className="h-6 w-6 lg:h-8 lg:w-8" />}
+                    {Icon && <Icon className="h-8 w-8 lg:h-10 lg:w-10" />}
                   </div>
 
                   {/* Text */}
-                  <div className="lg:mt-4">
-                    <h3 className="text-sm font-semibold text-white">{step.title}</h3>
-                    <p className="mt-1 text-xs text-white/55 leading-relaxed">{step.description}</p>
+                  <div className="lg:mt-6">
+                    <h3 className="text-lg font-bold text-white tracking-wide uppercase">{step.title}</h3>
+                    <p className="mt-2 text-sm text-white/60 leading-relaxed max-w-xs mx-auto">{step.description}</p>
                   </div>
                 </div>
               );

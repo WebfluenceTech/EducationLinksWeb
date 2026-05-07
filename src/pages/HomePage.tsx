@@ -30,7 +30,7 @@ export default function HomePage() {
         <About />
       </FullPageSection>
 
-      <FullPageSection index={3}>
+      <FullPageSection index={3} className="fp-section--scrollable">
         <Services />
       </FullPageSection>
 
@@ -38,7 +38,7 @@ export default function HomePage() {
         <Destinations />
       </FullPageSection>
 
-      <FullPageSection index={5}>
+      <FullPageSection index={5} className="fp-section--scrollable">
         <ProcessTimeline />
       </FullPageSection>
 

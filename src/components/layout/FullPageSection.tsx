@@ -20,7 +20,8 @@ export default function FullPageSection({ children, index, className = '' }: Pro
   return (
     <div className={`fp-section ${className}`}>
       <motion.div
-        className="fp-section__inner"
+        className="fp-section__inner overflow-y-auto"
+        data-fp-scrollable
         initial={false}
         animate={
           isActive

@@ -17,23 +17,37 @@ function StatItem({
 
   return (
     <div
-      className={`flex flex-col items-center text-center py-12 md:py-16 px-0 min-w-0 overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      className={`flex flex-col items-center justify-center text-center py-12 md:py-20 px-4 min-w-0 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
     >
-      {/* Giant number */}
-      <span
-        className="font-heading font-extrabold leading-none text-brand-blue whitespace-nowrap"
-        style={{ fontSize: 'clamp(1rem, 6.5vw, 77.5rem)' }}
-      >
-        {count}{suffix}
-      </span>
+      {/* Giant number container */}
+      <div className="flex items-center justify-center whitespace-nowrap">
+        <span
+          className="font-heading font-extrabold leading-none text-brand-blue"
+          style={{ 
+            fontSize: 'clamp(2.5rem, 8vw, 6rem)',
+            fontVariantNumeric: 'tabular-nums',
+            letterSpacing: '-0.02em'
+          }}
+        >
+          {count}
+        </span>
+        <span 
+          className="font-heading font-extrabold leading-none text-brand-blue ml-1"
+          style={{ fontSize: 'clamp(1.5rem, 4vw, 3rem)' }}
+        >
+          {suffix}
+        </span>
+      </div>
 
       {/* Label */}
-      <span
-        className="mt-4 font-semibold text-brand-blue/55 uppercase tracking-widest text-xs"
-      >
-        {label}
-      </span>
+      <div className="mt-8">
+        <span
+          className="font-semibold text-brand-blue/60 uppercase tracking-[0.25em] text-[10px] md:text-xs block"
+        >
+          {label}
+        </span>
+      </div>
     </div>
   );
 }
@@ -48,7 +62,7 @@ export default function StatsBar() {
           {STATS.map((stat, i) => (
             <div
               key={stat.label}
-              className="min-w-0 overflow-hidden"
+              className="min-w-0"
               style={{ transitionDelay: isVisible ? `${i * 100}ms` : '0ms' }}
             >
               <StatItem {...stat} isVisible={isVisible} />

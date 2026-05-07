@@ -105,17 +105,24 @@ html.fp-active .fp-layout > main {
 .fp-section__inner {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
+  display: block; /* Changed from flex to block to allow natural scrolling without cutting off top */
   will-change: transform, opacity, filter;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
 }
 
-/* Make sure child sections fill the space */
+.fp-section__inner::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+/* Make sure child sections fill the space or center themselves */
 .fp-section__inner > section,
 .fp-section__inner > footer {
   width: 100%;
-  min-height: auto;
-  max-height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically by default */
 }
 
 /* ---- Side navigation dots ---- */

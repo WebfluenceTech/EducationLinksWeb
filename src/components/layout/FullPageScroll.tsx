@@ -56,7 +56,8 @@ export default function FullPageScroll({ children, sectionCount }: Props) {
       if (idx < 0 || idx >= sectionCount || isAnimating.current) return;
       isAnimating.current = true;
       setActiveIndex(idx);
-      setTimeout(() => { isAnimating.current = false; }, 650);
+      // Increased timeout to 1000ms to match/exceed animation duration and prevent over-scrolling
+      setTimeout(() => { isAnimating.current = false; }, 1000);
     },
     [sectionCount],
   );
@@ -79,9 +80,9 @@ export default function FullPageScroll({ children, sectionCount }: Props) {
 
       e.preventDefault();
       const now = Date.now();
-      // Reduced debounce for touchpads/smooth mice
-      if (now - lastWheel.current < 500 || isAnimating.current) return;
-      if (Math.abs(e.deltaY) < 5) return;
+      // Increased debounce to 1000ms for touchpads/smooth mice to prevent double scrolls
+      if (now - lastWheel.current < 1000 || isAnimating.current) return;
+      if (Math.abs(e.deltaY) < 25) return;
       lastWheel.current = now;
       goToSection(activeIndex + (e.deltaY > 0 ? 1 : -1));
     };
@@ -98,7 +99,19 @@ export default function FullPageScroll({ children, sectionCount }: Props) {
     const onStart = (e: TouchEvent) => { touchStartY.current = e.touches[0].clientY; };
     const onEnd = (e: TouchEvent) => {
       if (isAnimating.current) return;
+      
+      const target = e.target as HTMLElement;
+      const scrollable = target.closest('[data-fp-scrollable]') as HTMLElement | null;
       const diff = touchStartY.current - e.changedTouches[0].clientY;
+
+      if (scrollable) {
+        const { scrollTop, scrollHeight, clientHeight } = scrollable;
+        const atTop = scrollTop <= 2;
+        const atBottom = scrollTop + clientHeight >= scrollHeight - 10;
+        // if swiping up (diff > 0) but not at bottom, or swiping down (diff < 0) but not at top, stay in section
+        if ((diff > 0 && !atBottom) || (diff < 0 && !atTop)) return;
+      }
+
       if (Math.abs(diff) > 60) goToSection(activeIndex + (diff > 0 ? 1 : -1));
     };
 
