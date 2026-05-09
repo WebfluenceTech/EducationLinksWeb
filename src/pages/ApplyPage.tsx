@@ -69,13 +69,13 @@ export default function ApplyPage() {
       ...form,
       graduation_year: form.graduation_year ? parseInt(form.graduation_year) : null,
     };
-    const { data, error } = await supabase.from('applications').insert(payload).select('id').maybeSingle();
+    const { error } = await supabase.from('student_inquiries').insert(payload);
     setLoading(false);
 
     if (error) {
       setToast({ message: 'Something went wrong. Please try again.', type: 'error' });
     } else {
-      setRefId(data?.id?.slice(0, 8).toUpperCase() || 'N/A');
+      setRefId(Math.random().toString(36).slice(2, 10).toUpperCase());
       setSubmitted(true);
     }
   };
