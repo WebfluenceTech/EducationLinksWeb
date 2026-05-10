@@ -113,6 +113,96 @@ export const PARTNER_UNIVERSITIES = [
   { name: 'Stockholm University',                 domain: 'su.se' },
 ];
 
+export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: string }[]> = {
+  Finland: [
+    { name: 'University of Eastern Finland', domain: 'uef.fi' },
+    { name: 'LUT University',                domain: 'lut.fi' },
+    { name: 'Tampere University',            domain: 'tuni.fi' },
+    { name: 'Aalto University',              domain: 'aalto.fi' },
+    { name: 'University of Oulu',            domain: 'oulu.fi' },
+    { name: 'University of Turku',           domain: 'utu.fi' },
+    { name: 'University of Jyväskylä',       domain: 'jyu.fi' },
+    { name: 'Lappeenranta University',       domain: 'lut.fi' },
+  ],
+  Sweden: [
+    { name: 'Chalmers University',           domain: 'chalmers.se' },
+    { name: 'Uppsala University',            domain: 'uu.se' },
+    { name: 'Halmstad University',           domain: 'hh.se' },
+    { name: 'University of Borås',           domain: 'hb.se' },
+    { name: 'University West',               domain: 'hv.se' },
+    { name: 'Stockholm University',          domain: 'su.se' },
+    { name: 'University of Skövde',          domain: 'his.se' },
+  ],
+  Belgium: [
+    { name: 'KU Leuven',                     domain: 'kuleuven.be' },
+    { name: 'Ghent University',              domain: 'ugent.be' },
+    { name: 'Université libre de Bruxelles', domain: 'ulb.be' },
+    { name: 'University of Liège',           domain: 'uliege.be' },
+  ],
+  Netherlands: [
+    { name: 'University of Amsterdam',       domain: 'uva.nl' },
+    { name: 'Erasmus University Rotterdam',  domain: 'eur.nl' },
+    { name: 'Delft University of Technology',domain: 'tudelft.nl' },
+    { name: 'Leiden University',             domain: 'leiden.edu' },
+    { name: 'Utrecht University',            domain: 'uu.nl' },
+  ],
+  France: [
+    { name: 'Sorbonne University',           domain: 'sorbonne-universite.fr' },
+    { name: 'Sciences Po',                   domain: 'sciencespo.fr' },
+    { name: 'École Polytechnique',           domain: 'polytechnique.edu' },
+    { name: 'University of Paris',           domain: 'u-paris.fr' },
+  ],
+  Denmark: [
+    { name: 'Technical University of Denmark', domain: 'dtu.dk' },
+    { name: 'University of Copenhagen',      domain: 'ku.dk' },
+    { name: 'Aarhus University',             domain: 'au.dk' },
+  ],
+  Ireland: [
+    { name: 'University College Dublin',     domain: 'ucd.ie' },
+    { name: 'Dublin City University',        domain: 'dcu.ie' },
+    { name: 'Holmes Institute Dublin',       domain: 'holmes.ie' },
+    { name: 'Trinity College Dublin',        domain: 'tcd.ie' },
+  ],
+  'North Cyprus': [
+    { name: 'Eastern Mediterranean University', domain: 'emu.edu.tr' },
+    { name: 'Near East University',          domain: 'neu.edu.tr' },
+    { name: 'Cyprus International University', domain: 'ciu.edu.tr' },
+  ],
+  'South Cyprus': [
+    { name: 'University of Cyprus',          domain: 'ucy.ac.cy' },
+    { name: 'Cyprus University of Technology', domain: 'cut.ac.cy' },
+  ],
+  UK: [
+    { name: 'University of Hertfordshire',   domain: 'herts.ac.uk' },
+    { name: 'Sheffield Hallam University',   domain: 'shu.ac.uk' },
+    { name: 'Coventry University',           domain: 'coventry.ac.uk' },
+    { name: 'Canterbury Christ Church Uni.', domain: 'canterbury.ac.uk' },
+    { name: 'Birmingham City University',    domain: 'bcu.ac.uk' },
+    { name: 'University of East London',     domain: 'uel.ac.uk' },
+  ],
+  Canada: [
+    { name: 'University of Toronto',         domain: 'utoronto.ca' },
+    { name: 'McGill University',             domain: 'mcgill.ca' },
+    { name: 'University of British Columbia',domain: 'ubc.ca' },
+    { name: 'University of Alberta',         domain: 'ualberta.ca' },
+  ],
+  USA: [
+    { name: 'University of California',      domain: 'universityofcalifornia.edu' },
+    { name: 'New York University',           domain: 'nyu.edu' },
+    { name: 'University of Michigan',        domain: 'umich.edu' },
+  ],
+  UAE: [
+    { name: 'University of Dubai',           domain: 'ud.ac.ae' },
+    { name: 'American University of Sharjah',domain: 'aus.edu' },
+  ],
+  Australia: [
+    { name: 'University of Melbourne',       domain: 'unimelb.edu.au' },
+    { name: 'University of Sydney',          domain: 'sydney.edu.au' },
+    { name: 'Monash University',             domain: 'monash.edu' },
+    { name: 'University of Queensland',      domain: 'uq.edu.au' },
+  ],
+};
+
 export const STUDY_FIELDS = [
   'Engineering', 'Business & Management', 'Computer Science & IT',
   'Law', 'Health Sciences', 'Arts & Humanities',
