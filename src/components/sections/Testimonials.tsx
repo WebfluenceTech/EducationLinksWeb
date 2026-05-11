@@ -47,7 +47,6 @@ const testimonials = [
   },
 ];
 
-
 export default function Testimonials() {
   return (
     <section className="section-padding relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #dbeeff 0%, #f0f8ff 30%, #fff5f5 70%, #ffeaea 100%)' }}>
@@ -73,31 +72,31 @@ export default function Testimonials() {
       {/* Floating academic SVG icons — brand blue */}
       {/* Graduation cap — top right */}
       <svg className="pointer-events-none absolute top-10 right-16 opacity-[0.08] w-28 h-28 rotate-12" viewBox="0 0 64 64" fill="#0395DA">
-        <path d="M32 4L2 20l30 16 30-16L32 4z"/>
-        <path d="M8 24v16c0 6.627 10.745 12 24 12s24-5.373 24-12V24L32 40 8 24z"/>
-        <line x1="56" y1="20" x2="56" y2="38" stroke="#0395DA" strokeWidth="3" strokeLinecap="round"/>
-        <circle cx="56" cy="40" r="3" fill="#0395DA"/>
+        <path d="M32 4L2 20l30 16 30-16L32 4z" />
+        <path d="M8 24v16c0 6.627 10.745 12 24 12s24-5.373 24-12V24L32 40 8 24z" />
+        <line x1="56" y1="20" x2="56" y2="38" stroke="#0395DA" strokeWidth="3" strokeLinecap="round" />
+        <circle cx="56" cy="40" r="3" fill="#0395DA" />
       </svg>
 
       {/* Globe — bottom left */}
       <svg className="pointer-events-none absolute bottom-16 left-12 opacity-[0.07] w-32 h-32 -rotate-6" viewBox="0 0 64 64" fill="none" stroke="#0395DA" strokeWidth="1.5">
-        <circle cx="32" cy="32" r="28"/>
-        <ellipse cx="32" cy="32" rx="14" ry="28"/>
-        <line x1="4" y1="32" x2="60" y2="32"/>
-        <line x1="32" y1="4" x2="32" y2="60"/>
-        <path d="M8 18 Q32 24 56 18"/>
-        <path d="M8 46 Q32 40 56 46"/>
+        <circle cx="32" cy="32" r="28" />
+        <ellipse cx="32" cy="32" rx="14" ry="28" />
+        <line x1="4" y1="32" x2="60" y2="32" />
+        <line x1="32" y1="4" x2="32" y2="60" />
+        <path d="M8 18 Q32 24 56 18" />
+        <path d="M8 46 Q32 40 56 46" />
       </svg>
 
       {/* Open book — top left */}
       <svg className="pointer-events-none absolute top-20 left-16 opacity-[0.07] w-24 h-24 -rotate-12" viewBox="0 0 64 64" fill="none" stroke="#E82830" strokeWidth="1.8">
-        <path d="M32 16 C20 12 8 14 4 16 L4 52 C8 50 20 48 32 52 C44 48 56 50 60 52 L60 16 C56 14 44 12 32 16Z"/>
-        <line x1="32" y1="16" x2="32" y2="52"/>
+        <path d="M32 16 C20 12 8 14 4 16 L4 52 C8 50 20 48 32 52 C44 48 56 50 60 52 L60 16 C56 14 44 12 32 16Z" />
+        <line x1="32" y1="16" x2="32" y2="52" />
       </svg>
 
       {/* Star — mid right */}
       <svg className="pointer-events-none absolute top-1/2 right-10 -translate-y-1/2 opacity-[0.08] w-16 h-16" viewBox="0 0 64 64" fill="#E82830">
-        <path d="M32 4l7 14 16 2-11.5 11 3 16L32 40l-14.5 7 3-16L9 20l16-2z"/>
+        <path d="M32 4l7 14 16 2-11.5 11 3 16L32 40l-14.5 7 3-16L9 20l16-2z" />
       </svg>
 
       {/* Header — constrained */}
@@ -126,54 +125,54 @@ export default function Testimonials() {
       <Marquee speed={50} pauseOnHover gradient={false} className="py-2 mb-8">
 
         {testimonials.map((t, i) => (
-            <div
-              key={i}
-              className="mx-3 w-[320px] shrink-0 flex flex-col justify-between min-h-[300px] rounded-2xl p-7 shadow-md"
-              style={
-                t.featured
-                  ? { background: 'linear-gradient(135deg, #394236 0%, #1e2d1e 100%)' }
-                  : { background: '#ffffff' }
-              }
-            >
-              <div>
-                {t.stat && (
-                  <div className="mb-4">
-                    <span className={`text-4xl font-bold ${t.featured ? 'text-white' : 'text-brand-dark'}`}>
-                      {t.stat}
-                    </span>
-                    <p className={`text-xs mt-0.5 font-medium ${t.featured ? 'text-white/50' : 'text-brand-gray'}`}>
-                      {t.statLabel}
-                    </p>
-                  </div>
-                )}
-
-                {t.featured ? (
-                  <svg width="18" height="15" viewBox="0 0 22 18" fill="none" className="text-white/50 mb-3">
-                    <path d="M0 18V10.8C0 7.8 0.8 5.3 2.4 3.3C4 1.3 6.3 0.1 9.3 0L10.2 2C8.2 2.5 6.7 3.5 5.7 5C4.7 6.5 4.2 8 4.3 9.5H8.4V18H0ZM13.6 18V10.8C13.6 7.8 14.4 5.3 16 3.3C17.6 1.3 19.9 0.1 22.9 0L23.8 2C21.8 2.5 20.3 3.5 19.3 5C18.3 6.5 17.8 8 17.9 9.5H22V18H13.6Z" fill="currentColor"/>
-                  </svg>
-                ) : (
-                  <QuoteIcon />
-                )}
-
-                <p className={`text-sm leading-relaxed ${t.featured ? 'text-white/85' : 'text-brand-dark'}`}>
-                  "{t.quote}"
-                </p>
-              </div>
-
-              <div className="flex items-center justify-between mt-6">
-                <div className="flex items-center gap-2.5">
-                  <div className={`h-9 w-9 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${t.featured ? 'bg-white/20 text-white' : 'bg-brand-blue/10 text-brand-blue'}`}>
-                    {t.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
-                  </div>
-                  <div>
-                    <p className={`text-sm font-semibold leading-tight ${t.featured ? 'text-white' : 'text-brand-dark'}`}>{t.name}</p>
-                    <p className={`text-xs leading-tight ${t.featured ? 'text-white/45' : 'text-brand-gray'}`}>Student — {t.destination}</p>
-                  </div>
+          <div
+            key={i}
+            className="mx-3 w-[320px] shrink-0 flex flex-col justify-between min-h-[300px] rounded-2xl p-7 shadow-md"
+            style={
+              t.featured
+                ? { background: 'linear-gradient(135deg, #394236 0%, #1e2d1e 100%)' }
+                : { background: '#ffffff' }
+            }
+          >
+            <div>
+              {t.stat && (
+                <div className="mb-4">
+                  <span className={`text-4xl font-bold ${t.featured ? 'text-white' : 'text-brand-dark'}`}>
+                    {t.stat}
+                  </span>
+                  <p className={`text-xs mt-0.5 font-medium ${t.featured ? 'text-white/50' : 'text-brand-gray'}`}>
+                    {t.statLabel}
+                  </p>
                 </div>
-                <span className="text-xl">{t.flag}</span>
-              </div>
+              )}
+
+              {t.featured ? (
+                <svg width="18" height="15" viewBox="0 0 22 18" fill="none" className="text-white/50 mb-3">
+                  <path d="M0 18V10.8C0 7.8 0.8 5.3 2.4 3.3C4 1.3 6.3 0.1 9.3 0L10.2 2C8.2 2.5 6.7 3.5 5.7 5C4.7 6.5 4.2 8 4.3 9.5H8.4V18H0ZM13.6 18V10.8C13.6 7.8 14.4 5.3 16 3.3C17.6 1.3 19.9 0.1 22.9 0L23.8 2C21.8 2.5 20.3 3.5 19.3 5C18.3 6.5 17.8 8 17.9 9.5H22V18H13.6Z" fill="currentColor" />
+                </svg>
+              ) : (
+                <QuoteIcon />
+              )}
+
+              <p className={`text-sm leading-relaxed ${t.featured ? 'text-white/85' : 'text-brand-dark'}`}>
+                "{t.quote}"
+              </p>
             </div>
-          ))}
+
+            <div className="flex items-center justify-between mt-6">
+              <div className="flex items-center gap-2.5">
+                <div className={`h-9 w-9 rounded-full flex items-center justify-center text-xs font-bold shrink-0 ${t.featured ? 'bg-white/20 text-white' : 'bg-brand-blue/10 text-brand-blue'}`}>
+                  {t.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                </div>
+                <div>
+                  <p className={`text-sm font-semibold leading-tight ${t.featured ? 'text-white' : 'text-brand-dark'}`}>{t.name}</p>
+                  <p className={`text-xs leading-tight ${t.featured ? 'text-white/45' : 'text-brand-gray'}`}>Student — {t.destination}</p>
+                </div>
+              </div>
+              <span className="text-xl">{t.flag}</span>
+            </div>
+          </div>
+        ))}
 
       </Marquee>
 
