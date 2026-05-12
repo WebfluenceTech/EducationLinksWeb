@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback, createContext, useContext } from 'react';
 import { motion } from 'motion/react';
 import type { ReactNode } from 'react';
+import { useIsMobile } from '../../hooks/useIsMobile';
 
 /* ------------------------------------------------------------------ */
 /*  Context                                                            */
@@ -9,12 +10,14 @@ interface FPContextValue {
   activeIndex: number;
   goToSection: (i: number) => void;
   totalSections: number;
+  isMobile: boolean;
 }
 
 const FPContext = createContext<FPContextValue>({
   activeIndex: 0,
   goToSection: () => {},
   totalSections: 0,
+  isMobile: false,
 });
 
 export const useActiveSection = () => useContext(FPContext);
@@ -44,6 +47,7 @@ interface Props {
 }
 
 export default function FullPageScroll({ children, sectionCount }: Props) {
+  const isMobile = useIsMobile();
   const [activeIndex, setActiveIndex] = useState(0);
   const isAnimating = useRef(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -119,15 +123,16 @@ export default function FullPageScroll({ children, sectionCount }: Props) {
     return () => window.removeEventListener('keydown', onKey);
   }, [activeIndex, goToSection, sectionCount]);
 
-  /* ---- lock body scroll ---- */
+  /* ---- lock body scroll (desktop only) ---- */
   useEffect(() => {
+    if (isMobile) return;
     document.documentElement.classList.add('fp-active');
     document.body.classList.add('fp-active');
     return () => {
       document.documentElement.classList.remove('fp-active');
       document.body.classList.remove('fp-active');
     };
-  }, []);
+  }, [isMobile]);
 
   /* ---- measure container height and set CSS var for section sizing ---- */
   useEffect(() => {
@@ -156,8 +161,17 @@ export default function FullPageScroll({ children, sectionCount }: Props) {
     return () => window.removeEventListener('fp:goto', handler);
   }, [goToSection]);
 
+  /* ---- mobile: plain scroll layout ---- */
+  if (isMobile) {
+    return (
+      <FPContext.Provider value={{ activeIndex: 0, goToSection: () => {}, totalSections: sectionCount, isMobile: true }}>
+        {children}
+      </FPContext.Provider>
+    );
+  }
+
   return (
-    <FPContext.Provider value={{ activeIndex, goToSection, totalSections: sectionCount }}>
+    <FPContext.Provider value={{ activeIndex, goToSection, totalSections: sectionCount, isMobile: false }}>
       <div ref={containerRef} className="fp-viewport">
         {/* Sliding track */}
         <motion.div

@@ -27,7 +27,7 @@ export default function LatestNews() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section data-fp-scrollable className="section-padding bg-white h-full overflow-y-auto">
+    <section data-fp-scrollable className="section-padding bg-white h-full min-h-screen overflow-y-auto">
       <div className="container-custom">
         <SectionHeading
           title="Latest News & Updates"

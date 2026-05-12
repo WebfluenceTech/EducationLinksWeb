@@ -29,7 +29,7 @@ export default function About() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section id="about" className="scroll-offset section-padding bg-white">
+    <section id="about" className="scroll-offset section-padding bg-white overflow-hidden">
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Image */}
@@ -41,7 +41,7 @@ export default function About() {
               <img
                 src="https://images.pexels.com/photos/1438072/pexels-photo-1438072.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
                 alt="Students studying abroad"
-                className="w-full h-[400px] lg:h-[500px] object-cover"
+                className="w-full h-56 sm:h-80 lg:h-[500px] object-cover"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/30 to-transparent" />

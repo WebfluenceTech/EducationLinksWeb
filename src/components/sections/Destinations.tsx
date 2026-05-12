@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { MapPin, ChevronLeft, ChevronRight, X, GraduationCap } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
 import TiltedCard from '../ui/TiltedCard';
@@ -45,6 +45,24 @@ function UniCard({ uni }: { uni: { name: string; domain: string } }) {
 }
 
 const REGIONS = ['All', 'Europe', 'North America', 'Middle East', 'Oceania'] as const;
+const CARD_GAP = 24;
+
+function useVisibleCount() {
+  const [count, setCount] = useState(() =>
+    window.innerWidth < 640 ? 1 : window.innerWidth < 900 ? 2 : window.innerWidth < 1200 ? 3 : 4
+  );
+  useEffect(() => {
+    const update = () => {
+      if (window.innerWidth < 640) setCount(1);
+      else if (window.innerWidth < 900) setCount(2);
+      else if (window.innerWidth < 1200) setCount(3);
+      else setCount(4);
+    };
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+  return count;
+}
 
 const DESTINATION_IMAGES: Record<string, string> = {
   Finland:        'https://images.pexels.com/photos/1544376/pexels-photo-1544376.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
@@ -63,14 +81,12 @@ const DESTINATION_IMAGES: Record<string, string> = {
   Australia:      'https://images.pexels.com/photos/995764/pexels-photo-995764.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
 };
 
-const VISIBLE = 4;
-const CARD_GAP = 24; // px — matches gap-6
-
 export default function Destinations() {
   const [activeRegion, setActiveRegion] = useState<string>('All');
   const [index, setIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
   const [selected, setSelected] = useState<Destination | null>(null);
+  const visibleCount = useVisibleCount();
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') setSelected(null); };
@@ -82,20 +98,22 @@ export default function Destinations() {
     ? DESTINATIONS
     : DESTINATIONS.filter((d) => d.region === activeRegion);
 
-  const maxIndex = Math.max(filtered.length - VISIBLE, 0);
+  const maxIndex = Math.max(filtered.length - visibleCount, 0);
 
-  const handleRegion = (region: string) => {
+  const handleRegion = useCallback((region: string) => {
     setActiveRegion(region);
     setIndex(0);
-  };
+  }, []);
+
+  useEffect(() => {
+    setIndex((i) => Math.min(i, maxIndex));
+  }, [maxIndex]);
 
   const prev = () => setIndex((i) => Math.max(i - 1, 0));
   const next = () => setIndex((i) => Math.min(i + 1, maxIndex));
 
-  const translateX = `calc(-${index} * (100% / ${VISIBLE} + ${CARD_GAP / VISIBLE}px * (${VISIBLE} - 1) / ${VISIBLE}))`;
-
   return (
-    <section id="destinations" className="scroll-offset section-padding bg-white">
+    <section id="destinations" className="scroll-offset section-padding bg-white overflow-hidden">
       <div className="container-custom">
         <SectionHeading
           title="Explore Your Dream Destination"
@@ -103,7 +121,7 @@ export default function Destinations() {
         />
 
         {/* Filter + Controls row */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-8 md:mb-10">
           <div className="flex flex-wrap gap-2">
             {REGIONS.map((region) => (
               <button
@@ -148,14 +166,14 @@ export default function Destinations() {
             className="flex transition-transform duration-500 ease-in-out"
             style={{
               gap: `${CARD_GAP}px`,
-              transform: `translateX(${index === 0 ? '0px' : `-${index * (100 / VISIBLE)}%`})`,
+              transform: `translateX(calc(-${index} * (100% / ${visibleCount} + ${CARD_GAP / visibleCount}px)))`,
             }}
           >
             {filtered.map((dest) => (
               <div
                 key={dest.name}
                 className="flex flex-col items-center gap-3 shrink-0 cursor-pointer group"
-                style={{ width: `calc((100% - ${(VISIBLE - 1) * CARD_GAP}px) / ${VISIBLE})` }}
+                style={{ width: `calc((100% - ${(visibleCount - 1) * CARD_GAP}px) / ${visibleCount})` }}
                 onClick={() => setSelected(dest)}
               >
                 <div className="w-full" style={{ height: '280px' }}>
@@ -218,7 +236,7 @@ export default function Destinations() {
         onClick={() => setSelected(null)}
       >
         <div
-          className={`ml-auto h-full w-full max-w-md bg-white shadow-2xl flex flex-col transition-transform duration-300 ${selected ? 'translate-x-0' : 'translate-x-full'}`}
+          className={`ml-auto h-full w-full sm:max-w-md bg-white shadow-2xl flex flex-col transition-transform duration-300 ${selected ? 'translate-x-0' : 'translate-x-full'}`}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Hero banner */}

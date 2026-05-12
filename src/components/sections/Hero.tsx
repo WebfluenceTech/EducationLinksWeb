@@ -24,7 +24,7 @@ const SLIDES = [
 
 export default function Hero() {
   return (
-    <section className="relative h-full w-full flex items-center overflow-hidden">
+    <section className="relative h-full min-h-screen w-full flex items-center overflow-hidden">
 
       {/* Carousel — full background, z-0 */}
       <div className="absolute inset-0 z-0">
@@ -84,38 +84,39 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/70 to-transparent pointer-events-none" />
       </div>
 
-      {/* Content — above carousel, left side, z-10 */}
-      <div className="relative z-10 w-full container-custom py-24 md:py-32">
-        <div className="max-w-xl">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
-            <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse" />
+      {/* Content — above carousel, z-10 */}
+      {/* px-14 on mobile keeps text clear of the carousel arrow buttons (which sit at left-4/right-4 ~48px wide) */}
+      <div className="relative z-10 w-full px-14 sm:px-8 md:px-0 md:container-custom py-16 md:py-32">
+        <div className="max-w-xl mx-auto md:mx-0 text-center md:text-left">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-medium px-3 py-2 rounded-full mb-4">
+            <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse shrink-0" />
             Trusted by 50,000+ students since 2009
           </div>
 
-          <h1 className="text-4xl font-script tracking-tight text-3xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight">
+          <h1 className="font-script tracking-tight text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight">
             Your Gateway to{' '}
             <span className="text-brand-blue-light">World-Class</span>{' '}
             Education Abroad
           </h1>
 
-          <p className="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base md:text-xl text-gray-300 leading-relaxed">
             Pakistan's largest study abroad consultancy. Expert guidance for universities across Europe, UK, Canada, Australia, and more.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="mt-6 flex flex-col sm:flex-row flex-wrap justify-center md:justify-start items-center gap-3">
             <Link
               to="/#destinations"
               onClick={() => document.getElementById('destinations')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-light text-white font-semibold px-7 py-3.5 rounded-xl transition-all hover:shadow-lg hover:shadow-brand-blue/30"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-blue hover:bg-brand-blue-light text-white font-semibold px-5 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-brand-blue/30 text-sm"
             >
               Explore Destinations
-              <ArrowRight className="h-5 w-5" />
+              <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 border-2 border-white/30 hover:border-white text-white font-semibold px-7 py-3.5 rounded-xl transition-all hover:bg-white/10"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-white/30 hover:border-white text-white font-semibold px-5 py-3 rounded-xl transition-all hover:bg-white/10 text-sm"
             >
-              <PlayCircle className="h-5 w-5" />
+              <PlayCircle className="h-4 w-4" />
               Free Consultation
             </Link>
           </div>

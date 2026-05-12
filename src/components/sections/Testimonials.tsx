@@ -1,4 +1,4 @@
-import { Star, MessageCircle, ArrowUpRight } from 'lucide-react';
+import { Star, MessageCircle } from 'lucide-react';
 import Marquee from 'react-fast-marquee';
 
 const QuoteIcon = () => (
@@ -190,13 +190,6 @@ export default function Testimonials() {
             <span className="text-sm font-bold text-brand-dark ml-1">4.9</span>
             <span className="text-xs text-brand-gray ml-1">Based on 500+ reviews</span>
           </div>
-          <a
-            href="#"
-            className="flex items-center gap-1.5 text-sm font-semibold text-brand-dark hover:text-brand-blue transition-colors"
-          >
-            View all reviews
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
         </div>
       </div>
     </section>

@@ -58,7 +58,7 @@ export default function InquiryForm() {
   }, []);
 
   return (
-    <section ref={sectionRef} data-fp-scrollable className="relative overflow-y-auto h-full" style={{ minHeight: '600px' }}>
+    <section ref={sectionRef} data-fp-scrollable className="relative overflow-y-auto h-full min-h-screen">
       {/* Parallax background wrapper to prevent scrollHeight expansion */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
@@ -78,11 +78,11 @@ export default function InquiryForm() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container-custom py-20 md:py-28">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 container-custom py-12 md:py-28">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          {/* Left — heading */}
-          <div>
+          {/* Left — heading (hidden on small mobile, visible md+) */}
+          <div className="hidden sm:block">
             <p className="text-brand-blue-light text-xs font-bold uppercase tracking-[0.2em] mb-4">
               Free Consultation
             </p>
@@ -113,6 +113,13 @@ export default function InquiryForm() {
 
           {/* Right — form */}
           <form onSubmit={handleSubmit} className="space-y-7">
+            {/* Mobile-only heading */}
+            <div className="sm:hidden mb-2">
+              <p className="text-brand-blue-light text-xs font-bold uppercase tracking-[0.2em] mb-2">Free Consultation</p>
+              <h2 className="font-heading text-2xl font-extrabold text-white leading-tight">
+                Start Your <span className="text-brand-blue">Journey</span> Today
+              </h2>
+            </div>
             <div className="grid sm:grid-cols-2 gap-x-8 gap-y-7">
 
               <div>

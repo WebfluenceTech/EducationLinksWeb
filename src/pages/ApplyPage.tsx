@@ -132,7 +132,7 @@ export default function ApplyPage() {
         </div>
 
         {/* Form Card */}
-        <div className="max-w-3xl mx-auto bg-white rounded-3xl px-8 py-10 md:px-12 md:py-12 shadow-lg border border-gray-100">
+        <div className="max-w-3xl mx-auto bg-white rounded-3xl px-4 py-8 sm:px-8 sm:py-10 md:px-12 md:py-12 shadow-lg border border-gray-100">
           {/* Step 1: Personal */}
           {step === 0 && (
             <div className="space-y-7">

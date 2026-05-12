@@ -13,7 +13,12 @@ interface Props {
  * Animates its content in/out when it becomes the active section.
  */
 export default function FullPageSection({ children, index, className = '' }: Props) {
-  const { activeIndex } = useActiveSection();
+  const { activeIndex, isMobile } = useActiveSection();
+
+  if (isMobile) {
+    return <>{children}</>;
+  }
+
   const isActive = activeIndex === index;
   const distance = Math.abs(activeIndex - index);
 

@@ -15,13 +15,13 @@ function LogoCard({ name, domain }: Uni) {
   const initials = name.split(' ').filter(Boolean).map((w) => w[0]).join('').slice(0, 3).toUpperCase();
 
   return (
-    <div className="shrink-0 flex flex-col items-center justify-center gap-3 bg-white border border-gray-100 rounded-2xl px-8 py-6 w-64 h-36 hover:border-brand-blue/30 hover:shadow-lg transition-all duration-300">
+    <div className="shrink-0 flex flex-col items-center justify-center gap-2 bg-white border border-gray-100 rounded-xl px-3 py-3 sm:px-5 sm:py-4 md:px-8 md:py-6 w-32 h-24 sm:w-48 sm:h-32 md:w-64 md:h-36 hover:border-brand-blue/30 hover:shadow-lg transition-all duration-300">
       {!failed ? (
         <img
           src={sources[srcIndex]}
           alt={name}
           onError={() => setSrcIndex((i) => i + 1)}
-          className="max-h-14 max-w-[140px] object-contain"
+          className="max-h-8 sm:max-h-12 md:max-h-14 max-w-[70px] sm:max-w-[110px] md:max-w-[140px] object-contain"
         />
       ) : (
         <span className="text-sm font-extrabold text-brand-blue tracking-wide text-center">
@@ -54,7 +54,7 @@ export default function Universities() {
   const row2 = PARTNER_UNIVERSITIES.slice(half);
 
   return (
-    <section className="min-h-screen flex flex-col relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #dbeeff 0%, #f0f8ff 30%, #fff5f5 70%, #ffeaea 100%)' }}>
+    <section className="md:min-h-screen flex flex-col relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #dbeeff 0%, #f0f8ff 30%, #fff5f5 70%, #ffeaea 100%)', width: '100vw', maxWidth: '100vw', boxSizing: 'border-box' }}>
 
       {/* Dot-grid texture */}
       <div
@@ -90,12 +90,12 @@ export default function Universities() {
         <path d="M8 24v16c0 6.627 10.745 12 24 12s24-5.373 24-12V24L32 40 8 24z"/>
       </svg>
 
-      <div className="flex-1 flex flex-col lg:flex-row lg:items-center gap-12 relative py-20 md:py-28 px-4 sm:px-6 lg:px-8 xl:px-16">
+      <div className="flex-1 flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 relative py-10 md:py-28 px-4 sm:px-6 lg:px-8 xl:px-16">
 
         {/* Left — heading */}
         <div className="shrink-0 lg:w-80 xl:w-96">
           <p className="text-brand-blue text-xs font-bold uppercase tracking-[0.2em] mb-4">Our Network</p>
-          <h2 className="font-heading font-script tracking-tight text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-dark leading-tight">
+          <h2 className="font-heading font-script tracking-tight text-3xl md:text-5xl lg:text-6xl font-extrabold text-brand-dark leading-tight">
             Trusted by 50+ Leading Universities
           </h2>
           <div className="mt-5 h-1 w-16 rounded-full bg-brand-blue" />
@@ -104,19 +104,19 @@ export default function Universities() {
           </p>
 
           {/* Stats row */}
-          <div className="mt-10 flex gap-8">
+          <div className="mt-6 md:mt-10 flex gap-6 md:gap-8">
             <div>
-              <p className="text-3xl font-extrabold text-brand-dark">50+</p>
+              <p className="text-2xl md:text-3xl font-extrabold text-brand-dark">50+</p>
               <p className="text-xs text-brand-gray mt-1">Partner Universities</p>
             </div>
             <div className="w-px bg-brand-blue/20" />
             <div>
-              <p className="text-3xl font-extrabold text-brand-dark">10+</p>
+              <p className="text-2xl md:text-3xl font-extrabold text-brand-dark">10+</p>
               <p className="text-xs text-brand-gray mt-1">Countries</p>
             </div>
             <div className="w-px bg-brand-blue/20" />
             <div>
-              <p className="text-3xl font-extrabold text-brand-dark">95%</p>
+              <p className="text-2xl md:text-3xl font-extrabold text-brand-dark">95%</p>
               <p className="text-xs text-brand-gray mt-1">Visa Success</p>
             </div>
           </div>

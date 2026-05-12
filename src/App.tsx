@@ -7,17 +7,20 @@ import HomePage from './pages/HomePage';
 import ApplyPage from './pages/ApplyPage';
 import ContactPage from './pages/ContactPage';
 import GalleryPage from './pages/GalleryPage';
+import { useIsMobile } from './hooks/useIsMobile';
 
 function AppLayout() {
   const location = useLocation();
+  const isMobile = useIsMobile();
   const isHome = location.pathname === '/';
+  const useFpLayout = isHome && !isMobile;
 
   return (
     <>
       <ScrollToTop />
-      <div className={`flex flex-col ${isHome ? 'fp-layout' : 'min-h-screen'}`}>
+      <div className={`flex flex-col w-full overflow-x-hidden ${useFpLayout ? 'fp-layout' : 'min-h-screen'}`}>
         <Header />
-        <main className={isHome ? '' : 'flex-1'}>
+        <main className={`w-full overflow-x-hidden ${useFpLayout ? '' : 'flex-1'}`}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/apply" element={<ApplyPage />} />
