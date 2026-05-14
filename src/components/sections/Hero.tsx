@@ -43,19 +43,19 @@ export default function Hero() {
           renderArrowPrev={(clickHandler) => (
             <button
               onClick={clickHandler}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 backdrop-blur-sm border border-white/30 text-white rounded-full p-3 transition-all duration-200 hover:scale-110"
+              className="absolute left-2 bottom-6 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 backdrop-blur-sm border border-white/30 text-white rounded-full p-2 sm:p-3 transition-all duration-200 hover:scale-110"
               aria-label="Previous slide"
             >
-              <ChevronLeft className="h-6 w-6" />
+              <ChevronLeft className="h-5 w-5" />
             </button>
           )}
           renderArrowNext={(clickHandler) => (
             <button
               onClick={clickHandler}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 backdrop-blur-sm border border-white/30 text-white rounded-full p-3 transition-all duration-200 hover:scale-110"
+              className="absolute right-2 bottom-6 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-10 bg-black/30 hover:bg-black/50 backdrop-blur-sm border border-white/30 text-white rounded-full p-2 sm:p-3 transition-all duration-200 hover:scale-110"
               aria-label="Next slide"
             >
-              <ChevronRight className="h-6 w-6" />
+              <ChevronRight className="h-5 w-5" />
             </button>
           )}
           renderIndicator={(clickHandler, isSelected, index) => (
