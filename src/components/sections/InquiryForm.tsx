@@ -4,19 +4,33 @@ import { DESTINATIONS, EDUCATION_LEVELS } from '../../lib/constants';
 import { supabase } from '../../lib/supabase';
 import Toast from '../ui/Toast';
 
+const LANGUAGE_TESTS = ['IELTS', 'Duolingo', 'PTE', 'Oxford ELTT', 'Other', 'None'] as const;
+type LanguageTest = typeof LANGUAGE_TESTS[number];
+
+const SCORE_PLACEHOLDER: Record<LanguageTest, string> = {
+  IELTS: 'e.g. 6.5',
+  Duolingo: 'e.g. 110',
+  PTE: 'e.g. 58',
+  'Oxford ELTT': 'e.g. B2',
+  Other: 'Enter your score',
+  None: '',
+};
+
 interface FormData {
   name: string;
   email: string;
   phone: string;
   city: string;
   last_education: string;
-  ielts_score: string;
+  language_test: string;
+  language_score: string;
+  other_qualifications: string;
   preferred_destination: string;
 }
 
 const INITIAL: FormData = {
   name: '', email: '', phone: '', city: '',
-  last_education: '', ielts_score: '', preferred_destination: '',
+  last_education: '', language_test: '', language_score: '', other_qualifications: '', preferred_destination: '',
 };
 
 const field = 'w-full bg-transparent border-b border-white/20 focus:border-white focus:outline-none py-3 text-sm text-white placeholder:text-white/40 transition-colors duration-200';
@@ -31,12 +45,26 @@ export default function InquiryForm() {
 
   const update = (f: keyof FormData) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => setForm((prev) => ({ ...prev, [f]: e.target.value }));
+  ) => setForm((prev) => {
+    const next = { ...prev, [f]: e.target.value };
+    if (f === 'language_test') next.language_score = '';
+    return next;
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    const { error } = await supabase.from('inquiries').insert(form);
+    const { language_test, language_score, other_qualifications, ...rest } = form;
+    const payload = {
+      ...rest,
+      ielts_score: !language_test || language_test === 'None'
+        ? 'None'
+        : language_score
+          ? `${language_test}: ${language_score}`
+          : language_test,
+      other_qualifications,
+    };
+    const { error } = await supabase.from('inquiries').insert(payload);
     setLoading(false);
     if (error) {
       setToast({ message: 'Something went wrong. Please try again.', type: 'error' });
@@ -78,11 +106,11 @@ export default function InquiryForm() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container-custom py-12 md:py-28">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div className="relative z-10 container-custom py-10 md:py-16">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
           {/* Left — heading (hidden on small mobile, visible md+) */}
-          <div className="hidden sm:block">
+          <div className="hidden sm:block lg:sticky lg:top-10">
             <p className="text-brand-blue-light text-xs font-bold uppercase tracking-[0.2em] mb-4">
               Free Consultation
             </p>
@@ -157,8 +185,37 @@ export default function InquiryForm() {
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">IELTS Score</label>
-                <input type="text" placeholder="e.g. 6.5" value={form.ielts_score} onChange={update('ielts_score')} className={field} />
+                <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">Language Test</label>
+                <select value={form.language_test} onChange={update('language_test')} className={select}>
+                  <option value="" className="text-brand-dark">Select test</option>
+                  {LANGUAGE_TESTS.map((t) => <option key={t} value={t} className="text-brand-dark">{t}</option>)}
+                </select>
+              </div>
+
+              {form.language_test && form.language_test !== 'None' && (
+                <div>
+                  <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">
+                    {form.language_test} Score
+                  </label>
+                  <input
+                    type="text"
+                    placeholder={SCORE_PLACEHOLDER[form.language_test as LanguageTest]}
+                    value={form.language_score}
+                    onChange={update('language_score')}
+                    className={field}
+                  />
+                </div>
+              )}
+
+              <div className="sm:col-span-2">
+                <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">Other Qualifications</label>
+                <input
+                  type="text"
+                  placeholder="e.g. Diplomas, Certifications, Professional qualifications"
+                  value={form.other_qualifications}
+                  onChange={update('other_qualifications')}
+                  className={field}
+                />
               </div>
             </div>
 

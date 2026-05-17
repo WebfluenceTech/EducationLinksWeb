@@ -133,12 +133,13 @@ export default function Header() {
 
           {/* CTA + Mobile Toggle */}
           <div className="flex items-center gap-3">
-            <Link
-              to="/apply"
+            <a
+              href="/#inquiry"
+              onClick={() => handleNavClick('/#inquiry')}
               className="hidden sm:inline-flex items-center gap-2 bg-brand-red hover:bg-red-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
             >
               Apply Now
-            </Link>
+            </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
               className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
@@ -165,13 +166,13 @@ export default function Header() {
                 </Link>
               ))}
               <div className="pt-4 border-t border-gray-100 mt-4">
-                <Link
-                  to="/apply"
-                  onClick={() => setMobileOpen(false)}
+                <a
+                  href="/#inquiry"
+                  onClick={() => { setMobileOpen(false); handleNavClick('/#inquiry'); }}
                   className="block w-full text-center bg-brand-red hover:bg-red-700 text-white font-semibold px-5 py-3 rounded-lg transition-colors"
                 >
                   Apply Now
-                </Link>
+                </a>
               </div>
               <div className="pt-4 space-y-3 text-sm text-brand-gray">
                 <a href={`tel:${COMPANY.whatsapp}`} className="flex items-center gap-2">
