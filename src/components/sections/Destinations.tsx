@@ -267,7 +267,7 @@ export default function Destinations() {
                 <div className="flex items-center gap-4 mt-2">
                   <span className="flex items-center gap-1.5 text-white/80 text-sm">
                     <GraduationCap className="h-4 w-4" />
-                    {(UNIVERSITIES_BY_COUNTRY[selected.name] ?? []).length} Partner Universities
+                    {(UNIVERSITIES_BY_COUNTRY[selected.name] ?? []).length}  Universities in {selected.name}
                   </span>
                   <span className="flex items-center gap-1.5 text-white/80 text-sm">
                     <MapPin className="h-4 w-4" />
