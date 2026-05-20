@@ -21,7 +21,7 @@ const HIGHLIGHTS = [
   {
     icon: Trophy,
     title: 'Proven Track Record',
-    description: '50,000+ successful students, 50+ university partners, and exceptional visa success rates.',
+    description: '6,000+ successful students, 50+ university partners, and exceptional visa success rates.',
   },
 ];
 
