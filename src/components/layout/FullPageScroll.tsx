@@ -27,7 +27,8 @@ export const useActiveSection = () => useContext(FPContext);
 /* ------------------------------------------------------------------ */
 const LABELS = [
   'Home', 'Stats', 'About', 'Services', 'Destinations',
-  'Process', 'Universities', 'Team', 'Testimonials', 'Inquiry', 'News', 'Footer',
+  'Process', 'Universities', 'CEO', 'Managers', 'Senior Team', 'Counsellers',
+  'Testimonials', 'Inquiry', 'News', 'Footer',
 ];
 
 /* ------------------------------------------------------------------ */
@@ -35,7 +36,9 @@ const LABELS = [
 /* ------------------------------------------------------------------ */
 const HASH_MAP: Record<string, number> = {
   hero: 0, stats: 1, about: 2, services: 3, destinations: 4,
-  process: 5, universities: 6, team: 7, testimonials: 8, inquiry: 9, news: 10, footer: 11,
+  process: 5, universities: 6,
+  team: 7, ceo: 7, managers: 8, senior: 9, counsellers: 10,
+  testimonials: 11, inquiry: 12, news: 13, footer: 14,
 };
 
 /* ------------------------------------------------------------------ */

@@ -1,157 +1,201 @@
-import { useState, useEffect, useSyncExternalStore, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const TEAM = [
-  { name: 'Sidique Minhas', role: 'Founder & CEO', img: '/005.jpg' },
-  { name: 'Usman Munir', role: 'Senior Student Consoler & Visa Processing Finland', img: '/002.jpg' },
-  { name: 'M.Rizwan Azeem', role: 'Senior Education Counseller , Admission and Visa Processing Offer', img: '/003.jpg' },
-  { name: 'Abu Talha', role: 'Senior Counseller , Visa Processing Officer , UK and Ireland', img: '/004.jpg' },
-  { name: 'Dilawar Hussain', role: 'Branch Manager Sialkot', img: '/001.jpg' },
-  { name: 'Basit Ahmed', role: 'Manager Head Office Lahorex', img: '/006.jpg' },
-  { name: 'Noor Fatima', role: 'Student Counseller Finland', img: '/007.jpg' },
-  { name: 'Maryam Khan', role: 'Student Counseller France and Belgium', img: '/008.jpg' },
-  { name: 'Nadia Nazir', role: 'Manager , Bussiness Development', img: '/009.jpg' },
-  { name: 'Saba Shafique', role: 'Branch Manager DHA Lahore', img: '/010.jpg' },
-  { name: 'Sadia', role: 'Student Counseller Finland', img: '/011.jpg' },
+type Member = { name: string; role: string; img: string };
+
+const CEO: Member = { name: 'Sidique Minhas', role: 'Founder & CEO', img: '/005.jpg' };
+
+const MANAGERS: Member[] = [
+  { name: 'Dilawar Hussain', role: 'Branch Manager Sialkot',       img: '/001.jpg' },
+  { name: 'Basit Ahmed',     role: 'Manager Head Office Lahore',    img: '/006.jpg' },
+  { name: 'Nadia Nazir',     role: 'Manager, Business Development', img: '/009.jpg' },
+  { name: 'Saba Shafique',   role: 'Branch Manager DHA Lahore',     img: '/010.jpg' },
 ];
 
-function getCount() {
-  return window.innerWidth < 1024 ? 3 : 4;
+const SENIOR: Member[] = [
+  { name: 'Usman Munir',     role: 'Senior Counseller & Visa Processing — Finland',   img: '/002.jpg' },
+  { name: 'M. Rizwan Azeem', role: 'Senior Education Counseller & Visa Processing',   img: '/003.jpg' },
+  { name: 'Abu Talha',       role: 'Senior Counseller & Visa Officer — UK & Ireland', img: '/004.jpg' },
+];
+
+const COUNSELLERS: Member[] = [
+  { name: 'Noor Fatima', role: 'Student Counseller — Finland',          img: '/007.jpg' },
+  { name: 'Maryam Khan', role: 'Student Counseller — France & Belgium', img: '/008.jpg' },
+  { name: 'Sadia',       role: 'Student Counseller — Finland',          img: '/011.jpg' },
+];
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+
+function MemberCard({ member }: { member: Member }) {
+  return (
+    <div className="group flex flex-col bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-100 hover:border-brand-blue/30 transition-all duration-300 h-full">
+      <div className="relative overflow-hidden flex-1 bg-gray-50 min-h-[140px]">
+        <img
+          src={member.img}
+          alt={member.name}
+          className="w-full h-full object-contain object-top group-hover:scale-105 transition-transform duration-500"
+        />
+      </div>
+      <div className="px-3 py-2 text-center shrink-0 border-t border-gray-100">
+        <h3 className="font-heading font-bold text-brand-dark text-xs md:text-sm leading-tight">{member.name}</h3>
+        <p className="mt-0.5 text-[10px] text-brand-blue font-medium leading-tight line-clamp-2">{member.role}</p>
+        <div className="mt-1.5 flex items-center gap-1 justify-center">
+          <span className="block h-0.5 w-5 rounded-full bg-brand-red group-hover:w-7 transition-all duration-300" />
+          <span className="block h-0.5 w-1.5 rounded-full bg-brand-blue" />
+        </div>
+      </div>
+    </div>
+  );
 }
 
-function subscribe(cb: () => void) {
-  window.addEventListener('resize', cb);
-  return () => window.removeEventListener('resize', cb);
-}
+// ─── Carousel ─────────────────────────────────────────────────────────────────
 
-function useVisibleCount() {
-  return useSyncExternalStore(subscribe, getCount, getCount);
-}
+function Carousel({ members, perPage, interval = 3500 }: { members: Member[]; perPage: number; interval?: number }) {
+  const [idx, setIdx] = useState(0);
+  const max = Math.max(0, members.length - perPage);
 
-export default function Team() {
-  const [current, setCurrent] = useState(0);
-  const visibleCount = useVisibleCount();
-  const maxIndex = TEAM.length - visibleCount;
-
-  const prev = useCallback(() => setCurrent(c => Math.max(0, c - 1)), []);
-  const next = useCallback(() => setCurrent(c => Math.min(maxIndex, c + 1)), [maxIndex]);
+  const prev = useCallback(() => setIdx(i => Math.max(0, i - 1)), []);
+  const next = useCallback(() => setIdx(i => Math.min(max, i + 1)), [max]);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setCurrent(c => (c >= maxIndex ? 0 : c + 1));
-    }, 3800);
+    if (max === 0) return;
+    const id = setInterval(() => setIdx(i => (i >= max ? 0 : i + 1)), interval);
     return () => clearInterval(id);
-  }, [maxIndex]);
-
-  useEffect(() => {
-    setCurrent(c => Math.min(c, maxIndex));
-  }, [maxIndex]);
+  }, [max, interval]);
 
   return (
-    <section
-      className="md:min-h-screen flex flex-col relative overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #dbeeff 0%, #f0f8ff 30%, #fff5f5 70%, #ffeaea 100%)', width: '100vw', maxWidth: '100vw', boxSizing: 'border-box' }}
-    >
-      {/* Dot-grid texture */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35]"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #0395DA22 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
-      />
-      <div className="pointer-events-none absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-blue via-brand-blue-light to-brand-red" />
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-blue/20 to-transparent" />
-      <div className="pointer-events-none absolute -top-28 -left-28 h-[420px] w-[420px] rounded-full blur-3xl" style={{ background: 'rgba(3,149,218,0.15)' }} />
-      <div className="pointer-events-none absolute -bottom-28 -right-28 h-[420px] w-[420px] rounded-full blur-3xl" style={{ background: 'rgba(232,40,48,0.12)' }} />
+    <div className="flex flex-col gap-1.5 h-full">
+      <div className="overflow-hidden flex-1">
+        <div
+          className="flex h-full transition-transform duration-500 ease-in-out"
+          style={{ transform: `translateX(-${(idx / perPage) * 100}%)` }}
+        >
+          {members.map(m => (
+            <div key={m.name} className="shrink-0 px-1" style={{ width: `${100 / perPage}%` }}>
+              <MemberCard member={m} />
+            </div>
+          ))}
+        </div>
+      </div>
 
-      <div className="relative z-10 flex-1 flex flex-col w-full container-custom py-10 md:py-28 gap-8 md:gap-12">
+      {max > 0 && (
+        <div className="flex items-center justify-center gap-2 shrink-0">
+          <button onClick={prev} disabled={idx === 0}
+            className="flex items-center justify-center h-6 w-6 rounded-full bg-white border border-brand-blue/20 text-brand-dark shadow-sm hover:bg-brand-blue hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+            <ChevronLeft className="h-3 w-3" />
+          </button>
+          <div className="flex items-center gap-1">
+            {Array.from({ length: max + 1 }).map((_, i) => (
+              <button key={i} onClick={() => setIdx(i)}
+                className={`h-1 rounded-full transition-all duration-300 ${i === idx ? 'w-4 bg-brand-blue' : 'w-1 bg-brand-blue/25'}`} />
+            ))}
+          </div>
+          <button onClick={next} disabled={idx >= max}
+            className="flex items-center justify-center h-6 w-6 rounded-full bg-white border border-brand-blue/20 text-brand-dark shadow-sm hover:bg-brand-blue hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+            <ChevronRight className="h-3 w-3" />
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
 
-        {/* Heading */}
-        <div className="w-full text-center">
-          <p className="text-brand-blue text-xs font-bold uppercase tracking-widest mb-3">
-            The People Behind Your Success
-          </p>
-          <h2 className="font-heading font-script tracking-tight text-3xl md:text-5xl lg:text-6xl font-bold text-brand-dark leading-tight">
+// ─── Tier label ───────────────────────────────────────────────────────────────
+
+function TierLabel({ text }: { text: string }) {
+  return (
+    <div className="flex items-center gap-2 shrink-0">
+      <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-brand-blue bg-brand-blue/8 border border-brand-blue/20 px-2.5 py-0.5 rounded-full whitespace-nowrap">
+        {text}
+      </span>
+      <div className="flex-1 h-px bg-gradient-to-r from-brand-blue/20 to-transparent" />
+    </div>
+  );
+}
+
+// ─── Section ─────────────────────────────────────────────────────────────────
+
+export default function Team() {
+  return (
+    <section className="section-padding bg-white overflow-hidden w-full">
+      <div className="container-custom flex flex-col gap-4 h-full">
+
+        {/* Compact heading */}
+        <div className="text-center shrink-0">
+          <p className="text-brand-blue text-[10px] font-bold uppercase tracking-widest mb-1">The People Behind Your Success</p>
+          <h2 className="font-heading font-bold text-brand-dark text-2xl md:text-3xl lg:text-4xl leading-tight">
             Meet Our Team
           </h2>
-          <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-brand-blue" />
-          <p className="mt-4 text-brand-gray text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
-            A passionate team of consultants, advisors, and specialists dedicated to making your international education journey seamless and successful.
-          </p>
+          <div className="flex items-center gap-1.5 justify-center mt-2">
+            <span className="block h-1 w-8 rounded-full bg-brand-red" />
+            <span className="block h-1 w-3 rounded-full bg-brand-blue" />
+          </div>
         </div>
 
-        {/* Carousel */}
-        <div className="flex-1 flex flex-col justify-center gap-6">
+        {/* ── Main layout: CEO left | 3 carousel rows right ── */}
+        <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1fr_2.5fr] gap-4 md:gap-6 min-h-0">
 
-          {/* Track */}
-          <div className="overflow-hidden w-full">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${(current / visibleCount) * 100}%)` }}
-            >
-              {TEAM.map((member) => (
-                <div
-                  key={member.name}
-                  className="shrink-0 px-1.5 sm:px-3"
-                  style={{ width: `${100 / visibleCount}%` }}
-                >
-                  <div className="group bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl overflow-hidden border border-white hover:border-brand-blue/25 hover:shadow-2xl transition-all duration-300 flex flex-col">
-                    {/* Photo */}
-                    <div className="relative overflow-hidden h-36 md:h-64">
-                      <img
-                        src={member.img}
-                        alt={member.name}
-                        className="w-full h-full object-contain sm:object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                    </div>
-
-                    {/* Info */}
-                    <div className="p-2 sm:p-4 text-center">
-                      <h3 className="font-heading text-xs sm:text-sm md:text-base font-bold text-brand-dark leading-tight">{member.name}</h3>
-                      <p className="mt-0.5 text-[10px] sm:text-xs text-brand-blue font-medium leading-tight line-clamp-2">{member.role}</p>
-                      <div className="mt-2 mx-auto h-0.5 w-8 rounded-full bg-brand-blue/30 group-hover:w-12 group-hover:bg-brand-blue transition-all duration-300" />
-                    </div>
-                  </div>
-                </div>
-              ))}
+          {/* LEFT — CEO tall card */}
+          <div className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100 hover:border-brand-blue/30 transition-all duration-300 flex flex-col h-full relative">
+            {/* CEO badge */}
+            <span className="absolute top-3 left-3 z-10 bg-brand-blue text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow">
+              CEO
+            </span>
+            {/* Full-height image */}
+            <div className="flex-1 relative overflow-hidden bg-gray-50 min-h-[200px]">
+              <img
+                src={CEO.img}
+                alt={CEO.name}
+                className="w-full h-full object-contain object-top group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            {/* Name at bottom */}
+            <div className="px-4 py-3 shrink-0 border-t border-gray-100 text-center">
+              <h3 className="font-heading font-bold text-brand-dark text-sm md:text-base">{CEO.name}</h3>
+              <p className="text-xs text-brand-blue font-medium mt-0.5">{CEO.role}</p>
+              <div className="mt-2 flex items-center gap-1 justify-center">
+                <span className="block h-0.5 w-8 rounded-full bg-brand-red group-hover:w-10 transition-all duration-300" />
+                <span className="block h-0.5 w-3 rounded-full bg-brand-blue" />
+              </div>
             </div>
           </div>
 
-          {/* Controls — ← dots → */}
-          <div className="flex items-center justify-center gap-4">
-            <button
-              onClick={prev}
-              disabled={current === 0}
-              className="flex items-center justify-center h-9 w-9 sm:h-12 sm:w-12 rounded-full bg-white border border-brand-blue/20 text-brand-dark shadow-md hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all disabled:opacity-30 disabled:cursor-not-allowed shrink-0"
-              aria-label="Previous"
-            >
-              <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
-            </button>
+          {/* RIGHT — 3 stacked carousel rows */}
+          <div className="flex flex-col gap-3 min-h-0 h-full">
 
-            <div className="flex items-center gap-2">
-              {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrent(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'w-7 bg-brand-blue' : 'w-2 bg-brand-blue/25 hover:bg-brand-blue/50'}`}
-                  aria-label={`Go to member ${i + 1}`}
-                />
-              ))}
+            {/* Row 1 — Managers */}
+            <div className="flex-1 flex flex-col gap-1.5 min-h-0">
+              <TierLabel text="Management" />
+              <div className="flex-1 min-h-0">
+                <Carousel members={MANAGERS} perPage={2} interval={3200} />
+              </div>
             </div>
 
-            <button
-              onClick={next}
-              disabled={current >= maxIndex}
-              className="flex items-center justify-center h-9 w-9 sm:h-12 sm:w-12 rounded-full bg-white border border-brand-blue/20 text-brand-dark shadow-md hover:bg-brand-blue hover:text-white hover:border-brand-blue transition-all disabled:opacity-30 disabled:cursor-not-allowed shrink-0"
-              aria-label="Next"
-            >
-              <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
-            </button>
-          </div>
+            {/* Divider */}
+            <div className="shrink-0 h-px bg-gray-100" />
 
+            {/* Row 2 — Senior Counsellers */}
+            <div className="flex-1 flex flex-col gap-1.5 min-h-0">
+              <TierLabel text="Senior Counsellers & Visa Processing Officers" />
+              <div className="flex-1 min-h-0">
+                <Carousel members={SENIOR} perPage={3} interval={3800} />
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="shrink-0 h-px bg-gray-100" />
+
+            {/* Row 3 — Student Counsellers */}
+            <div className="flex-1 flex flex-col gap-1.5 min-h-0">
+              <TierLabel text="Student Counsellers" />
+              <div className="flex-1 min-h-0">
+                <Carousel members={COUNSELLERS} perPage={3} interval={4200} />
+              </div>
+            </div>
+
+          </div>
         </div>
+
       </div>
     </section>
   );

@@ -7,13 +7,16 @@ import Services from '../components/sections/Services';
 import Destinations from '../components/sections/Destinations';
 import ProcessTimeline from '../components/sections/ProcessTimeline';
 import Universities from '../components/sections/Universities';
-import Team from '../components/sections/Team';
+import TeamCEO from '../components/sections/TeamCEO';
+import TeamManagers from '../components/sections/TeamManagers';
+import TeamSenior from '../components/sections/TeamSenior';
+import TeamCounsellers from '../components/sections/TeamCounsellers';
 import Testimonials from '../components/sections/Testimonials';
 import InquiryForm from '../components/sections/InquiryForm';
 import LatestNews from '../components/sections/LatestNews';
 import Footer from '../components/layout/Footer';
 
-const SECTION_COUNT = 12;
+const SECTION_COUNT = 15;
 
 export default function HomePage() {
   return (
@@ -47,23 +50,34 @@ export default function HomePage() {
       </FullPageSection>
 
       <FullPageSection index={7}>
-        <Team />
+        <TeamCEO />
       </FullPageSection>
 
       <FullPageSection index={8}>
+        <TeamManagers />
+      </FullPageSection>
+
+      <FullPageSection index={9}>
+        <TeamSenior />
+      </FullPageSection>
+
+      <FullPageSection index={10}>
+        <TeamCounsellers />
+      </FullPageSection>
+
+      <FullPageSection index={11}>
         <Testimonials />
       </FullPageSection>
 
-      <FullPageSection index={9} className="fp-section--scrollable">
+      <FullPageSection index={12} className="fp-section--scrollable">
         <InquiryForm />
-
       </FullPageSection>
 
-      <FullPageSection index={10} className="fp-section--scrollable">
+      <FullPageSection index={13} className="fp-section--scrollable">
         <LatestNews />
       </FullPageSection>
 
-      <FullPageSection index={11} className="fp-section--dark fp-section--scrollable">
+      <FullPageSection index={14} className="fp-section--dark fp-section--scrollable">
         <Footer />
       </FullPageSection>
     </FullPageScroll>
