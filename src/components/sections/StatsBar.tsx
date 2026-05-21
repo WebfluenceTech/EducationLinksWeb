@@ -2,7 +2,7 @@ import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { useCountUp } from '../../hooks/useCountUp';
 
 const STATS = [
-  { value: 20, suffix: '+', label: 'Years Experience' },
+  { value: 17, suffix: '+', label: 'Years Experience' },
   { value: 11, suffix: '+', label: 'Study Destinations' },
   { value: 50, suffix: '+', label: 'University Partners' },
   { value: 50, suffix: 'K+', label: 'Alumni Network' },
