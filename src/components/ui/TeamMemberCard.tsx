@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Twitter, Instagram, Linkedin, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export type TeamMember = {
   name: string;
@@ -39,21 +39,6 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
           {member.bio ?? DEFAULT_BIO}
         </p>
 
-        {/* Divider + social icons */}
-        <div className="flex items-center gap-3 pt-2 border-t border-gray-100 mt-1">
-          <a href="#" aria-label="Twitter" onClick={e => e.preventDefault()}
-            className="text-brand-gray hover:text-brand-dark transition-colors">
-            <Twitter className="h-3.5 w-3.5" />
-          </a>
-          <a href="#" aria-label="Instagram" onClick={e => e.preventDefault()}
-            className="text-brand-gray hover:text-brand-blue transition-colors">
-            <Instagram className="h-3.5 w-3.5" />
-          </a>
-          <a href="#" aria-label="LinkedIn" onClick={e => e.preventDefault()}
-            className="text-brand-gray hover:text-brand-blue transition-colors">
-            <Linkedin className="h-3.5 w-3.5" />
-          </a>
-        </div>
       </div>
     </div>
   );

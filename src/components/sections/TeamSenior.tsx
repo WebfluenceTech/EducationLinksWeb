@@ -2,14 +2,14 @@ import { TeamGrid } from '../ui/TeamMemberCard';
 import type { TeamMember } from '../ui/TeamMemberCard';
 
 const SENIOR: TeamMember[] = [
-  { name: 'Usman Munir',     role: 'Senior Counseller & Visa Processing', img: '/002.jpg', bio: 'Specialising in Finland, Usman has guided hundreds of students through successful university admissions and visa approvals.' },
+  { name: 'Usman Munir',     role: 'Senior Counseller & Visa Processing', img: '/002.jpg', bio: 'Specialising in Ireland, Usman has guided hundreds of students through successful university admissions and visa approvals.' },
   { name: 'M. Rizwan Azeem', role: 'Senior Education Counseller',         img: '/003.jpg', bio: 'Expert in admissions and visa processing, Rizwan ensures a seamless journey from application to departure.' },
   { name: 'Abu Talha',       role: 'Senior Counseller — UK & Ireland',    img: '/004.jpg', bio: 'Specialising in UK and Ireland pathways, Abu Talha brings deep expertise in visa processing and university selection.' },
 ];
 
 export default function TeamSenior() {
   return (
-    <section className="section-padding overflow-hidden w-full h-full flex items-center relative" style={{ background: 'linear-gradient(135deg, #e8f4fd 0%, #f5fbff 40%, #ffffff 65%, #fde8ea 100%)' }}>
+    <section id="senior" className="section-padding overflow-hidden w-full h-full flex items-center relative" style={{ background: 'linear-gradient(135deg, #e8f4fd 0%, #f5fbff 40%, #ffffff 65%, #fde8ea 100%)' }}>
       <div className="pointer-events-none absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-blue via-brand-blue-light to-brand-red" />
       <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full blur-3xl opacity-20" style={{ background: 'rgba(3,149,218,0.25)' }} />
       <div className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full blur-3xl opacity-15" style={{ background: 'rgba(232,40,48,0.18)' }} />

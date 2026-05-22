@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useIsMobile } from '../../hooks/useIsMobile';
 import {
   Menu, X, Phone, Mail, MapPin, ChevronDown,
   Facebook, Instagram, Youtube,
@@ -7,13 +8,25 @@ import {
 import logoSrc from '../../assets/logo.png';
 import { COMPANY, DESTINATIONS } from '../../lib/constants';
 
-const NAV_LINKS = [
+const NAV_LINKS_BEFORE_TEAM = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/#about' },
   { label: 'Services', to: '/#services' },
+];
+
+const NAV_LINKS_AFTER_TEAM = [
   { label: 'Destinations', to: '/#destinations', hasMega: true },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Contact', to: '/contact' },
+];
+
+const NAV_LINKS = [...NAV_LINKS_BEFORE_TEAM, ...NAV_LINKS_AFTER_TEAM];
+
+const TEAM_LINKS = [
+  { label: 'CEO', to: '/#ceo' },
+  { label: 'Manager', to: '/#managers' },
+  { label: 'Senior Consultants', to: '/#senior' },
+  { label: 'Counsellors', to: '/#counsellers' },
 ];
 
 const regions = ['Europe', 'North America', 'Middle East', 'Oceania'] as const;
@@ -22,7 +35,10 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
+  const [teamOpen, setTeamOpen] = useState(false);
+  const [mobileTeamOpen, setMobileTeamOpen] = useState(false);
   const location = useLocation();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -33,15 +49,23 @@ export default function Header() {
   useEffect(() => {
     setMobileOpen(false);
     setMegaOpen(false);
+    setTeamOpen(false);
   }, [location]);
 
   const handleNavClick = (to: string) => {
     setMobileOpen(false);
+    setTeamOpen(false);
+    setMegaOpen(false);
     if (to.startsWith('/#')) {
       const id = to.slice(2);
       if (location.pathname === '/') {
-        // Dispatch event for full-page scroll navigation
-        window.dispatchEvent(new CustomEvent('fp:goto', { detail: { id } }));
+        if (isMobile) {
+          setTimeout(() => {
+            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 50);
+        } else {
+          window.dispatchEvent(new CustomEvent('fp:goto', { detail: { id } }));
+        }
       }
     }
   };
@@ -74,7 +98,7 @@ export default function Header() {
       </div>
 
       {/* Main Nav */}
-      <header className={`sticky top-0 z-50 bg-[#EEEDED] transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 border-b border-gray-200 transition-shadow duration-300 ${scrolled ? 'shadow-sm' : ''}`} style={{ backgroundColor: '#EEEDED' }}>
         <div className="container-custom flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="shrink-0" onClick={() => handleNavClick('/')}>
@@ -83,7 +107,48 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
-            {NAV_LINKS.map((link) => (
+            {NAV_LINKS_BEFORE_TEAM.map((link) => (
+              <div key={link.label} className="relative">
+                <Link
+                  to={link.to}
+                  onClick={() => handleNavClick(link.to)}
+                  className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-brand-dark hover:text-brand-blue hover:bg-brand-light/60 transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </div>
+            ))}
+
+            {/* Our Team dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setTeamOpen(true)}
+              onMouseLeave={() => setTeamOpen(false)}
+            >
+              <button className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-brand-dark hover:text-brand-blue hover:bg-brand-light/60 transition-colors">
+                Our Team
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${teamOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {teamOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
+                  <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-2 w-48">
+                    {TEAM_LINKS.map((item) => (
+                      <Link
+                        key={item.label}
+                        to={item.to}
+                        onClick={() => handleNavClick(item.to)}
+                        className="block px-4 py-2.5 text-sm text-brand-dark hover:bg-brand-light/60 hover:text-brand-blue transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {NAV_LINKS_AFTER_TEAM.map((link) => (
               <div
                 key={link.label}
                 className="relative"
@@ -99,7 +164,6 @@ export default function Header() {
                   {link.hasMega && <ChevronDown className="h-3.5 w-3.5" />}
                 </Link>
 
-                {/* Mega Menu */}
                 {link.hasMega && megaOpen && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
                     <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 w-[600px]">
@@ -165,6 +229,32 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
+
+              {/* Our Team in mobile */}
+              <div>
+                <button
+                  onClick={() => setMobileTeamOpen(!mobileTeamOpen)}
+                  className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-base font-medium text-brand-dark hover:bg-brand-light/60 transition-colors"
+                >
+                  Our Team
+                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileTeamOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {mobileTeamOpen && (
+                  <div className="pl-4 mt-1 space-y-1">
+                    {TEAM_LINKS.map((item) => (
+                      <Link
+                        key={item.label}
+                        to={item.to}
+                        onClick={() => handleNavClick(item.to)}
+                        className="block px-4 py-2.5 rounded-lg text-sm text-brand-gray hover:bg-brand-light/60 hover:text-brand-blue transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+
               <div className="pt-4 border-t border-gray-100 mt-4">
                 <a
                   href="/#inquiry"

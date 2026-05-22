@@ -6,8 +6,8 @@ import { DESTINATIONS, UNIVERSITIES_BY_COUNTRY } from '../../lib/constants';
 
 type Destination = typeof DESTINATIONS[number];
 
-function UniCard({ uni }: { uni: { name: string; domain: string } }) {
-  const [src, setSrc] = useState(`https://logo.clearbit.com/${uni.domain}`);
+function UniCard({ uni }: { uni: { name: string; domain: string; logoUrl?: string } }) {
+  const [src, setSrc] = useState(uni.logoUrl ?? `https://logo.clearbit.com/${uni.domain}`);
   const [failed, setFailed] = useState(false);
 
   const handleError = () => {
@@ -117,7 +117,7 @@ export default function Destinations() {
       <div className="container-custom">
         <SectionHeading
           title="Explore Your Dream Destination"
-          subtitle="Study in world-class universities across 14+ countries. Find the perfect destination for your future."
+          subtitle="Study in world-class universities across 11+ countries. Find the perfect destination for your future."
         />
 
         {/* Filter + Controls row */}
@@ -290,7 +290,7 @@ export default function Destinations() {
             ) : (
               <div className="grid grid-cols-1 gap-3">
                 {selected && (UNIVERSITIES_BY_COUNTRY[selected.name] ?? []).map((uni) => (
-                  <UniCard key={uni.domain} uni={uni} />
+                  <UniCard key={uni.name} uni={uni} />
                 ))}
               </div>
             )}

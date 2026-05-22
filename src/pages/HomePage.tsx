@@ -13,7 +13,7 @@ import TeamSenior from '../components/sections/TeamSenior';
 import TeamCounsellers from '../components/sections/TeamCounsellers';
 import Testimonials from '../components/sections/Testimonials';
 import InquiryForm from '../components/sections/InquiryForm';
-import LatestNews from '../components/sections/LatestNews';
+import FindUs from '../components/sections/FindUs';
 import Footer from '../components/layout/Footer';
 
 const SECTION_COUNT = 15;
@@ -74,7 +74,7 @@ export default function HomePage() {
       </FullPageSection>
 
       <FullPageSection index={13} className="fp-section--scrollable">
-        <LatestNews />
+        <FindUs />
       </FullPageSection>
 
       <FullPageSection index={14} className="fp-section--dark fp-section--scrollable">

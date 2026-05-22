@@ -154,7 +154,7 @@ export default function InquiryForm() {
                 <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">
                   Full Name <span className="text-brand-blue">*</span>
                 </label>
-                <input type="text" required placeholder="e.g. Ali Raza" value={form.name} onChange={update('name')} className={field} />
+                <input type="text" required placeholder="e.g. First Name, Last Name" value={form.name} onChange={update('name')} className={field} />
               </div>
 
               <div>
@@ -173,7 +173,7 @@ export default function InquiryForm() {
 
               <div>
                 <label className="block text-[10px] font-bold uppercase tracking-[0.15em] text-white/40 mb-1">City</label>
-                <input type="text" placeholder="Lahore" value={form.city} onChange={update('city')} className={field} />
+                <input type="text" placeholder="e.g. Your City" value={form.city} onChange={update('city')} className={field} />
               </div>
 
               <div>

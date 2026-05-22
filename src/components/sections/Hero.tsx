@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, PlayCircle, ChevronLeft, ChevronRight } from 'lucide-react';
+
+function goToDestinations() {
+  window.dispatchEvent(new CustomEvent('fp:goto', { detail: { id: 'destinations' } }));
+}
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
@@ -89,8 +93,8 @@ export default function Hero() {
       <div className="relative z-10 w-full px-14 sm:px-8 md:px-0 md:container-custom py-16 md:py-32">
         <div className="max-w-xl mx-auto md:mx-0 text-center md:text-left">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-xs font-medium px-3 py-2 rounded-full mb-4">
-            <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse shrink-0" />
-            Trusted by 50,000+ students since 2009
+            {/* <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse shrink-0" /> */}
+            Trusted by 6,000+ students since 2009
           </div>
 
           <h1 className="font-script tracking-tight text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white leading-tight">
@@ -104,14 +108,13 @@ export default function Hero() {
           </p>
 
           <div className="mt-6 flex flex-col sm:flex-row flex-wrap justify-center md:justify-start items-center gap-3">
-            <Link
-              to="/#destinations"
-              onClick={() => document.getElementById('destinations')?.scrollIntoView({ behavior: 'smooth' })}
+            <button
+              onClick={goToDestinations}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-blue hover:bg-brand-blue-light text-white font-semibold px-5 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-brand-blue/30 text-sm"
             >
               Explore Destinations
               <ArrowRight className="h-4 w-4" />
-            </Link>
+            </button>
             <Link
               to="/contact"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-white/30 hover:border-white text-white font-semibold px-5 py-3 rounded-xl transition-all hover:bg-white/10 text-sm"

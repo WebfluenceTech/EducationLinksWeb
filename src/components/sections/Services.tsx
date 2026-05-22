@@ -12,7 +12,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
 
 const SERVICES = [
   { title: 'Counseling', description: 'Personalized career-focused counseling aligned with your academic goals and aspirations.', icon: 'MessageCircle' },
-  { title: 'Country & University', description: 'Access to 20+ universities across 10+ countries to find your perfect academic match.', icon: 'Globe' },
+  { title: 'Country & University', description: 'Access to 50+ universities across 10+ countries to find your perfect academic match.', icon: 'Globe' },
   { title: 'Test Preparation', description: 'Engaging IELTS and language preparation classes with free demo sessions included.', icon: 'BookOpen' },
   { title: 'Application & Admission', description: 'Flawless application preparation with meticulous attention to detail for guaranteed results.', icon: 'FileText' },
   { title: 'Scholarships Abroad', description: 'Access to a database of 3,700+ scholarships to help fund your international education.', icon: 'Award' },
@@ -51,45 +51,26 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="scroll-offset md:min-h-screen flex flex-col relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(160deg, #e8f4fd 0%, #f0f8ff 40%, #fef6f6 75%, #fdeaea 100%)',
-        width: '100vw',
-        maxWidth: '100vw',
-        boxSizing: 'border-box',
-      }}
+      className="scroll-offset md:min-h-screen flex flex-col"
+      style={{ background: 'linear-gradient(135deg, #dbeeff 0%, #f0f8ff 30%, #fff5f5 70%, #ffeaea 100%)', width: '100vw', maxWidth: '100vw', boxSizing: 'border-box' }}
     >
-      {/* Dot-grid texture */}
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.4]"
-        style={{
-          backgroundImage: 'radial-gradient(circle, #0395DA1A 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
-      />
-      <div className="pointer-events-none absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-blue via-brand-blue-light to-brand-red" />
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-blue/20 to-transparent" />
-      <div className="pointer-events-none absolute -top-32 -left-32 h-[480px] w-[480px] rounded-full blur-3xl" style={{ background: 'rgba(3,149,218,0.12)' }} />
-      <div className="pointer-events-none absolute -bottom-32 -right-32 h-[480px] w-[480px] rounded-full blur-3xl" style={{ background: 'rgba(232,40,48,0.09)' }} />
-
-      {/* Use px-4 sm:px-6 lg:px-8 directly — avoids container-custom width mismatch with 100vw */}
-      <div className="relative z-10 flex-1 flex flex-col w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-28 gap-8 md:gap-12">
+      <div className="flex-1 flex flex-col w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20 gap-8 md:gap-12">
 
         {/* Heading */}
         <div className="text-center">
           <p className="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-3">
-            What We Do?
-          </p>
-          <h2 className="font-script tracking-tight font-heading text-3xl md:text-5xl lg:text-6xl font-bold text-brand-dark leading-tight">
             What We Do
+          </p>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-dark leading-tight">
+            Our Services
           </h2>
-          <div className="mt-4 h-1 w-16 rounded-full bg-brand-blue mx-auto" />
+          <p className="mt-3 text-sm text-brand-gray max-w-md mx-auto">
+            Everything you need to study abroad, handled by experts.
+          </p>
         </div>
 
         {/* Carousel */}
         <div className="flex-1 flex flex-col justify-center gap-6">
-
-          {/* Track — clips to exactly this container's width */}
           <div className="overflow-hidden w-full">
             <div
               className="flex transition-transform duration-500 ease-in-out"
@@ -103,22 +84,16 @@ export default function Services() {
                     className="shrink-0 px-2"
                     style={{ width: `${100 / visibleCount}%` }}
                   >
-                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 sm:p-6 md:p-7 border border-white hover:border-brand-blue/25 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center h-full">
-                      <div className="mb-3 flex h-11 w-11 md:h-13 md:w-13 items-center justify-center rounded-xl bg-brand-blue/10 border border-brand-blue/20 text-brand-blue shrink-0">
-                        {Icon && <Icon className="h-5 w-5 md:h-6 md:w-6" strokeWidth={1.5} />}
+                    <div className="bg-white rounded-xl p-6 border border-gray-100 hover:border-brand-blue/20 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center h-full">
+                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue/8 text-brand-blue shrink-0">
+                        {Icon && <Icon className="h-5 w-5" strokeWidth={1.5} />}
                       </div>
-                      <h3 className="font-heading text-sm sm:text-base md:text-lg font-bold text-brand-dark mb-2">
+                      <h3 className="font-heading text-sm font-semibold text-brand-dark mb-2">
                         {service.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-brand-gray leading-relaxed flex-1">
+                      <p className="text-xs text-brand-gray leading-relaxed flex-1">
                         {service.description}
                       </p>
-                      <a
-                        href="#contact"
-                        className="mt-3 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-brand-blue hover:gap-2 transition-all duration-200"
-                      >
-                        Learn More <span aria-hidden>→</span>
-                      </a>
                     </div>
                   </div>
                 );
@@ -126,15 +101,15 @@ export default function Services() {
             </div>
           </div>
 
-          {/* Controls — ← dots → */}
+          {/* Controls */}
           <div className="flex items-center justify-center gap-4">
             <button
               onClick={prev}
               disabled={index === 0}
-              className="flex items-center justify-center h-9 w-9 sm:h-11 sm:w-11 rounded-full border border-brand-blue/25 bg-white text-brand-dark shadow-sm hover:bg-brand-blue hover:text-white hover:border-brand-blue disabled:opacity-30 disabled:cursor-not-allowed transition-all shrink-0"
+              className="flex items-center justify-center h-9 w-9 rounded-full border border-gray-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue disabled:opacity-30 disabled:cursor-not-allowed transition-all"
               aria-label="Previous"
             >
-              <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+              <ChevronLeft className="h-4 w-4" />
             </button>
 
             <div className="flex items-center gap-2">
@@ -142,7 +117,7 @@ export default function Services() {
                 <button
                   key={i}
                   onClick={() => setIndex(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${i === index ? 'w-7 bg-brand-blue' : 'w-2 bg-brand-blue/25 hover:bg-brand-blue/50'}`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${i === index ? 'w-6 bg-brand-blue' : 'w-1.5 bg-gray-300'}`}
                   aria-label={`Go to slide ${i + 1}`}
                 />
               ))}
@@ -151,13 +126,12 @@ export default function Services() {
             <button
               onClick={next}
               disabled={index === maxIndex}
-              className="flex items-center justify-center h-9 w-9 sm:h-11 sm:w-11 rounded-full border border-brand-blue/25 bg-white text-brand-dark shadow-sm hover:bg-brand-blue hover:text-white hover:border-brand-blue disabled:opacity-30 disabled:cursor-not-allowed transition-all shrink-0"
+              className="flex items-center justify-center h-9 w-9 rounded-full border border-gray-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue disabled:opacity-30 disabled:cursor-not-allowed transition-all"
               aria-label="Next"
             >
-              <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
+              <ChevronRight className="h-4 w-4" />
             </button>
           </div>
-
         </div>
       </div>
     </section>

@@ -10,6 +10,7 @@ const COUNSELLERS: TeamMember[] = [
 export default function TeamCounsellers() {
   return (
     <section
+      id="counsellers"
       className="section-padding overflow-hidden w-full h-full flex items-center relative"
       style={{ background: 'linear-gradient(135deg, #c8e8f9 0%, #eaf6ff 35%, #ffffff 65%, #fcd6d8 100%)' }}
     >

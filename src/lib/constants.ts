@@ -6,8 +6,8 @@ export const COMPANY = {
   email: 'info@educationlinkspk.com',
   website: 'educationlinkspk.com',
   social: {
-    facebook: 'https://facebook.com/EducationLinks-Pakistan',
-    instagram: 'https://instagram.com/EducationLinks-Pakistan',
+    facebook: 'https://www.facebook.com/educationlinkspk',
+    instagram: 'https://www.instagram.com/educationlinkspk/',
     tiktok: 'https://tiktok.com/@EducationLinks-Pakistan',
     youtube: 'https://youtube.com/@EducationLinks-Pakistan',
   },
@@ -18,21 +18,14 @@ export const OFFICES = [
   {
     name: 'Head Office, Lahore',
     address: 'Office No. 606, 6th Floor, Siddique Trade Center, Main Boulevard, Block H Gulberg III, Lahore',
-    mapUrl: 'https://maps.app.goo.gl/7nyuXiy4LCbHfFU38',
+    mapUrl: 'https://maps.app.goo.gl/hT5WXXKwPFDE9tqA9',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3400.7378287218658!2d74.35045217621611!3d31.53135984659796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3919059ef03d848f%3A0xe2c6829d2767d189!2sEducation%20Links!5e0!3m2!1sen!2s!4v1776949598525!5m2!1sen!2s',
-  },
-
-  {
-    name: 'DHA Branch, Lahore',
-    address: '1st Floor Plaza No-98, Block-H, Phase-1C, DHA, Lahore Cantt',
-    mapUrl: 'https://maps.app.goo.gl/eLbJhWBisx8qBS687',
-    embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14487.753405603145!2d67.05746726455902!3d24.7975644267979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33ced0435aff5%3A0xfda5ba7da4d708ef!2sEDUCATION%20LINKS!5e0!3m2!1sen!2s!4v1776949551272!5m2!1sen!2s',
   },
 
   {
     name: 'Sialkot Branch',
     address: 'Jawad Centre, Office C-11, Second Floor, Defence Road, Sialkot',
-    mapUrl: 'https://maps.app.goo.gl/YE1v4Vdst4TBDMDV7',
+    mapUrl: 'https://maps.app.goo.gl/nkpsyQjkwW2Xaa7R9',
     embedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3365.1626181905067!2d74.49872417624411!3d32.49508249833997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391eeb7014539879%3A0x4cd1850b753c178a!2sEducation%20Links%20Sialkot%20Branch!5e0!3m2!1sen!2s!4v1776949624657!5m2!1sen!2s',
   },
 
@@ -94,7 +87,11 @@ export const PARTNER_UNIVERSITIES = [
   { name: 'Uppsala University', domain: 'uu.se' },
   { name: 'Halmstad University', domain: 'hh.se' },
   { name: 'University of Eastern Finland', domain: 'uef.fi' },
-  { name: 'LUT University', domain: 'lut.fi' },
+  { name: 'LUT University', domain: 'lut.fi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/LUT_University_Logo.png/330px-LUT_University_Logo.png' },
+  { name: 'Metropolia University of Applied Sciences', domain: 'metropolia.fi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Metropolia-logo.svg/250px-Metropolia-logo.svg.png' },
+  { name: 'Turku University of Applied Sciences', domain: 'turkuamk.fi', logoUrl: 'https://www.turkuamk.fi/wp-content/uploads/2023/11/turku_amk.png' },
+  { name: 'Karelia University of Applied Sciences', domain: 'karelia.fi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Karelia_amk_logo.png/250px-Karelia_amk_logo.png' },
+  { name: 'VAMK – Vaasa University of Applied Sciences', domain: 'vamk.fi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/VAMK_logo.png/250px-VAMK_logo.png' },
   { name: 'Tampere University', domain: 'tuni.fi' },
   { name: 'University of Hertfordshire', domain: 'herts.ac.uk' },
   { name: 'Sheffield Hallam University', domain: 'shu.ac.uk' },
@@ -117,16 +114,19 @@ export const PARTNER_UNIVERSITIES = [
   { name: 'Stockholm University', domain: 'su.se' },
 ];
 
-export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: string }[]> = {
+export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: string; logoUrl?: string }[]> = {
   Finland: [
-    { name: 'University of Eastern Finland', domain: 'uef.fi' },
-    { name: 'LUT University', domain: 'lut.fi' },
+    { name: 'Metropolia University of Applied Sciences', domain: 'metropolia.fi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Metropolia-logo.svg/250px-Metropolia-logo.svg.png' },
+    { name: 'Turku University of Applied Sciences', domain: 'turkuamk.fi', logoUrl: 'https://www.turkuamk.fi/wp-content/uploads/2023/11/turku_amk.png' },
+    { name: 'Karelia University of Applied Sciences', domain: 'karelia.fi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Karelia_amk_logo.png/250px-Karelia_amk_logo.png' },
+    { name: 'VAMK – Vaasa University of Applied Sciences', domain: 'vamk.fi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/VAMK_logo.png/250px-VAMK_logo.png' },
+    { name: 'LUT University', domain: 'lut.fi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/LUT_University_Logo.png/330px-LUT_University_Logo.png' },
     { name: 'Tampere University', domain: 'tuni.fi' },
     { name: 'Aalto University', domain: 'aalto.fi' },
+    { name: 'University of Eastern Finland', domain: 'uef.fi' },
     { name: 'University of Oulu', domain: 'oulu.fi' },
     { name: 'University of Turku', domain: 'utu.fi' },
     { name: 'University of Jyväskylä', domain: 'jyu.fi' },
-    { name: 'Lappeenranta University', domain: 'lut.fi' },
   ],
   Sweden: [
     { name: 'Chalmers University', domain: 'chalmers.se' },

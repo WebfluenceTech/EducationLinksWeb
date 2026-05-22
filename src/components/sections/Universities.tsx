@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { PARTNER_UNIVERSITIES } from '../../lib/constants';
 
-type Uni = { name: string; domain: string };
+type Uni = { name: string; domain: string; logoUrl?: string };
 
-const SOURCES = (domain: string) => [
+const SOURCES = (domain: string, logoUrl?: string) => [
+  ...(logoUrl ? [logoUrl] : []),
   `https://logo.clearbit.com/${domain}`,
   `https://www.google.com/s2/favicons?sz=128&domain=${domain}`,
 ];
 
-function LogoCard({ name, domain }: Uni) {
+function LogoCard({ name, domain, logoUrl }: Uni) {
   const [srcIndex, setSrcIndex] = useState(0);
-  const sources = SOURCES(domain);
+  const sources = SOURCES(domain, logoUrl);
   const failed = srcIndex >= sources.length;
   const initials = name.split(' ').filter(Boolean).map((w) => w[0]).join('').slice(0, 3).toUpperCase();
 
@@ -41,7 +42,7 @@ function MarqueeRow({ items, reverse }: { items: Uni[]; reverse?: boolean }) {
     <div className="overflow-hidden w-full">
       <div className={`flex gap-4 ${reverse ? 'animate-marquee-right' : 'animate-marquee-left'}`}>
         {doubled.map((uni, i) => (
-          <LogoCard key={`${uni.domain}-${i}`} name={uni.name} domain={uni.domain} />
+          <LogoCard key={`${uni.domain}-${i}`} name={uni.name} domain={uni.domain} logoUrl={uni.logoUrl} />
         ))}
       </div>
     </div>

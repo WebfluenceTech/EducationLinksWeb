@@ -11,6 +11,7 @@ const MANAGERS: TeamMember[] = [
 export default function TeamManagers() {
   return (
     <section
+      id="managers"
       className="section-padding overflow-hidden w-full h-full flex items-center relative"
       style={{ background: 'linear-gradient(135deg, #c8e8f9 0%, #eaf6ff 35%, #ffffff 65%, #fcd6d8 100%)' }}
     >

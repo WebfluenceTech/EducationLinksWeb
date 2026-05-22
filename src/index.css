@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply bg-white text-brand-dark font-bebas;
+    @apply bg-white text-brand-dark font-body;
     overflow-x: hidden;
     max-width: 100vw;
     width: 100%;
@@ -67,6 +67,7 @@ html.fp-active .fp-layout {
   height: 100dvh;
   display: flex;
   flex-direction: column;
+  padding-top: 116px; /* fixed header: 36px top bar + 80px nav */
 }
 
 html.fp-active .fp-layout > main {

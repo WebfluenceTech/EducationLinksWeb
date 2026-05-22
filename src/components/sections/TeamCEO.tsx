@@ -1,8 +1,7 @@
-import { Twitter, Instagram, Linkedin } from 'lucide-react';
 
 export default function TeamCEO() {
   return (
-    <section className="overflow-hidden w-full h-full flex items-center relative" style={{ background: 'linear-gradient(135deg, #e8f4fd 0%, #ffffff 40%, #fde8ea 100%)' }}>
+    <section id="ceo" className="overflow-hidden w-full h-full flex items-center relative" style={{ background: 'linear-gradient(135deg, #e8f4fd 0%, #ffffff 40%, #fde8ea 100%)' }}>
 
       {/* Top accent bar */}
       <div className="pointer-events-none absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-blue via-brand-blue-light to-brand-red z-10" />
@@ -77,26 +76,11 @@ export default function TeamCEO() {
 
           {/* Bio */}
           <p className="relative z-10 text-brand-gray text-sm md:text-base leading-relaxed max-w-md">
-            With over 15 years of expertise in international education consultancy, Sidique Minhas
+            With over 17+ years of expertise in international education consultancy, Sidique Minhas
             has guided more than 6,000 students to prestigious universities worldwide. His vision
             has transformed Education Links into one of Pakistan's most trusted overseas education firms.
           </p>
 
-          {/* Social icons — bottom right */}
-          <div className="relative z-10 flex items-center gap-5 mt-8 justify-end">
-            <a href="#" onClick={e => e.preventDefault()} aria-label="Twitter"
-              className="text-brand-gray hover:text-brand-dark transition-colors">
-              <Twitter className="h-5 w-5" />
-            </a>
-            <a href="#" onClick={e => e.preventDefault()} aria-label="Instagram"
-              className="text-brand-gray hover:text-brand-blue transition-colors">
-              <Instagram className="h-5 w-5" />
-            </a>
-            <a href="#" onClick={e => e.preventDefault()} aria-label="LinkedIn"
-              className="text-brand-gray hover:text-brand-blue transition-colors">
-              <Linkedin className="h-5 w-5" />
-            </a>
-          </div>
 
         </div>
       </div>

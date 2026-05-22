@@ -1,4 +1,5 @@
 import { Calendar, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import SectionHeading from '../ui/SectionHeading';
 
@@ -39,9 +40,10 @@ export default function LatestNews() {
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {NEWS.map((item, i) => (
-            <article
+            <Link
               key={item.title}
-              className={`group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:shadow-brand-blue/5 transition-all duration-500 ${
+              to="/contact"
+              className={`group block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:shadow-brand-blue/5 transition-all duration-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
               style={{ transitionDelay: isVisible ? `${i * 100}ms` : '0ms' }}
@@ -67,7 +69,7 @@ export default function LatestNews() {
                   Read More <ArrowRight className="h-4 w-4" />
                 </span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
