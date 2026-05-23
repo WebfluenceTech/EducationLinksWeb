@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { MapPin, ChevronLeft, ChevronRight, X, GraduationCap } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
 import TiltedCard from '../ui/TiltedCard';
@@ -82,6 +83,8 @@ const DESTINATION_IMAGES: Record<string, string> = {
 };
 
 export default function Destinations() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [activeRegion, setActiveRegion] = useState<string>('All');
   const [index, setIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -298,7 +301,17 @@ export default function Destinations() {
 
           {/* Footer CTA */}
           <div className="px-5 py-4 border-t border-gray-100 shrink-0">
-            <button className="w-full py-3 rounded-xl bg-brand-blue text-white text-sm font-semibold hover:bg-brand-blue/90 transition-colors">
+            <button
+              onClick={() => {
+                setSelected(null);
+                if (location.pathname === '/') {
+                  window.dispatchEvent(new CustomEvent('fp:goto', { detail: { id: 'inquiry' } }));
+                } else {
+                  navigate('/#inquiry');
+                }
+              }}
+              className="w-full py-3 rounded-xl bg-brand-blue text-white text-sm font-semibold hover:bg-brand-blue/90 transition-colors"
+            >
               Apply to a University in {selected?.name}
             </button>
           </div>

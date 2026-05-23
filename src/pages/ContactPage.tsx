@@ -113,34 +113,7 @@ export default function ContactPage() {
         </div>
 
         {/* Maps Section */}
-        <div className="mt-16 max-w-6xl mx-auto">
-          <h3 className="text-xl font-semibold text-brand-dark mb-8 text-center">Find Us on the Map</h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {OFFICES.map((office) => (
-              <a
-                key={office.name}
-                href={office.mapUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-xl hover:shadow-brand-blue/10 transition-all group"
-              >
-                <div className="relative h-56 bg-gradient-to-br from-brand-blue/10 to-brand-light flex items-center justify-center overflow-hidden">
-                  <div className="text-center">
-                    <MapPin className="h-12 w-12 text-brand-blue/30 mx-auto mb-3" />
-                    <p className="text-sm text-brand-gray font-medium">Click to view on map</p>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h4 className="text-sm font-semibold text-brand-dark group-hover:text-brand-blue transition-colors">{office.name}</h4>
-                  <p className="text-xs text-brand-gray mt-2 leading-relaxed">{office.address}</p>
-                  <span className="inline-flex items-center gap-1.5 mt-4 text-xs font-semibold text-brand-blue group-hover:gap-2 transition-all">
-                    <MapPin className="h-3.5 w-3.5" /> Open in Google Maps
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
+
       </div>
 
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
