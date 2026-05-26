@@ -197,6 +197,7 @@ export default function Header() {
 
           {/* CTA + Mobile Toggle */}
           <div className="flex items-center gap-3">
+            <img src="/certification.png" alt="Certification" className="hidden sm:block h-12 w-auto object-contain" />
             <a
               href="/#inquiry"
               onClick={() => handleNavClick('/#inquiry')}
