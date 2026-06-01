@@ -99,11 +99,14 @@ export default function Header() {
 
       {/* Main Nav */}
       <header className={`fixed top-0 left-0 right-0 z-50 border-b border-gray-200 transition-shadow duration-300 ${scrolled ? 'shadow-sm' : ''}`} style={{ backgroundColor: '#EEEDED' }}>
-        <div className="container-custom flex items-center justify-between h-16 md:h-20">
+        <div className="container-custom relative flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="shrink-0" onClick={() => handleNavClick('/')}>
             <img src={logoSrc} alt="Education Links" className="h-12 md:h-14 w-auto object-contain" />
           </Link>
+
+          {/* Certification — centered on mobile */}
+          <img src="/certification.png" alt="Certification" className="block lg:hidden absolute left-1/2 -translate-x-1/2 h-10 w-auto object-contain" />
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
@@ -197,7 +200,7 @@ export default function Header() {
 
           {/* CTA + Mobile Toggle */}
           <div className="flex items-center gap-3">
-            <img src="/certification.png" alt="Certification" className="hidden sm:block h-12 w-auto object-contain" />
+            <img src="/certification.png" alt="Certification" className="hidden lg:block h-12 w-auto object-contain" />
             <a
               href="/#inquiry"
               onClick={() => handleNavClick('/#inquiry')}
