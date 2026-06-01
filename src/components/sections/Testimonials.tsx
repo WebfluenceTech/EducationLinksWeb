@@ -78,13 +78,13 @@ export default function Testimonials() {
 
       <div className="container-custom">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 bg-white rounded-xl px-6 py-4 shadow-sm">
-          <p className="text-sm font-medium text-brand-dark">500+ satisfied students</p>
+          <p className="text-sm font-medium text-brand-dark">6000+ satisfied students</p>
           <div className="flex items-center gap-1.5">
             {[...Array(5)].map((_, i) => (
               <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
             ))}
             <span className="text-sm font-bold text-brand-dark ml-1">4.9</span>
-            <span className="text-xs text-brand-gray ml-1">based on 500+ reviews</span>
+            <span className="text-xs text-brand-gray ml-1">based on 6000+ reviews</span>
           </div>
         </div>
       </div>
