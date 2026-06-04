@@ -19,7 +19,7 @@ function AppLayout() {
       <ScrollToTop />
       <div className={`flex flex-col w-full ${useFpLayout ? 'fp-layout' : 'min-h-screen'}`} style={{ overflowX: 'clip' }}>
         <Header />
-        <main className={`w-full ${useFpLayout ? '' : 'flex-1'}`} style={{ overflowX: 'clip', paddingTop: useFpLayout ? undefined : isMobile ? '64px' : '116px' }}>
+        <main className={`w-full ${useFpLayout ? '' : 'flex-1'}`} style={{ overflowX: 'clip', paddingTop: useFpLayout ? undefined : isMobile ? '64px' : '80px' }}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/contact" element={<ContactPage />} />
