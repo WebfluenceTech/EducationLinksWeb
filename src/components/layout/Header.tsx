@@ -72,33 +72,35 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Bar */}
-      <div className="bg-slate-900 text-white text-sm hidden md:block">
-        <div className="container-custom flex items-center justify-between py-2">
-          <div className="flex items-center gap-6">
-            <a href={`tel:${COMPANY.whatsapp}`} className="flex items-center gap-1.5 hover:text-brand-blue-light transition-colors">
-              <Phone className="h-3.5 w-3.5" />
-              <span>{COMPANY.whatsapp}</span>
-            </a>
-            <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-1.5 hover:text-brand-blue-light transition-colors">
-              <Mail className="h-3.5 w-3.5" />
-              <span>{COMPANY.email}</span>
-            </a>
-            <span className="flex items-center gap-1.5">
-              <MapPin className="h-3.5 w-3.5" />
-              <span>Lahore | Sialkot</span>
-            </span>
-          </div>
-          <div className="flex items-center gap-4">
-            <a href={COMPANY.social.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue-light transition-colors" aria-label="Facebook"><Facebook className="h-4 w-4" /></a>
-            <a href={COMPANY.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue-light transition-colors" aria-label="Instagram"><Instagram className="h-4 w-4" /></a>
-            <a href={COMPANY.social.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue-light transition-colors" aria-label="YouTube"><Youtube className="h-4 w-4" /></a>
+      {/* Fixed wrapper: top-bar + main nav stacked with no gap */}
+      <div className="fixed top-0 left-0 right-0 z-50">
+        {/* Top Bar */}
+        <div className="bg-slate-900 text-white text-sm hidden md:block">
+          <div className="container-custom flex items-center justify-between py-2">
+            <div className="flex items-center gap-6">
+              <a href={`tel:${COMPANY.whatsapp}`} className="flex items-center gap-1.5 hover:text-brand-blue-light transition-colors">
+                <Phone className="h-3.5 w-3.5" />
+                <span>{COMPANY.whatsapp}</span>
+              </a>
+              <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-1.5 hover:text-brand-blue-light transition-colors">
+                <Mail className="h-3.5 w-3.5" />
+                <span>{COMPANY.email}</span>
+              </a>
+              <span className="flex items-center gap-1.5">
+                <MapPin className="h-3.5 w-3.5" />
+                <span>Lahore | Sialkot</span>
+              </span>
+            </div>
+            <div className="flex items-center gap-4">
+              <a href={COMPANY.social.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue-light transition-colors" aria-label="Facebook"><Facebook className="h-4 w-4" /></a>
+              <a href={COMPANY.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue-light transition-colors" aria-label="Instagram"><Instagram className="h-4 w-4" /></a>
+              <a href={COMPANY.social.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue-light transition-colors" aria-label="YouTube"><Youtube className="h-4 w-4" /></a>
+            </div>
           </div>
         </div>
-      </div>
 
       {/* Main Nav */}
-      <header className={`fixed top-0 left-0 right-0 z-50 border-b border-gray-200 transition-shadow duration-300 ${scrolled ? 'shadow-sm' : ''}`} style={{ backgroundColor: '#EEEDED' }}>
+      <header className={`border-b border-gray-200 transition-shadow duration-300 ${scrolled ? 'shadow-sm' : ''}`} style={{ backgroundColor: '#EEEDED' }}>
         <div className="container-custom relative flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="shrink-0" onClick={() => handleNavClick('/')}>
@@ -280,6 +282,7 @@ export default function Header() {
           </nav>
         </div>
       </header>
+      </div>
     </>
   );
 }
