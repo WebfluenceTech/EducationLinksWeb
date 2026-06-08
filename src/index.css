@@ -67,7 +67,7 @@ html.fp-active .fp-layout {
   height: 100dvh;
   display: flex;
   flex-direction: column;
-  padding-top: 118px; /* fixed wrapper: top-bar (38px) + nav (80px) */
+  padding-top: 116px; /* fixed wrapper: top-bar (36px) + nav (80px) */
 }
 
 html.fp-active .fp-layout > main {

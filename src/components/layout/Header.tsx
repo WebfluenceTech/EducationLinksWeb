@@ -73,7 +73,7 @@ export default function Header() {
   return (
     <>
       {/* Fixed wrapper: top-bar + main nav stacked with no gap */}
-      <div className="fixed top-0 left-0 right-0 z-50">
+      <div className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: '#2F95D0' }}>
         {/* Top Bar */}
         <div className="bg-slate-900 text-white text-sm hidden md:block">
           <div className="container-custom flex items-center justify-between py-2">
@@ -100,7 +100,7 @@ export default function Header() {
         </div>
 
       {/* Main Nav */}
-      <header className={`border-b border-gray-200 transition-shadow duration-300 ${scrolled ? 'shadow-sm' : ''}`} style={{ backgroundColor: '#EEEDED' }}>
+      <header style={{ backgroundColor: '#2F95D0' }}>
         <div className="container-custom relative flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="shrink-0" onClick={() => handleNavClick('/')}>
@@ -117,7 +117,7 @@ export default function Header() {
                 <Link
                   to={link.to}
                   onClick={() => handleNavClick(link.to)}
-                  className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-brand-dark hover:text-brand-blue hover:bg-brand-light/60 transition-colors"
+                  className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-white hover:bg-white/20 transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -130,7 +130,7 @@ export default function Header() {
               onMouseEnter={() => setTeamOpen(true)}
               onMouseLeave={() => setTeamOpen(false)}
             >
-              <button className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-brand-dark hover:text-brand-blue hover:bg-brand-light/60 transition-colors">
+              <button className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-white hover:bg-white/20 transition-colors">
                 Our Team
                 <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${teamOpen ? 'rotate-180' : ''}`} />
               </button>
@@ -163,7 +163,7 @@ export default function Header() {
                 <Link
                   to={link.to}
                   onClick={() => handleNavClick(link.to)}
-                  className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-brand-dark hover:text-brand-blue hover:bg-brand-light/60 transition-colors"
+                  className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-white hover:bg-white/20 transition-colors"
                 >
                   {link.label}
                   {link.hasMega && <ChevronDown className="h-3.5 w-3.5" />}
@@ -212,7 +212,7 @@ export default function Header() {
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              className="lg:hidden p-2 rounded-lg hover:bg-white/20 transition-colors text-white"
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

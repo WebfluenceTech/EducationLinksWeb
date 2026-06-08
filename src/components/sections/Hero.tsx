@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section
       className="relative w-full h-full flex items-center overflow-hidden"
-      style={{ background: '#0294DA' }}
+      style={{ background: '#2F95D0' }}
     >
       {/* Background image — subtle, behind blue overlay */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
