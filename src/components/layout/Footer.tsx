@@ -4,7 +4,7 @@ import {
   MapPin, Phone, Mail, Facebook,
   Instagram, Youtube, Send, ArrowRight,
 } from 'lucide-react';
-import logoSrc from '../../assets/logo.png';
+
 import footerLogoSrc from '../../assets/footerlogo.png';
 import { COMPANY, OFFICES } from '../../lib/constants';
 import { supabase } from '../../lib/supabase';

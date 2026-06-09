@@ -6,30 +6,33 @@ import BackToTop from './components/ui/BackToTop';
 import HomePage from './pages/HomePage';
 import ContactPage from './pages/ContactPage';
 import GalleryPage from './pages/GalleryPage';
+import TeamPage from './pages/TeamPage';
+import UniversitiesPage from './pages/UniversitiesPage';
+import DestinationPage from './pages/DestinationPage';
 import { useIsMobile } from './hooks/useIsMobile';
 
 function AppLayout() {
   const location = useLocation();
   const isMobile = useIsMobile();
-  const isHome = location.pathname === '/';
-  const useFpLayout = isHome && !isMobile;
 
   return (
     <>
       <ScrollToTop />
-      <div className={`flex flex-col w-full ${useFpLayout ? 'fp-layout' : 'min-h-screen'}`} style={{ overflowX: 'clip' }}>
+      <div className="flex flex-col w-full min-h-screen" style={{ overflowX: 'clip' }}>
         <Header />
-        <main className={`w-full ${useFpLayout ? '' : 'flex-1'}`} style={{ overflowX: 'clip', paddingTop: useFpLayout ? undefined : isMobile ? '64px' : '80px' }}>
+        <main className="w-full flex-1" style={{ overflowX: 'clip', paddingTop: isMobile ? '64px' : '80px' }}>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/team" element={<TeamPage />} />
+            <Route path="/universities" element={<UniversitiesPage />} />
+            <Route path="/destinations/:countryName" element={<DestinationPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
           </Routes>
         </main>
-        {/* Footer is part of FullPageScroll on homepage */}
-        {!isHome && <Footer />}
+        <Footer />
       </div>
-      {!isHome && <BackToTop />}
+      <BackToTop />
     </>
   );
 }

@@ -9,7 +9,7 @@ export default function FindUs() {
     <section
       data-fp-scrollable
       className="h-full min-h-screen overflow-y-auto"
-      style={{ background: 'linear-gradient(135deg, #dbeeff 0%, #f0f8ff 30%, #fff5f5 70%, #ffeaea 100%)' }}
+      style={{ background: '#FFFFFF' }}
     >
       <div className="container-custom py-10 md:py-14">
 
@@ -64,7 +64,7 @@ export default function FindUs() {
           </div>
 
           {/* Map embed */}
-          <div className="lg:col-span-3 rounded-xl overflow-hidden shadow-md border border-white/60 w-full h-[420px]">
+          <div className="lg:col-span-3 rounded-none overflow-hidden shadow-lg border-[8px] border-white w-full h-[420px]">
             <iframe
               key={active}
               src={OFFICES[active].embedSrc}

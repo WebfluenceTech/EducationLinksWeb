@@ -12,9 +12,11 @@ const NAV_LINKS_BEFORE_TEAM = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/#about' },
   { label: 'Services', to: '/#services' },
+  { label: 'Our Team', to: '/team' },
 ];
 
 const NAV_LINKS_AFTER_TEAM = [
+  { label: 'Universities', to: '/universities' },
   { label: 'Destinations', to: '/#destinations', hasMega: true },
   { label: 'Gallery', to: '/gallery' },
   { label: 'Contact', to: '/contact' },
@@ -22,39 +24,21 @@ const NAV_LINKS_AFTER_TEAM = [
 
 const NAV_LINKS = [...NAV_LINKS_BEFORE_TEAM, ...NAV_LINKS_AFTER_TEAM];
 
-const TEAM_LINKS = [
-  { label: 'CEO', to: '/#ceo' },
-  { label: 'Manager', to: '/#managers' },
-  { label: 'Senior Consultants', to: '/#senior' },
-  { label: 'Counsellors', to: '/#counsellers' },
-];
-
 const regions = ['Europe', 'North America', 'Middle East', 'Oceania'] as const;
 
 export default function Header() {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
-  const [teamOpen, setTeamOpen] = useState(false);
-  const [mobileTeamOpen, setMobileTeamOpen] = useState(false);
   const location = useLocation();
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  useEffect(() => {
     setMobileOpen(false);
     setMegaOpen(false);
-    setTeamOpen(false);
   }, [location]);
 
   const handleNavClick = (to: string) => {
     setMobileOpen(false);
-    setTeamOpen(false);
     setMegaOpen(false);
     if (to.startsWith('/#')) {
       const id = to.slice(2);
@@ -124,34 +108,7 @@ export default function Header() {
               </div>
             ))}
 
-            {/* Our Team dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setTeamOpen(true)}
-              onMouseLeave={() => setTeamOpen(false)}
-            >
-              <button className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-white hover:bg-white/20 transition-colors">
-                Our Team
-                <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${teamOpen ? 'rotate-180' : ''}`} />
-              </button>
 
-              {teamOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50">
-                  <div className="bg-white rounded-xl shadow-xl border border-gray-100 py-2 w-48">
-                    {TEAM_LINKS.map((item) => (
-                      <Link
-                        key={item.label}
-                        to={item.to}
-                        onClick={() => handleNavClick(item.to)}
-                        className="block px-4 py-2.5 text-sm text-brand-dark hover:bg-brand-light/60 hover:text-brand-blue transition-colors"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
 
             {NAV_LINKS_AFTER_TEAM.map((link) => (
               <div
@@ -180,8 +137,8 @@ export default function Header() {
                               {DESTINATIONS.filter(d => d.region === region).map((dest) => (
                                 <Link
                                   key={dest.name}
-                                  to="/#destinations"
-                                  onClick={() => handleNavClick('/#destinations')}
+                                  to={`/destinations/${encodeURIComponent(dest.name)}`}
+                                  onClick={() => { setMegaOpen(false); setMobileOpen(false); }}
                                   className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm hover:bg-brand-light/60 transition-colors"
                                 >
                                   <span className="text-base">{dest.flag}</span>
@@ -236,30 +193,7 @@ export default function Header() {
                 </Link>
               ))}
 
-              {/* Our Team in mobile */}
-              <div>
-                <button
-                  onClick={() => setMobileTeamOpen(!mobileTeamOpen)}
-                  className="flex items-center justify-between w-full px-4 py-3 rounded-lg text-base font-medium text-brand-dark hover:bg-brand-light/60 transition-colors"
-                >
-                  Our Team
-                  <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${mobileTeamOpen ? 'rotate-180' : ''}`} />
-                </button>
-                {mobileTeamOpen && (
-                  <div className="pl-4 mt-1 space-y-1">
-                    {TEAM_LINKS.map((item) => (
-                      <Link
-                        key={item.label}
-                        to={item.to}
-                        onClick={() => handleNavClick(item.to)}
-                        className="block px-4 py-2.5 rounded-lg text-sm text-brand-gray hover:bg-brand-light/60 hover:text-brand-blue transition-colors"
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+
 
               <div className="pt-4 border-t border-gray-100 mt-4">
                 <a

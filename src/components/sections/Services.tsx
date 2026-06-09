@@ -52,7 +52,7 @@ export default function Services() {
     <section
       id="services"
       className="scroll-offset md:min-h-screen flex flex-col"
-      style={{ background: 'linear-gradient(135deg, #dbeeff 0%, #f0f8ff 30%, #fff5f5 70%, #ffeaea 100%)', width: '100vw', maxWidth: '100vw', boxSizing: 'border-box' }}
+      style={{ background: '#FFE7CA', width: '100vw', maxWidth: '100vw', boxSizing: 'border-box' }}
     >
       <div className="flex-1 flex flex-col w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20 gap-8 md:gap-12">
 

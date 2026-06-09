@@ -26,19 +26,16 @@ const HIGHLIGHTS = [
 
 export default function About() {
   return (
-    <section id="about" className="scroll-offset section-padding" style={{ background: 'linear-gradient(135deg, #dbeeff 0%, #f0f8ff 30%, #fff5f5 70%, #ffeaea 100%)' }}>
+    <section id="about" className="scroll-offset section-padding" style={{ background: '#FFDCD8' }}>
       <div className="container-custom">
 
         {/* Top: label + headline + stats */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 pb-12 border-b border-gray-100">
-          <div className="max-w-lg">
-            <p className="text-xs font-semibold uppercase tracking-widest text-brand-blue mb-4">
-              About Us
-            </p>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-dark leading-tight">
-              Pakistan's most trusted<br />study abroad partner
+        <div className="flex flex-col gap-8 pb-12 border-b border-gray-100 text-center items-center">
+          <div>
+            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark leading-tight">
+              What Education Links Offers
             </h2>
-            <p className="mt-4 text-sm text-brand-gray leading-relaxed max-w-sm">
+            <p className="mt-4 text-sm text-brand-gray leading-relaxed max-w-xl mx-auto">
               Since 2009, Education Links has helped thousands of students build their futures at world-class universities across 11+ countries.
             </p>
           </div>

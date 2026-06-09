@@ -1,49 +1,10 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
-import { MapPin, ChevronLeft, ChevronRight, X, GraduationCap } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
 import SectionHeading from '../ui/SectionHeading';
 import TiltedCard from '../ui/TiltedCard';
-import { DESTINATIONS, UNIVERSITIES_BY_COUNTRY } from '../../lib/constants';
+import { DESTINATIONS, DESTINATION_IMAGES } from '../../lib/constants';
 
-type Destination = typeof DESTINATIONS[number];
-
-function UniCard({ uni }: { uni: { name: string; domain: string; logoUrl?: string } }) {
-  const [src, setSrc] = useState(uni.logoUrl ?? `https://logo.clearbit.com/${uni.domain}`);
-  const [failed, setFailed] = useState(false);
-
-  const handleError = () => {
-    if (!failed) {
-      setSrc(`https://www.google.com/s2/favicons?domain=${uni.domain}&sz=128`);
-      setFailed(true);
-    }
-  };
-
-  const initials = uni.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
-
-  return (
-    <div className="flex items-center gap-4 p-4 rounded-2xl border border-gray-100 hover:border-brand-blue/30 hover:shadow-md hover:shadow-brand-blue/5 transition-all duration-200 group bg-white">
-      {/* Logo */}
-      <div className="shrink-0 h-12 w-12 rounded-xl border border-gray-100 bg-gray-50 flex items-center justify-center overflow-hidden shadow-sm">
-        {failed && src.includes('favicon') ? (
-          <img src={src} alt={uni.name} className="h-8 w-8 object-contain" onError={() => setFailed(true)} />
-        ) : !failed ? (
-          <img src={src} alt={uni.name} className="h-10 w-10 object-contain p-1" onError={handleError} />
-        ) : (
-          <span className="text-brand-blue font-bold text-base">{initials}</span>
-        )}
-      </div>
-
-      {/* Info */}
-      <div className="flex-1 min-w-0">
-        <p className="text-sm font-semibold text-brand-dark truncate group-hover:text-brand-blue transition-colors">
-          {uni.name}
-        </p>
-        <p className="text-xs text-brand-gray mt-0.5">{uni.domain}</p>
-      </div>
-
-    </div>
-  );
-}
 
 const REGIONS = ['All', 'Europe', 'North America', 'Middle East', 'Oceania'] as const;
 const CARD_GAP = 24;
@@ -65,37 +26,13 @@ function useVisibleCount() {
   return count;
 }
 
-const DESTINATION_IMAGES: Record<string, string> = {
-  Finland:        'https://images.pexels.com/photos/1544376/pexels-photo-1544376.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Sweden:         'https://images.pexels.com/photos/1534411/pexels-photo-1534411.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Belgium:        'https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Netherlands:    'https://images.pexels.com/photos/2031706/pexels-photo-2031706.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  France:         'https://images.pexels.com/photos/532826/pexels-photo-532826.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Denmark:        'https://images.pexels.com/photos/416024/pexels-photo-416024.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Ireland:        'https://images.pexels.com/photos/2382681/pexels-photo-2382681.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  'North Cyprus': 'https://images.pexels.com/photos/3225528/pexels-photo-3225528.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  'South Cyprus': 'https://images.pexels.com/photos/2949132/pexels-photo-2949132.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  UK:             'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Canada:         'https://images.pexels.com/photos/1519088/pexels-photo-1519088.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  USA:            'https://images.pexels.com/photos/290386/pexels-photo-290386.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  UAE:            'https://images.pexels.com/photos/3787839/pexels-photo-3787839.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Australia:      'https://images.pexels.com/photos/995764/pexels-photo-995764.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-};
 
 export default function Destinations() {
   const navigate = useNavigate();
-  const location = useLocation();
   const [activeRegion, setActiveRegion] = useState<string>('All');
   const [index, setIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
-  const [selected, setSelected] = useState<Destination | null>(null);
   const visibleCount = useVisibleCount();
-
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') setSelected(null); };
-    window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, []);
 
   const filtered = activeRegion === 'All'
     ? DESTINATIONS
@@ -177,7 +114,7 @@ export default function Destinations() {
                 key={dest.name}
                 className="flex flex-col items-center gap-3 shrink-0 cursor-pointer group"
                 style={{ width: `calc((100% - ${(visibleCount - 1) * CARD_GAP}px) / ${visibleCount})` }}
-                onClick={() => setSelected(dest)}
+                onClick={() => navigate(`/destinations/${encodeURIComponent(dest.name)}`)}
               >
                 <div className="w-full" style={{ height: '280px' }}>
                   <TiltedCard
@@ -230,92 +167,6 @@ export default function Destinations() {
             ))}
           </div>
         )}
-      </div>
-
-      {/* University drawer */}
-      <div
-        className={`fixed inset-0 z-50 flex transition-all duration-300 ${selected ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
-        style={{ background: selected ? 'rgba(0,0,0,0.5)' : 'transparent', backdropFilter: selected ? 'blur(4px)' : 'none' }}
-        onClick={() => setSelected(null)}
-      >
-        <div
-          className={`ml-auto h-full w-full sm:max-w-md bg-white shadow-2xl flex flex-col transition-transform duration-300 ${selected ? 'translate-x-0' : 'translate-x-full'}`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {/* Hero banner */}
-          <div className="relative h-52 shrink-0">
-            {selected && (
-              <img
-                src={DESTINATION_IMAGES[selected.name]}
-                alt={selected.name}
-                className="w-full h-full object-cover"
-              />
-            )}
-            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 60%, transparent 100%)' }} />
-
-            {/* Close */}
-            <button
-              onClick={() => setSelected(null)}
-              className="absolute top-4 right-4 h-9 w-9 rounded-full bg-black/40 text-white flex items-center justify-center hover:bg-black/60 transition-colors"
-            >
-              <X className="h-4 w-4" />
-            </button>
-
-            {/* Country info */}
-            {selected && (
-              <div className="absolute bottom-5 left-5 right-5">
-                <p className="text-white text-3xl font-bold leading-tight">
-                  {selected.flag} {selected.name}
-                </p>
-                <div className="flex items-center gap-4 mt-2">
-                  <span className="flex items-center gap-1.5 text-white/80 text-sm">
-                    <GraduationCap className="h-4 w-4" />
-                    {(UNIVERSITIES_BY_COUNTRY[selected.name] ?? []).length}  Universities in {selected.name}
-                  </span>
-                  <span className="flex items-center gap-1.5 text-white/80 text-sm">
-                    <MapPin className="h-4 w-4" />
-                    {selected.region}
-                  </span>
-                </div>
-              </div>
-            )}
-          </div>
-
-          {/* University cards — min-h-0 is required for overflow-y-auto to work inside a flex child */}
-          <div className="flex-1 min-h-0 overflow-y-auto px-5 py-5">
-            <p className="text-xs font-semibold uppercase tracking-widest text-brand-gray mb-4">Partner Universities</p>
-
-            {selected && (UNIVERSITIES_BY_COUNTRY[selected.name] ?? []).length === 0 ? (
-              <div className="flex flex-col items-center justify-center py-16 text-center">
-                <GraduationCap className="h-12 w-12 text-brand-gray/30 mb-3" />
-                <p className="text-brand-gray text-sm">No partner universities listed yet.</p>
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 gap-3">
-                {selected && (UNIVERSITIES_BY_COUNTRY[selected.name] ?? []).map((uni) => (
-                  <UniCard key={uni.name} uni={uni} />
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Footer CTA */}
-          <div className="px-5 py-4 border-t border-gray-100 shrink-0">
-            <button
-              onClick={() => {
-                setSelected(null);
-                if (location.pathname === '/') {
-                  window.dispatchEvent(new CustomEvent('fp:goto', { detail: { id: 'inquiry' } }));
-                } else {
-                  navigate('/#inquiry');
-                }
-              }}
-              className="w-full py-3 rounded-xl bg-brand-blue text-white text-sm font-semibold hover:bg-brand-blue/90 transition-colors"
-            >
-              Apply to a University in {selected?.name}
-            </button>
-          </div>
-        </div>
       </div>
     </section>
   );
