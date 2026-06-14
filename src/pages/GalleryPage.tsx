@@ -26,7 +26,7 @@ export default function GalleryPage() {
     : GALLERY_ITEMS.filter((item) => item.category === active);
 
   return (
-    <div className="section-padding bg-brand-light/30 min-h-screen">
+    <div className="bg-brand-light/30 min-h-screen pt-16 md:pt-[116px] pb-16 md:pb-24">
       <div className="container-custom">
         <SectionHeading
           title="Gallery"

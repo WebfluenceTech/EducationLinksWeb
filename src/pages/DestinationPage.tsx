@@ -34,7 +34,7 @@ export default function DestinationPage() {
   return (
     <>
       {/* ── Hero ── */}
-      <div className="relative w-full h-[420px] md:h-[520px] overflow-hidden">
+      <div className="relative w-full h-[420px] md:h-[520px] overflow-hidden mt-16 md:mt-[116px]">
         {/* Background photo */}
         {heroImg && (
           <img

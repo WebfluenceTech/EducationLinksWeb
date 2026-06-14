@@ -28,7 +28,12 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F7F8FA] font-heading">
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+        .font-nunito { font-family: 'Nunito', sans-serif; }
+      `}</style>
+    <div className="font-nunito min-h-screen bg-[#F7F8FA]">
 
       {/* Curved Header Background */}
       <div className="relative w-full pt-32 pb-44 mb-16 overflow-hidden">
@@ -81,7 +86,7 @@ export default function ContactPage() {
 
             {/* Contact Details */}
             <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm space-y-5">
-              <h3 className="font-heading text-base font-bold text-brand-dark">Contact Details</h3>
+              <h3 className="font-nunito text-base font-bold text-brand-dark">Contact Details</h3>
               <div className="space-y-4">
                 <a
                   href={`tel:${COMPANY.whatsapp}`}
@@ -123,7 +128,7 @@ export default function ContactPage() {
 
             {/* Office Locations */}
             <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm space-y-5">
-              <h3 className="font-heading text-base font-bold text-brand-dark">Our Offices</h3>
+              <h3 className="font-nunito text-base font-bold text-brand-dark">Our Offices</h3>
               <div className="space-y-5">
                 {OFFICES.map((office, i) => (
                   <div key={office.name} className={`flex gap-3 ${i < OFFICES.length - 1 ? 'pb-5 border-b border-gray-100' : ''}`}>
@@ -154,7 +159,7 @@ export default function ContactPage() {
 
               {/* Form Header */}
               <div className="px-8 pt-8 pb-6 border-b border-gray-100">
-                <h2 className="font-heading text-2xl font-extrabold text-brand-dark">Send Us a Message</h2>
+                <h2 className="font-nunito text-2xl font-extrabold text-brand-dark">Send Us a Message</h2>
                 <p className="text-sm text-brand-gray mt-1.5">Fill in the form below and we'll get back to you shortly.</p>
               </div>
 
@@ -163,7 +168,7 @@ export default function ContactPage() {
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-50">
                     <CheckCircle2 className="h-8 w-8 text-green-500" />
                   </div>
-                  <h3 className="font-heading text-xl font-bold text-brand-dark">Message Sent!</h3>
+                  <h3 className="font-nunito text-xl font-bold text-brand-dark">Message Sent!</h3>
                   <p className="text-sm text-brand-gray max-w-sm">
                     Thank you for reaching out. Our team will get back to you within 24 hours.
                   </p>
@@ -258,7 +263,7 @@ export default function ContactPage() {
 
         {/* ── Maps Row ── */}
         <div className="mt-12 md:mt-16">
-          <h2 className="font-heading text-xl font-bold text-brand-dark mb-6">Find Us</h2>
+          <h2 className="font-nunito text-xl font-bold text-brand-dark mb-6">Find Us</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {OFFICES.map((office) => (
               <div key={office.name} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
@@ -294,5 +299,6 @@ export default function ContactPage() {
 
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
     </div>
+    </>
   );
 }

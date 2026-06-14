@@ -6,7 +6,7 @@ import TiltedCard from '../ui/TiltedCard';
 import { DESTINATIONS, DESTINATION_IMAGES } from '../../lib/constants';
 
 
-const REGIONS = ['All', 'Europe', 'North America', 'Middle East', 'Oceania'] as const;
+const REGIONS = ['All', 'Europe', 'North America', 'Middle East', 'Oceania', 'Asia'] as const;
 const CARD_GAP = 24;
 
 function useVisibleCount() {

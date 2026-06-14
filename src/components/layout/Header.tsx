@@ -5,7 +5,7 @@ import {
   Menu, X, Phone, Mail, MapPin, ChevronDown,
   Facebook, Instagram, Youtube,
 } from 'lucide-react';
-import logoSrc from '../../assets/logo.png';
+import logoSrc from '../../assets/footerlogo.png';
 import { COMPANY, DESTINATIONS } from '../../lib/constants';
 
 const NAV_LINKS_BEFORE_TEAM = [
@@ -43,13 +43,9 @@ export default function Header() {
     if (to.startsWith('/#')) {
       const id = to.slice(2);
       if (location.pathname === '/') {
-        if (isMobile) {
-          setTimeout(() => {
-            document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }, 50);
-        } else {
-          window.dispatchEvent(new CustomEvent('fp:goto', { detail: { id } }));
-        }
+        setTimeout(() => {
+          document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
       }
     }
   };
@@ -57,7 +53,7 @@ export default function Header() {
   return (
     <>
       {/* Fixed wrapper: top-bar + main nav stacked with no gap */}
-      <div className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: '#2F95D0' }}>
+      <div className="fixed top-0 left-0 right-0 z-50 font-heading" style={{ backgroundColor: '#2F95D0' }}>
         {/* Top Bar */}
         <div className="bg-slate-900 text-white text-sm hidden md:block">
           <div className="container-custom flex items-center justify-between py-2">
@@ -87,8 +83,9 @@ export default function Header() {
       <header style={{ backgroundColor: '#2F95D0' }}>
         <div className="container-custom relative flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link to="/" className="shrink-0" onClick={() => handleNavClick('/')}>
+          <Link to="/" className="shrink-0 flex flex-col items-center" onClick={() => handleNavClick('/')}>
             <img src={logoSrc} alt="Education Links" className="h-12 md:h-14 w-auto object-contain" />
+            <span className="text-white text-[10px] md:text-xs font-semibold tracking-wide leading-none -mt-1">Education Links</span>
           </Link>
 
           {/* Certification — centered on mobile */}

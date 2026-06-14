@@ -86,7 +86,7 @@ export default function InquiryForm() {
   }, []);
 
   return (
-    <section id="inquiry" ref={sectionRef} data-fp-scrollable className="relative overflow-y-auto h-full min-h-screen">
+    <section id="inquiry" ref={sectionRef} data-fp-scrollable className="relative overflow-y-auto h-full min-h-screen font-heading">
       {/* Parallax background wrapper to prevent scrollHeight expansion */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div

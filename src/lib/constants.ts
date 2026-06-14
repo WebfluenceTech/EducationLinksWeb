@@ -36,21 +36,35 @@ export const DESTINATIONS = [
   { name: 'Finland', flag: '\u{1F1EB}\u{1F1EE}', region: 'Europe', universities: 13 },
   { name: 'Sweden', flag: '\u{1F1F8}\u{1F1EA}', region: 'Europe', universities: 9 },
   { name: 'Belgium', flag: '\u{1F1E7}\u{1F1EA}', region: 'Europe', universities: 4 },
+  { name: 'Netherlands', flag: '\u{1F1F3}\u{1F1F1}', region: 'Europe', universities: 5 },
+  { name: 'France', flag: '\u{1F1EB}\u{1F1F7}', region: 'Europe', universities: 4 },
   { name: 'Denmark', flag: '\u{1F1E9}\u{1F1F0}', region: 'Europe', universities: 3 },
-  { name: 'Cyprus', flag: '\u{1F1E8}\u{1F1FE}', region: 'Europe', universities: 4 },
+  { name: 'North Cyprus', flag: '\u{1F1E8}\u{1F1FE}', region: 'Europe', universities: 3 },
+  { name: 'South Cyprus', flag: '\u{1F1E8}\u{1F1FE}', region: 'Europe', universities: 2 },
+  { name: 'UK', flag: '\u{1F1EC}\u{1F1E7}', region: 'Europe', universities: 6 },
+  { name: 'Canada', flag: '\u{1F1E8}\u{1F1E6}', region: 'North America', universities: 4 },
+  { name: 'USA', flag: '\u{1F1FA}\u{1F1F8}', region: 'North America', universities: 3 },
   { name: 'Dubai', flag: '\u{1F1E6}\u{1F1EA}', region: 'Middle East', universities: 2 },
+  { name: 'Australia', flag: '\u{1F1E6}\u{1F1FA}', region: 'Oceania', universities: 4 },
   { name: 'South Korea', flag: '\u{1F1F0}\u{1F1F7}', region: 'Asia', universities: 4 },
 ];
 
 export const DESTINATION_IMAGES: Record<string, string> = {
-  Ireland:       'https://images.pexels.com/photos/2382681/pexels-photo-2382681.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Finland:       'https://images.pexels.com/photos/1544376/pexels-photo-1544376.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Sweden:        'https://images.pexels.com/photos/1534411/pexels-photo-1534411.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Belgium:       'https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Denmark:       'https://images.pexels.com/photos/416024/pexels-photo-416024.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Cyprus:        'https://images.pexels.com/photos/2949132/pexels-photo-2949132.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  Dubai:         'https://images.pexels.com/photos/3787839/pexels-photo-3787839.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  'South Korea': 'https://images.pexels.com/photos/373290/pexels-photo-373290.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  Ireland:        'https://images.pexels.com/photos/2382681/pexels-photo-2382681.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  Finland:        'https://images.pexels.com/photos/1544376/pexels-photo-1544376.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  Sweden:         'https://images.pexels.com/photos/1534411/pexels-photo-1534411.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  Belgium:        'https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  Netherlands:    'https://images.pexels.com/photos/1414467/pexels-photo-1414467.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  France:         'https://images.pexels.com/photos/699466/pexels-photo-699466.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  Denmark:        'https://images.pexels.com/photos/416024/pexels-photo-416024.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  'North Cyprus': 'https://images.pexels.com/photos/2949132/pexels-photo-2949132.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  'South Cyprus': 'https://images.pexels.com/photos/3566207/pexels-photo-3566207.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  UK:             'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  Canada:         'https://images.pexels.com/photos/1519088/pexels-photo-1519088.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  USA:            'https://images.pexels.com/photos/1486222/pexels-photo-1486222.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  Dubai:          'https://images.pexels.com/photos/3787839/pexels-photo-3787839.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  Australia:      'https://images.pexels.com/photos/995764/pexels-photo-995764.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  'South Korea':  'https://images.pexels.com/photos/373290/pexels-photo-373290.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
 };
 
 export const TESTIMONIALS = [
@@ -149,6 +163,7 @@ export const PARTNER_UNIVERSITIES = [
 ];
 
 export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: string; logoUrl?: string }[]> = {
+  // Europe
   Ireland: [
     { name: 'National College of Ireland', domain: 'ncirl.ie', logoUrl: 'https://www.ncirl.ie/Portals/_default/Skins/NCIRL/Images/logo-NCI.png' },
     { name: 'Dublin City University', domain: 'dcu.ie', logoUrl: 'https://www.dcu.ie/sites/default/files/dcu_logo_web_0.png' },
@@ -161,12 +176,6 @@ export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: str
     { name: 'Independent College Dublin', domain: 'independentcollege.ie', logoUrl: 'https://www.educationinireland.com/resource/blob/176718/b8adc23e4d5552b05c9072bb08e61bd6/logo-data.png' },
     { name: 'IBDI', domain: 'ibdi.ie', logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBzf4TzmBF_NSH_IoqOO9NEHJBLneFuXF3_qsVk6MMow&s=10' },
     { name: 'University College Cork', domain: 'ucc.ie' },
-  ],
-  'South Korea': [
-    { name: 'Kangwon National University', domain: 'kangwon.ac.kr' },
-    { name: 'Inha University', domain: 'inha.ac.kr' },
-    { name: 'Catholic Kwandong University', domain: 'cku.ac.kr' },
-    { name: 'Kyungdong University', domain: 'kduniv.ac.kr' },
   ],
   Finland: [
     { name: 'Metropolia University of Applied Sciences', domain: 'metropolia.fi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Metropolia-logo.svg' },
@@ -183,11 +192,6 @@ export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: str
     { name: 'University of Oulu', domain: 'oulu.fi' },
     { name: 'Helsingin yliopisto', domain: 'helsinki.fi', logoUrl: 'https://cdn.worldvectorlogo.com/logos/university-of-helsinki-1.svg' },
   ],
-  Denmark: [
-    { name: 'University of Copenhagen', domain: 'ku.dk' },
-    { name: 'University of Southern Denmark', domain: 'sdu.dk', logoUrl: 'https://sdunet.dk/-/media/sdunet/billeder/servicesider/kommunikation/2025/sdu-logo-730x250.png' },
-    { name: 'Technical University of Denmark', domain: 'dtu.dk', logoUrl: 'https://www.freelogovectors.net/wp-content/uploads/2019/01/dtu-logo.png' },
-  ],
   Sweden: [
     { name: 'University West', domain: 'hv.se', logoUrl: 'https://www.hv.se/assets/img/framework/hv-logo-small-new.png' },
     { name: 'Blekinge Institute of Technology', domain: 'bth.se', logoUrl: 'https://www.thenaturalstep.de/wp-content/uploads/partner-logo-Blekinge-BTH.jpg' },
@@ -203,17 +207,73 @@ export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: str
     { name: 'UCLL University of Applied Sciences', domain: 'ucll.be' },
     { name: 'Thomas More University of Applied Sciences', domain: 'thomasmore.be' },
     { name: 'KdG University of Applied Sciences and Arts', domain: 'kdg.be' },
-    { name: 'UBI Business School', domain: 'ubi.edu' },
+    { name: 'UBI Business School', domain: 'ubi.edu', logoUrl: 'https://ubi.edu/wp-content/uploads/2021/03/ubi-logo.png' },
   ],
-  Cyprus: [
+  Netherlands: [
+    { name: 'University of Amsterdam', domain: 'uva.nl' },
+    { name: 'Erasmus University Rotterdam', domain: 'eur.nl' },
+    { name: 'Delft University of Technology', domain: 'tudelft.nl' },
+    { name: 'Leiden University', domain: 'leiden.edu' },
+    { name: 'Utrecht University', domain: 'uu.nl' },
+  ],
+  France: [
+    { name: 'Sorbonne University', domain: 'sorbonne-universite.fr' },
+    { name: 'Sciences Po', domain: 'sciencespo.fr' },
+    { name: 'École Polytechnique', domain: 'polytechnique.edu' },
+    { name: 'University of Paris', domain: 'u-paris.fr' },
+  ],
+  Denmark: [
+    { name: 'University of Copenhagen', domain: 'ku.dk' },
+    { name: 'University of Southern Denmark', domain: 'sdu.dk', logoUrl: 'https://sdunet.dk/-/media/sdunet/billeder/servicesider/kommunikation/2025/sdu-logo-730x250.png' },
+    { name: 'Technical University of Denmark', domain: 'dtu.dk', logoUrl: 'https://www.freelogovectors.net/wp-content/uploads/2019/01/dtu-logo.png' },
+  ],
+  'North Cyprus': [
+    { name: 'Eastern Mediterranean University', domain: 'emu.edu.tr' },
+    { name: 'Near East University', domain: 'neu.edu.tr' },
+    { name: 'Cyprus International University', domain: 'ciu.edu.tr' },
+  ],
+  'South Cyprus': [
     { name: 'Neapolis University Pafos', domain: 'nup.ac.cy' },
     { name: 'UCLan Cyprus', domain: 'uclancyprus.ac.cy' },
-    { name: 'Cyprus International University', domain: 'ciu.edu.tr' },
-    { name: 'American University of Cyprus', domain: 'aucy.ac.cy', logoUrl: 'https://aucy.ac.cy/images/AUCY_logo.png' },
   ],
+  UK: [
+    { name: 'University of Hertfordshire', domain: 'herts.ac.uk' },
+    { name: 'Sheffield Hallam University', domain: 'shu.ac.uk' },
+    { name: 'Coventry University', domain: 'coventry.ac.uk' },
+    { name: 'Canterbury Christ Church Uni.', domain: 'canterbury.ac.uk' },
+    { name: 'Birmingham City University', domain: 'bcu.ac.uk' },
+    { name: 'University of East London', domain: 'uel.ac.uk' },
+  ],
+  // North America
+  Canada: [
+    { name: 'University of Toronto', domain: 'utoronto.ca' },
+    { name: 'McGill University', domain: 'mcgill.ca' },
+    { name: 'University of British Columbia', domain: 'ubc.ca' },
+    { name: 'University of Alberta', domain: 'ualberta.ca' },
+  ],
+  USA: [
+    { name: 'University of California', domain: 'universityofcalifornia.edu' },
+    { name: 'New York University', domain: 'nyu.edu' },
+    { name: 'University of Michigan', domain: 'umich.edu' },
+  ],
+  // Middle East
   Dubai: [
     { name: 'Rochester Institute of Technology Dubai', domain: 'ritdubai.ae', logoUrl: 'https://logowik.com/content/uploads/images/rit-rochester-institute-of-technology-dubai8826.logowik.com.webp' },
     { name: 'Middlesex University Dubai', domain: 'mdx.ac.ae' },
+  ],
+  // Oceania
+  Australia: [
+    { name: 'University of Melbourne', domain: 'unimelb.edu.au' },
+    { name: 'University of Sydney', domain: 'sydney.edu.au' },
+    { name: 'Monash University', domain: 'monash.edu' },
+    { name: 'University of Queensland', domain: 'uq.edu.au' },
+  ],
+  // Asia
+  'South Korea': [
+    { name: 'Kangwon National University', domain: 'kangwon.ac.kr' },
+    { name: 'Inha University', domain: 'inha.ac.kr' },
+    { name: 'Catholic Kwandong University', domain: 'cku.ac.kr' },
+    { name: 'Kyungdong University', domain: 'kduniv.ac.kr' },
   ],
 };
 

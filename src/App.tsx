@@ -20,7 +20,7 @@ function AppLayout() {
       <ScrollToTop />
       <div className="flex flex-col w-full min-h-screen" style={{ overflowX: 'clip' }}>
         <Header />
-        <main className="w-full flex-1" style={{ overflowX: 'clip', paddingTop: isMobile ? '64px' : '80px' }}>
+        <main className="w-full flex-1" style={{ overflowX: 'clip' }}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/team" element={<TeamPage />} />
