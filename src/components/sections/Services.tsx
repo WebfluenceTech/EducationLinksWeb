@@ -57,19 +57,19 @@ export default function Services() {
       <div className="container-custom flex flex-col gap-10 md:gap-14">
 
         {/* Heading */}
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div className="max-w-xl">
-            <span className="eyebrow mb-4">What We Do</span>
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-brand-dark leading-[1.08] tracking-tight">
+        <div className="flex flex-col items-center text-center gap-5">
+          <div>
+            <span className="eyebrow mb-4 justify-center">What We Do</span>
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl font-extrabold text-brand-dark leading-[1.05] tracking-tight mt-3">
               Our Services
             </h2>
-            <p className="mt-4 text-base text-brand-gray leading-relaxed">
+            <p className="mt-5 text-base md:text-lg text-brand-gray leading-relaxed max-w-2xl mx-auto">
               Everything you need to study abroad, handled by experts who have done it 6,000+ times.
             </p>
           </div>
 
-          {/* Controls (desktop, aligned right) */}
-          <div className="hidden md:flex items-center gap-2 shrink-0">
+          {/* Controls (desktop) */}
+          <div className="hidden md:flex items-center gap-2">
             <button
               onClick={prev}
               disabled={index === 0}
