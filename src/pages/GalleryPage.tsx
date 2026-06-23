@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import SectionHeading from '../components/ui/SectionHeading';
+import PageHero from '../components/ui/PageHero';
 
 const CATEGORIES = ['All', 'Campus Life', 'Events', 'Student Success'] as const;
 
@@ -26,13 +26,14 @@ export default function GalleryPage() {
     : GALLERY_ITEMS.filter((item) => item.category === active);
 
   return (
-    <div className="bg-brand-light/30 min-h-screen pt-16 md:pt-[116px] pb-16 md:pb-24">
-      <div className="container-custom">
-        <SectionHeading
-          title="Gallery"
-          subtitle="A glimpse into campus life, events, and the success stories of our students worldwide."
-        />
+    <div className="bg-canvas min-h-screen">
+      <PageHero
+        eyebrow="Our community"
+        title="Gallery"
+        subtitle="A glimpse into campus life, events, and the success stories of our students worldwide."
+      />
 
+      <div className="container-custom pb-16 md:pb-24 -mt-8">
         {/* Filter Tabs */}
         <div className="flex flex-wrap justify-center gap-2 mb-10">
           {CATEGORIES.map((cat) => (
@@ -41,8 +42,8 @@ export default function GalleryPage() {
               onClick={() => setActive(cat)}
               className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
                 active === cat
-                  ? 'bg-brand-blue text-white shadow-md shadow-brand-blue/20'
-                  : 'bg-white text-brand-gray hover:bg-gray-100 border border-gray-200'
+                  ? 'bg-primary text-white shadow-glow'
+                  : 'bg-white text-ink-muted hover:text-primary border border-line hover:border-primary/30'
               }`}
             >
               {cat}
@@ -55,7 +56,7 @@ export default function GalleryPage() {
           {filtered.map((item, i) => (
             <div
               key={i}
-              className="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+              className="group relative rounded-2xl overflow-hidden shadow-soft hover:shadow-card transition-shadow border border-line"
             >
               <img
                 src={item.src}
@@ -63,9 +64,9 @@ export default function GalleryPage() {
                 className="h-64 w-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="absolute bottom-4 left-4 right-4">
-                  <span className="inline-block bg-brand-blue text-white text-xs font-medium px-3 py-1 rounded-full mb-2">{item.category}</span>
+                  <span className="inline-block bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">{item.category}</span>
                   <p className="text-white text-sm font-medium">{item.alt}</p>
                 </div>
               </div>

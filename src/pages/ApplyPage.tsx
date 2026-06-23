@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Check, Loader2 } from 'lucide-react';
-import SectionHeading from '../components/ui/SectionHeading';
+import PageHero from '../components/ui/PageHero';
 import Toast from '../components/ui/Toast';
 import { supabase } from '../lib/supabase';
 import {
@@ -72,10 +72,10 @@ export default function ApplyPage() {
     });
   };
 
-  const inputClass = 'w-full bg-transparent border-0 border-b-2 border-gray-200 focus:border-brand-blue focus:outline-none py-2.5 text-sm text-brand-dark placeholder:text-brand-gray-light transition-colors duration-200';
+  const inputClass = 'w-full bg-transparent border-0 border-b-2 border-line focus:border-primary focus:outline-none py-2.5 text-sm text-ink placeholder:text-ink-muted/50 transition-colors duration-200';
   const selectClass = `${inputClass} appearance-none cursor-pointer`;
-  const labelClass = 'text-xs font-semibold text-brand-gray uppercase tracking-wider mb-1 block';
-  const sectionHeadingClass = 'font-heading text-lg font-bold text-brand-dark tracking-wide pb-2 border-b border-gray-100 col-span-full';
+  const labelClass = 'text-xs font-semibold text-ink-muted uppercase tracking-wider mb-1 block';
+  const sectionHeadingClass = 'font-heading text-lg font-bold text-ink tracking-wide pb-2 border-b border-line col-span-full';
 
   const canSubmit = form.first_name && form.last_name && form.email && form.phone && agree;
 
@@ -105,19 +105,19 @@ export default function ApplyPage() {
 
   if (submitted) {
     return (
-      <div className="min-h-[60vh] flex items-center justify-center section-padding">
+      <div className="min-h-[70vh] flex items-center justify-center section-padding bg-canvas pt-32">
         <div className="text-center max-w-md">
-          <div className="flex items-center justify-center h-20 w-20 rounded-full bg-green-100 text-green-600 mx-auto mb-6">
+          <div className="flex items-center justify-center h-20 w-20 rounded-full bg-emerald-100 text-emerald-600 mx-auto mb-6">
             <Check className="h-10 w-10" />
           </div>
-          <h2 className="text-2xl font-bold text-brand-dark mb-3">Application Submitted!</h2>
-          <p className="text-brand-gray mb-2">
+          <h2 className="font-heading text-2xl font-bold text-ink mb-3">Application Submitted!</h2>
+          <p className="text-ink-muted mb-2">
             Your application has been received. Our team will contact you within 48 hours.
           </p>
-          <p className="text-sm text-brand-gray mb-6">
-            Reference: <span className="font-mono font-semibold text-brand-blue">{refId}</span>
+          <p className="text-sm text-ink-muted mb-6">
+            Reference: <span className="font-mono font-semibold text-primary">{refId}</span>
           </p>
-          <a href="/" className="inline-flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-light text-white font-semibold px-6 py-3 rounded-xl transition-colors">
+          <a href="/" className="btn-primary">
             Back to Home
           </a>
         </div>
@@ -128,33 +128,33 @@ export default function ApplyPage() {
   const showScore = form.language_test && form.language_test !== 'None';
 
   return (
-    <div className="section-padding bg-brand-light/30 min-h-screen">
-      <div className="container-custom">
-        <SectionHeading
-          title="Apply Online"
-          subtitle="Complete the form below to start your study abroad journey. It only takes a few minutes."
-        />
-
-        <form onSubmit={handleSubmit} className="max-w-3xl mx-auto bg-white rounded-3xl px-4 py-8 sm:px-8 sm:py-10 md:px-12 md:py-12 shadow-lg border border-gray-100">
+    <div className="bg-canvas min-h-screen">
+      <PageHero
+        eyebrow="Start your journey"
+        title="Apply online"
+        subtitle="Complete the form below to start your study-abroad journey. It only takes a few minutes."
+      />
+      <div className="container-custom pb-20 -mt-12">
+        <form onSubmit={handleSubmit} className="max-w-3xl mx-auto bg-white rounded-3xl px-4 py-8 sm:px-8 sm:py-10 md:px-12 md:py-12 shadow-card border border-line">
           <div className="grid sm:grid-cols-2 gap-x-8 gap-y-7">
 
             {/* Personal Information */}
             <p className={sectionHeadingClass}>· Personal Information ·</p>
 
             <div>
-              <label className={labelClass}><span className="text-brand-blue">·</span> First Name *</label>
+              <label className={labelClass}><span className="text-primary">·</span> First Name *</label>
               <input type="text" placeholder="First Name" required value={form.first_name} onChange={update('first_name')} className={inputClass} />
             </div>
             <div>
-              <label className={labelClass}><span className="text-brand-blue">·</span> Last Name *</label>
+              <label className={labelClass}><span className="text-primary">·</span> Last Name *</label>
               <input type="text" placeholder="Last Name" required value={form.last_name} onChange={update('last_name')} className={inputClass} />
             </div>
             <div>
-              <label className={labelClass}><span className="text-brand-blue">·</span> Email Address *</label>
+              <label className={labelClass}><span className="text-primary">·</span> Email Address *</label>
               <input type="email" placeholder="Email Address" required value={form.email} onChange={update('email')} className={inputClass} />
             </div>
             <div>
-              <label className={labelClass}><span className="text-brand-blue">·</span> Phone Number *</label>
+              <label className={labelClass}><span className="text-primary">·</span> Phone Number *</label>
               <input type="tel" placeholder="Phone Number" required value={form.phone} onChange={update('phone')} className={inputClass} />
             </div>
             <div>
@@ -277,7 +277,7 @@ export default function ApplyPage() {
                 placeholder="Any additional information or special requirements..."
                 value={form.additional_notes}
                 onChange={update('additional_notes')}
-                className="w-full bg-transparent border-0 border-b-2 border-gray-200 focus:border-brand-blue focus:outline-none py-2.5 text-sm text-brand-dark placeholder:text-brand-gray-light transition-colors duration-200 resize-none"
+                className="w-full bg-transparent border-0 border-b-2 border-line focus:border-primary focus:outline-none py-2.5 text-sm text-ink placeholder:text-ink-muted/50 transition-colors duration-200 resize-none"
               />
             </div>
 
@@ -288,20 +288,20 @@ export default function ApplyPage() {
                   type="checkbox"
                   checked={agree}
                   onChange={(e) => setAgree(e.target.checked)}
-                  className="mt-0.5 h-4 w-4 rounded border-gray-300 text-brand-blue focus:ring-brand-blue"
+                  className="mt-0.5 h-4 w-4 rounded border-line text-primary focus:ring-primary"
                 />
-                <span className="text-sm text-brand-gray">
+                <span className="text-sm text-ink-muted">
                   I agree to be contacted by Education Links regarding my application and consent to the processing of my personal data.
                 </span>
               </label>
             </div>
 
             {/* Submit */}
-            <div className="sm:col-span-2 flex justify-end pt-4 border-t border-gray-100">
+            <div className="sm:col-span-2 flex justify-end pt-4 border-t border-line">
               <button
                 type="submit"
                 disabled={!canSubmit || loading}
-                className="flex items-center gap-2 bg-brand-blue hover:bg-brand-blue-light text-white font-bold px-10 py-3 rounded-xl uppercase tracking-widest text-sm disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+                className="flex items-center gap-2 bg-primary hover:bg-primary-dark text-white font-bold px-10 py-3 rounded-xl uppercase tracking-widest text-sm disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
               >
                 {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : 'Submit Application'}
               </button>

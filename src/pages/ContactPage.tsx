@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MapPin, Phone, Mail, Send, MessageCircle, ExternalLink, Clock, CheckCircle2 } from 'lucide-react';
 import Toast from '../components/ui/Toast';
 import { ContactSVG } from '../components/ui/ContactSVG';
+import PageHero from '../components/ui/PageHero';
 import { supabase } from '../lib/supabase';
 import { COMPANY, OFFICES } from '../lib/constants';
 
@@ -28,39 +29,17 @@ export default function ContactPage() {
   };
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
-        .font-nunito { font-family: 'Nunito', sans-serif; }
-      `}</style>
-    <div className="font-nunito min-h-screen bg-[#F7F8FA]">
+    <div className="min-h-screen bg-canvas">
 
-      {/* Curved Header Background */}
-      <div className="relative w-full pt-32 pb-44 mb-16 overflow-hidden">
-        {/* The actual curve */}
-        <div 
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[150%] md:w-[120%] h-full overflow-hidden" 
-          style={{ backgroundColor: '#2F95D0', borderBottomLeftRadius: '50%', borderBottomRightRadius: '50%' }}
-        >
-          <ContactSVG className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full min-w-[1100px] text-white pointer-events-none" />
-        </div>
-
-        {/* Content */}
-        <div className="container-custom relative z-10 mx-auto px-4 max-w-6xl text-center mt-8">
-          <p className="text-white/80 text-xs font-bold uppercase tracking-[0.25em] mb-4">
-            Get In Touch
-          </p>
-          <h1 className="text-[2.5rem] md:text-5xl font-bold text-white mb-4">
-            We'd Love to Hear From You
-          </h1>
-          <p className="text-[1.1rem] text-white/90 max-w-2xl mx-auto">
-            Whether you have questions about studying abroad or need guidance on the right university — our team is ready to help.
-          </p>
-        </div>
-      </div>
+      <PageHero
+        eyebrow="Get in touch"
+        title="We'd love to hear from you"
+        subtitle="Whether you have questions about studying abroad or need guidance on the right university — our team is ready to help."
+        decoration={<ContactSVG className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full min-w-[1100px] text-white/90 pointer-events-none" />}
+      />
 
       {/* ── Main Grid ── */}
-      <div className="container-custom py-12 md:py-20">
+      <div className="container-custom pb-16 md:pb-24 -mt-8">
         <div className="grid lg:grid-cols-5 gap-8 xl:gap-12 items-start">
 
           {/* ── LEFT: Info Panel ── */}
@@ -85,19 +64,19 @@ export default function ContactPage() {
             </a>
 
             {/* Contact Details */}
-            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm space-y-5">
-              <h3 className="font-nunito text-base font-bold text-brand-dark">Contact Details</h3>
+            <div className="bg-white rounded-2xl p-6 border border-line shadow-sm space-y-5">
+              <h3 className="text-base font-bold text-ink">Contact Details</h3>
               <div className="space-y-4">
                 <a
                   href={`tel:${COMPANY.whatsapp}`}
                   className="flex items-center gap-3 group"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-blue/8 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-200">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-primary group-hover:bg-primary group-hover:text-white transition-all duration-200">
                     <Phone className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-brand-gray/60">Phone</p>
-                    <p className="text-sm font-semibold text-brand-dark group-hover:text-brand-blue transition-colors">{COMPANY.whatsapp}</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-ink-muted/70">Phone</p>
+                    <p className="text-sm font-semibold text-ink group-hover:text-primary transition-colors">{COMPANY.whatsapp}</p>
                   </div>
                 </a>
 
@@ -105,44 +84,44 @@ export default function ContactPage() {
                   href={`mailto:${COMPANY.email}`}
                   className="flex items-center gap-3 group"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-blue/8 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-200">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-primary group-hover:bg-primary group-hover:text-white transition-all duration-200">
                     <Mail className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-brand-gray/60">Email</p>
-                    <p className="text-sm font-semibold text-brand-dark group-hover:text-brand-blue transition-colors">{COMPANY.email}</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-ink-muted/70">Email</p>
+                    <p className="text-sm font-semibold text-ink group-hover:text-primary transition-colors">{COMPANY.email}</p>
                   </div>
                 </a>
 
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-blue/8 text-brand-blue">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-primary">
                     <Clock className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-[10px] font-bold uppercase tracking-widest text-brand-gray/60">Response Time</p>
-                    <p className="text-sm font-semibold text-brand-dark">Within 24 hours</p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-ink-muted/70">Response Time</p>
+                    <p className="text-sm font-semibold text-ink">Within 24 hours</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Office Locations */}
-            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm space-y-5">
-              <h3 className="font-nunito text-base font-bold text-brand-dark">Our Offices</h3>
+            <div className="bg-white rounded-2xl p-6 border border-line shadow-sm space-y-5">
+              <h3 className="text-base font-bold text-ink">Our Offices</h3>
               <div className="space-y-5">
                 {OFFICES.map((office, i) => (
-                  <div key={office.name} className={`flex gap-3 ${i < OFFICES.length - 1 ? 'pb-5 border-b border-gray-100' : ''}`}>
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-red/8 text-brand-red mt-0.5">
+                  <div key={office.name} className={`flex gap-3 ${i < OFFICES.length - 1 ? 'pb-5 border-b border-line' : ''}`}>
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-soft text-accent-dark mt-0.5">
                       <MapPin className="h-4 w-4" />
                     </div>
                     <div>
-                      <p className="text-sm font-bold text-brand-dark">{office.name}</p>
-                      <p className="text-xs text-brand-gray leading-relaxed mt-1 mb-2">{office.address}</p>
+                      <p className="text-sm font-bold text-ink">{office.name}</p>
+                      <p className="text-xs text-ink-muted leading-relaxed mt-1 mb-2">{office.address}</p>
                       <a
                         href={office.mapUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-blue hover:text-brand-blue-light transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-light transition-colors"
                       >
                         Get Directions <ExternalLink className="h-3 w-3" />
                       </a>
@@ -155,12 +134,12 @@ export default function ContactPage() {
 
           {/* ── RIGHT: Form ── */}
           <div className="lg:col-span-3">
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+            <div className="bg-white rounded-2xl border border-line shadow-sm overflow-hidden">
 
               {/* Form Header */}
-              <div className="px-8 pt-8 pb-6 border-b border-gray-100">
-                <h2 className="font-nunito text-2xl font-extrabold text-brand-dark">Send Us a Message</h2>
-                <p className="text-sm text-brand-gray mt-1.5">Fill in the form below and we'll get back to you shortly.</p>
+              <div className="px-8 pt-8 pb-6 border-b border-line">
+                <h2 className="text-2xl font-extrabold text-ink">Send Us a Message</h2>
+                <p className="text-sm text-ink-muted mt-1.5">Fill in the form below and we'll get back to you shortly.</p>
               </div>
 
               {submitted ? (
@@ -168,13 +147,13 @@ export default function ContactPage() {
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-50">
                     <CheckCircle2 className="h-8 w-8 text-green-500" />
                   </div>
-                  <h3 className="font-nunito text-xl font-bold text-brand-dark">Message Sent!</h3>
-                  <p className="text-sm text-brand-gray max-w-sm">
+                  <h3 className="text-xl font-bold text-ink">Message Sent!</h3>
+                  <p className="text-sm text-ink-muted max-w-sm">
                     Thank you for reaching out. Our team will get back to you within 24 hours.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="mt-2 text-sm font-semibold text-brand-blue hover:text-brand-blue-light transition-colors"
+                    className="mt-2 text-sm font-semibold text-primary hover:text-primary-light transition-colors"
                   >
                     Send another message →
                   </button>
@@ -184,8 +163,8 @@ export default function ContactPage() {
                   {/* Name + Email row */}
                   <div className="grid sm:grid-cols-2 gap-5">
                     <div className="space-y-1.5">
-                      <label className="block text-[11px] font-bold uppercase tracking-[0.12em] text-brand-gray/70">
-                        Full Name <span className="text-brand-red">*</span>
+                      <label className="block text-[11px] font-bold uppercase tracking-[0.12em] text-ink-muted/70">
+                        Full Name <span className="text-accent-dark">*</span>
                       </label>
                       <input
                         type="text"
@@ -193,12 +172,12 @@ export default function ContactPage() {
                         placeholder="e.g. Ali Hassan"
                         value={form.name}
                         onChange={update('name')}
-                        className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-brand-dark placeholder:text-brand-gray/40 focus:outline-none focus:border-brand-blue focus:bg-white focus:ring-4 focus:ring-brand-blue/10 transition-all duration-200"
+                        className="w-full rounded-xl border border-line bg-canvas px-4 py-3 text-sm text-ink placeholder:text-ink-muted/40 focus:outline-none focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all duration-200"
                       />
                     </div>
                     <div className="space-y-1.5">
-                      <label className="block text-[11px] font-bold uppercase tracking-[0.12em] text-brand-gray/70">
-                        Email Address <span className="text-brand-red">*</span>
+                      <label className="block text-[11px] font-bold uppercase tracking-[0.12em] text-ink-muted/70">
+                        Email Address <span className="text-accent-dark">*</span>
                       </label>
                       <input
                         type="email"
@@ -206,14 +185,14 @@ export default function ContactPage() {
                         placeholder="you@email.com"
                         value={form.email}
                         onChange={update('email')}
-                        className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-brand-dark placeholder:text-brand-gray/40 focus:outline-none focus:border-brand-blue focus:bg-white focus:ring-4 focus:ring-brand-blue/10 transition-all duration-200"
+                        className="w-full rounded-xl border border-line bg-canvas px-4 py-3 text-sm text-ink placeholder:text-ink-muted/40 focus:outline-none focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all duration-200"
                       />
                     </div>
                   </div>
 
                   {/* Phone */}
                   <div className="space-y-1.5">
-                    <label className="block text-[11px] font-bold uppercase tracking-[0.12em] text-brand-gray/70">
+                    <label className="block text-[11px] font-bold uppercase tracking-[0.12em] text-ink-muted/70">
                       Phone Number
                     </label>
                     <input
@@ -221,14 +200,14 @@ export default function ContactPage() {
                       placeholder="+92 300 0000000"
                       value={form.phone}
                       onChange={update('phone')}
-                      className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-brand-dark placeholder:text-brand-gray/40 focus:outline-none focus:border-brand-blue focus:bg-white focus:ring-4 focus:ring-brand-blue/10 transition-all duration-200"
+                      className="w-full rounded-xl border border-line bg-canvas px-4 py-3 text-sm text-ink placeholder:text-ink-muted/40 focus:outline-none focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all duration-200"
                     />
                   </div>
 
                   {/* Message */}
                   <div className="space-y-1.5">
-                    <label className="block text-[11px] font-bold uppercase tracking-[0.12em] text-brand-gray/70">
-                      Your Message <span className="text-brand-red">*</span>
+                    <label className="block text-[11px] font-bold uppercase tracking-[0.12em] text-ink-muted/70">
+                      Your Message <span className="text-accent-dark">*</span>
                     </label>
                     <textarea
                       rows={5}
@@ -236,7 +215,7 @@ export default function ContactPage() {
                       placeholder="Tell us how we can help you..."
                       value={form.message}
                       onChange={update('message')}
-                      className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-brand-dark placeholder:text-brand-gray/40 focus:outline-none focus:border-brand-blue focus:bg-white focus:ring-4 focus:ring-brand-blue/10 transition-all duration-200 resize-none"
+                      className="w-full rounded-xl border border-line bg-canvas px-4 py-3 text-sm text-ink placeholder:text-ink-muted/40 focus:outline-none focus:border-primary focus:bg-white focus:ring-4 focus:ring-primary/10 transition-all duration-200 resize-none"
                     />
                   </div>
 
@@ -244,7 +223,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="group flex items-center justify-center gap-2.5 w-full bg-brand-blue hover:bg-brand-dark text-white font-bold text-sm uppercase tracking-widest py-4 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="group flex items-center justify-center gap-2.5 w-full bg-primary hover:bg-primary-dark text-white font-bold text-sm uppercase tracking-widest py-4 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {loading ? (
                       <span className="h-5 w-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -263,20 +242,20 @@ export default function ContactPage() {
 
         {/* ── Maps Row ── */}
         <div className="mt-12 md:mt-16">
-          <h2 className="font-nunito text-xl font-bold text-brand-dark mb-6">Find Us</h2>
+          <h2 className="text-xl font-bold text-ink mb-6">Find Us</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {OFFICES.map((office) => (
-              <div key={office.name} className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
-                <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
+              <div key={office.name} className="bg-white rounded-2xl border border-line shadow-sm overflow-hidden">
+                <div className="px-5 py-4 border-b border-line flex items-center justify-between">
                   <div>
-                    <p className="font-bold text-sm text-brand-dark">{office.name}</p>
-                    <p className="text-xs text-brand-gray mt-0.5">{office.address}</p>
+                    <p className="font-bold text-sm text-ink">{office.name}</p>
+                    <p className="text-xs text-ink-muted mt-0.5">{office.address}</p>
                   </div>
                   <a
                     href={office.mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="shrink-0 ml-4 inline-flex items-center gap-1 text-xs font-semibold text-brand-blue hover:text-brand-blue-light transition-colors"
+                    className="shrink-0 ml-4 inline-flex items-center gap-1 text-xs font-semibold text-primary hover:text-primary-light transition-colors"
                   >
                     Directions <ExternalLink className="h-3 w-3" />
                   </a>
@@ -299,6 +278,5 @@ export default function ContactPage() {
 
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
     </div>
-    </>
   );
 }
