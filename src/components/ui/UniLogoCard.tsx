@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export function UniLogoCard({ name, domain, logoUrl, country }: { name: string; domain: string; logoUrl?: string; country?: string }) {
   const sources = [
@@ -11,9 +12,9 @@ export function UniLogoCard({ name, domain, logoUrl, country }: { name: string; 
   const initials = name.split(' ').filter(Boolean).map(w => w[0]).join('').slice(0, 2).toUpperCase();
 
   return (
-    <div className="flex flex-col bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden shadow-sm h-full group">
+    <div className="flex flex-col bg-white border border-line rounded-2xl hover:shadow-card hover:-translate-y-1 transition-all duration-300 overflow-hidden shadow-soft h-full group">
       {/* Top logo area */}
-      <div className="h-28 p-5 flex items-center justify-start border-b border-gray-100 bg-white">
+      <div className="h-28 p-5 flex items-center justify-start border-b border-line bg-white">
         {!failed ? (
           <img
             src={sources[srcIdx]}
@@ -22,22 +23,22 @@ export function UniLogoCard({ name, domain, logoUrl, country }: { name: string; 
             className="max-h-full max-w-[80%] object-contain mix-blend-multiply"
           />
         ) : (
-           <span className="text-[#2F95D0] font-extrabold text-2xl tracking-widest">{initials}</span>
+          <span className="text-primary font-extrabold text-2xl tracking-widest">{initials}</span>
         )}
       </div>
 
       {/* Info area */}
       <div className="p-5 flex flex-col flex-1">
-        <h3 className="text-[15px] font-bold text-[#172B4D] mb-1.5 leading-snug line-clamp-2">{name}</h3>
-        <p className="text-[12px] text-[#5E6C84] mb-2 truncate">{country || 'International'}</p>
-        <a href={`https://${domain}`} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold text-[#172B4D] hover:text-[#2F95D0] transition-colors truncate">
+        <h3 className="text-[15px] font-bold text-ink mb-1.5 leading-snug line-clamp-2">{name}</h3>
+        <p className="text-[12px] text-ink-muted mb-2 truncate">{country || 'International'}</p>
+        <a href={`https://${domain}`} target="_blank" rel="noopener noreferrer" className="text-[13px] font-semibold text-ink-soft hover:text-primary transition-colors truncate">
           www.{domain}
         </a>
-        
+
         <div className="mt-6 pt-1 mt-auto">
-          <a href="#inquiry" className="block w-full py-2 rounded-md bg-[#FF7A59] text-white text-[13px] font-medium hover:bg-[#f56642] transition-colors shadow-sm text-center">
+          <Link to="/apply" className="block w-full py-2.5 rounded-xl bg-primary text-white text-[13px] font-semibold hover:bg-primary-dark transition-colors shadow-soft text-center">
             Apply Now
-          </a>
+          </Link>
         </div>
       </div>
     </div>
