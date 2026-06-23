@@ -67,20 +67,23 @@ export default function ProcessTimeline() {
         width: '100vw', maxWidth: '100vw', boxSizing: 'border-box',
       }}
     >
-      <div className="absolute inset-0 bg-slate-900/75" />
+      <div
+        className="absolute inset-0"
+        style={{ background: 'linear-gradient(120deg, rgba(11,37,69,0.94) 0%, rgba(19,49,92,0.88) 55%, rgba(30,111,217,0.6) 100%)' }}
+      />
 
-      <div className="relative z-10 w-full flex-1 flex flex-col py-10 md:py-28 container-custom">
+      <div className="relative z-10 w-full flex-1 flex flex-col py-16 md:py-28 container-custom">
 
         {/* Heading */}
         <div className="text-center mb-8 md:mb-12">
-          <p className="text-brand-blue text-xs font-bold uppercase tracking-[0.2em] mb-3">
-            Step by Step
-          </p>
-          <h2 className="font-heading font-script tracking-tight text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-            Your Journey to Studying Abroad
+          <span className="text-accent text-xs font-bold uppercase tracking-[0.18em] mb-3 inline-block">
+            Step by step
+          </span>
+          <h2 className="font-heading tracking-tight text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-tight">
+            Your journey to studying abroad
           </h2>
-          <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-brand-blue" />
-          <p className="mt-4 text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+          <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-accent" />
+          <p className="mt-4 text-white/65 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
             A simple 9-step process that takes you from dreaming to achieving your international education goals.
           </p>
         </div>
@@ -105,7 +108,7 @@ export default function ProcessTimeline() {
                     <div className="flex flex-col items-center text-center gap-4 py-6">
                       {/* Icon circle */}
                       <div className="relative flex items-center justify-center h-20 w-20 sm:h-28 sm:w-28 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white">
-                        <div className="absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-brand-blue text-white text-xs sm:text-sm font-bold flex items-center justify-center shadow-lg">
+                        <div className="absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-accent text-ink text-xs sm:text-sm font-bold flex items-center justify-center shadow-lg">
                           {i + 1}
                         </div>
                         {Icon && <Icon className="h-8 w-8 sm:h-11 sm:w-11" />}
@@ -126,7 +129,7 @@ export default function ProcessTimeline() {
             <button
               onClick={prev}
               disabled={current === 0}
-              className="flex items-center justify-center h-10 w-10 rounded-full bg-white/10 border border-white/20 text-white backdrop-blur-sm hover:bg-brand-blue/70 transition disabled:opacity-30 disabled:cursor-not-allowed shrink-0"
+              className="flex items-center justify-center h-10 w-10 rounded-full bg-white/10 border border-white/20 text-white backdrop-blur-sm hover:bg-primary/80 transition disabled:opacity-30 disabled:cursor-not-allowed shrink-0"
               aria-label="Previous step"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -137,7 +140,7 @@ export default function ProcessTimeline() {
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'w-7 bg-brand-blue' : 'w-2 bg-white/30 hover:bg-white/60'}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'w-7 bg-accent' : 'w-2 bg-white/30 hover:bg-white/60'}`}
                   aria-label={`Go to step ${i + 1}`}
                 />
               ))}
@@ -146,7 +149,7 @@ export default function ProcessTimeline() {
             <button
               onClick={next}
               disabled={current >= maxIndex}
-              className="flex items-center justify-center h-10 w-10 rounded-full bg-white/10 border border-white/20 text-white backdrop-blur-sm hover:bg-brand-blue/70 transition disabled:opacity-30 disabled:cursor-not-allowed shrink-0"
+              className="flex items-center justify-center h-10 w-10 rounded-full bg-white/10 border border-white/20 text-white backdrop-blur-sm hover:bg-primary/80 transition disabled:opacity-30 disabled:cursor-not-allowed shrink-0"
               aria-label="Next step"
             >
               <ChevronRight className="h-5 w-5" />

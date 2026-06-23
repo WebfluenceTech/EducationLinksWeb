@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
-import SectionHeading from '../ui/SectionHeading';
 import TiltedCard from '../ui/TiltedCard';
 import { DESTINATIONS, DESTINATION_IMAGES } from '../../lib/constants';
 
@@ -55,10 +54,16 @@ export default function Destinations() {
   return (
     <section id="destinations" className="scroll-offset section-padding bg-white overflow-hidden">
       <div className="container-custom">
-        <SectionHeading
-          title="Explore Your Dream Destination"
-          subtitle="Study in world-class universities across 11+ countries. Find the perfect destination for your future."
-        />
+        <div className="max-w-2xl mb-10">
+          <span className="eyebrow mb-4">Study destinations</span>
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink leading-tight">
+            Explore your dream destination
+          </h2>
+          <p className="mt-4 text-base text-ink-muted leading-relaxed">
+            Study at world-class universities across 11+ countries. Find the
+            perfect place to shape your future.
+          </p>
+        </div>
 
         {/* Filter + Controls row */}
         <div className="flex flex-wrap items-center justify-between gap-3 mb-8 md:mb-10">
@@ -69,8 +74,8 @@ export default function Destinations() {
                 onClick={() => handleRegion(region)}
                 className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
                   activeRegion === region
-                    ? 'bg-brand-blue text-white shadow-md shadow-brand-blue/20'
-                    : 'bg-brand-light text-brand-gray hover:bg-gray-200'
+                    ? 'bg-primary text-white shadow-glow'
+                    : 'bg-canvas text-ink-muted border border-line hover:border-primary/30 hover:text-primary'
                 }`}
               >
                 {region}
@@ -83,7 +88,7 @@ export default function Destinations() {
             <button
               onClick={prev}
               disabled={index === 0}
-              className="flex items-center justify-center h-10 w-10 rounded-full border border-gray-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="flex items-center justify-center h-10 w-10 rounded-full border border-line bg-white text-ink hover:border-primary hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all"
               aria-label="Previous"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -91,7 +96,7 @@ export default function Destinations() {
             <button
               onClick={next}
               disabled={index >= maxIndex}
-              className="flex items-center justify-center h-10 w-10 rounded-full border border-gray-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="flex items-center justify-center h-10 w-10 rounded-full border border-line bg-white text-ink hover:border-primary hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed transition-all"
               aria-label="Next"
             >
               <ChevronRight className="h-5 w-5" />
@@ -131,11 +136,11 @@ export default function Destinations() {
                     showTooltip={true}
                     displayOverlayContent={true}
                     overlayContent={
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent px-4 py-4 rounded-b-2xl">
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-ink/80 via-ink/25 to-transparent px-4 py-4">
                         <p className="text-white font-bold text-sm">
                           {dest.flag} {dest.name}
                         </p>
-                        <p className="text-white/75 text-xs flex items-center gap-1 mt-0.5">
+                        <p className="text-white/80 text-xs flex items-center gap-1 mt-0.5">
                           <MapPin className="h-3 w-3 shrink-0" />
                           {dest.universities}+ Universities
                         </p>
@@ -144,8 +149,8 @@ export default function Destinations() {
                   />
                 </div>
                 <div className="text-center">
-                  <p className="text-sm font-semibold text-brand-dark">{dest.name}</p>
-                  <p className="text-xs text-brand-gray">{dest.region}</p>
+                  <p className="text-sm font-semibold text-ink group-hover:text-primary transition-colors">{dest.name}</p>
+                  <p className="text-xs text-ink-muted">{dest.region}</p>
                 </div>
               </div>
             ))}
@@ -160,7 +165,7 @@ export default function Destinations() {
                 key={i}
                 onClick={() => setIndex(i)}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  i === index ? 'w-6 bg-brand-blue' : 'w-2 bg-gray-200 hover:bg-gray-300'
+                  i === index ? 'w-6 bg-primary' : 'w-2 bg-line hover:bg-ink-muted/40'
                 }`}
                 aria-label={`Slide ${i + 1}`}
               />

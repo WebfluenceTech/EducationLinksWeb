@@ -1,37 +1,31 @@
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { useCountUp } from '../../hooks/useCountUp';
+import { CalendarClock, Globe2, Building2, Users } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
-const STATS = [
-  { value: 17, suffix: '+', label: 'Years Experience' },
-  { value: 11, suffix: '+', label: 'Study Destinations' },
-  { value: 50, suffix: '+', label: 'University Partners' },
-  { value: 50, suffix: 'K+', label: 'Alumni Network' },
+const STATS: { value: number; suffix: string; label: string; icon: LucideIcon }[] = [
+  { value: 17, suffix: '+', label: 'Years of experience', icon: CalendarClock },
+  { value: 11, suffix: '+', label: 'Study destinations', icon: Globe2 },
+  { value: 50, suffix: '+', label: 'University partners', icon: Building2 },
+  { value: 50, suffix: 'K+', label: 'Alumni network', icon: Users },
 ];
 
 function StatItem({
-  value, suffix, label, isVisible,
+  value, suffix, label, icon: Icon, isVisible,
 }: {
-  value: number; suffix: string; label: string; isVisible: boolean;
+  value: number; suffix: string; label: string; icon: LucideIcon; isVisible: boolean;
 }) {
   const count = useCountUp(value, isVisible);
 
   return (
-    <div
-      className={`flex flex-col items-center text-center py-12 md:py-16 px-0 min-w-0 overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}
-    >
-      {/* Giant number */}
-      <span
-        className="font-heading font-extrabold leading-none text-brand-blue whitespace-nowrap"
-        style={{ fontSize: 'clamp(1rem, 6.5vw, 77.5rem)' }}
-      >
+    <div className="flex flex-col items-center text-center gap-3 px-4 py-8 md:py-10">
+      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-soft text-primary">
+        <Icon className="h-6 w-6" strokeWidth={1.75} />
+      </div>
+      <span className="font-heading font-extrabold leading-none text-ink text-4xl md:text-5xl tabular-nums">
         {count}{suffix}
       </span>
-
-      {/* Label */}
-      <span
-        className="mt-4 font-semibold text-brand-blue/55 uppercase tracking-widest text-xs"
-      >
+      <span className="text-xs md:text-sm font-medium text-ink-muted uppercase tracking-wide">
         {label}
       </span>
     </div>
@@ -39,21 +33,17 @@ function StatItem({
 }
 
 export default function StatsBar() {
-  const { ref, isVisible } = useScrollAnimation(0.15);
+  const { ref, isVisible } = useScrollAnimation(0.2);
 
   return (
-    <section className="bg-white border-b border-gray-100">
-      <div ref={ref} className="container-custom">
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-gray-100">
-          {STATS.map((stat, i) => (
-            <div
-              key={stat.label}
-              className="min-w-0 overflow-hidden"
-              style={{ transitionDelay: isVisible ? `${i * 100}ms` : '0ms' }}
-            >
-              <StatItem {...stat} isVisible={isVisible} />
-            </div>
-          ))}
+    <section className="relative -mt-8 z-20">
+      <div className="container-custom">
+        <div ref={ref} className="card-surface shadow-card overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-line">
+            {STATS.map((stat) => (
+              <StatItem key={stat.label} {...stat} isVisible={isVisible} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -6,22 +6,16 @@ export default function FindUs() {
   const [active, setActive] = useState(0);
 
   return (
-    <section
-      data-fp-scrollable
-      className="h-full min-h-screen overflow-y-auto"
-      style={{ background: '#FFFFFF' }}
-    >
-      <div className="container-custom py-10 md:py-14">
+    <section className="bg-canvas-alt section-padding">
+      <div className="container-custom">
 
         {/* Heading */}
         <div className="mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest text-brand-blue mb-3">
-            Our Locations
-          </p>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-dark leading-tight">
+          <span className="eyebrow mb-3">Our locations</span>
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-ink leading-tight">
             Find us
           </h2>
-          <p className="mt-2 text-sm text-brand-gray">
+          <p className="mt-3 text-base text-ink-muted">
             Visit any of our offices — we'd love to meet you in person.
           </p>
         </div>
@@ -34,25 +28,25 @@ export default function FindUs() {
               <button
                 key={office.name}
                 onClick={() => setActive(i)}
-                className={`text-left w-full rounded-xl px-5 py-4 border transition-all duration-200 ${
+                className={`text-left w-full rounded-2xl px-5 py-4 border transition-all duration-200 ${
                   active === i
-                    ? 'bg-white border-brand-blue/30 shadow-md'
-                    : 'bg-white/50 border-white/60 hover:bg-white hover:border-brand-blue/20'
+                    ? 'bg-white border-primary/40 shadow-card'
+                    : 'bg-white/60 border-line hover:bg-white hover:border-primary/20'
                 }`}
               >
                 <div className="flex items-start gap-3">
-                  <div className={`mt-0.5 shrink-0 h-8 w-8 rounded-lg flex items-center justify-center ${active === i ? 'bg-brand-blue text-white' : 'bg-brand-blue/10 text-brand-blue'}`}>
+                  <div className={`mt-0.5 shrink-0 h-9 w-9 rounded-xl flex items-center justify-center ${active === i ? 'bg-primary text-white' : 'bg-primary-soft text-primary'}`}>
                     <MapPin className="h-4 w-4" />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-sm font-semibold text-brand-dark">{office.name}</p>
-                    <p className="text-xs text-brand-gray mt-0.5 leading-relaxed">{office.address}</p>
+                    <p className="text-sm font-semibold text-ink">{office.name}</p>
+                    <p className="text-xs text-ink-muted mt-0.5 leading-relaxed">{office.address}</p>
                     <a
                       href={office.mapUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       onClick={(e) => e.stopPropagation()}
-                      className="inline-flex items-center gap-1 text-xs text-brand-blue hover:underline mt-2"
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline mt-2"
                     >
                       <ExternalLink className="h-3 w-3" />
                       Directions
@@ -64,7 +58,7 @@ export default function FindUs() {
           </div>
 
           {/* Map embed */}
-          <div className="lg:col-span-3 rounded-none overflow-hidden shadow-lg border-[8px] border-white w-full h-[420px]">
+          <div className="lg:col-span-3 rounded-2xl overflow-hidden shadow-card border border-line w-full h-[420px]">
             <iframe
               key={active}
               src={OFFICES[active].embedSrc}
