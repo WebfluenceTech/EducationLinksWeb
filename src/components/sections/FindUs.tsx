@@ -8,20 +8,17 @@ export default function FindUs() {
   return (
     <section
       data-fp-scrollable
-      className="h-full min-h-screen overflow-y-auto"
-      style={{ background: '#FFFFFF' }}
+      className="h-full min-h-screen overflow-y-auto bg-white"
     >
-      <div className="container-custom py-10 md:py-14">
+      <div className="container-custom section-padding">
 
         {/* Heading */}
-        <div className="mb-10">
-          <p className="text-xs font-semibold uppercase tracking-widest text-brand-blue mb-3">
-            Our Locations
-          </p>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-dark leading-tight">
+        <div className="mb-10 md:mb-12">
+          <span className="eyebrow mb-4">Our Locations</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-brand-dark leading-[1.08] tracking-tight">
             Find us
           </h2>
-          <p className="mt-2 text-sm text-brand-gray">
+          <p className="mt-4 text-base text-brand-gray max-w-xl">
             Visit any of our offices — we'd love to meet you in person.
           </p>
         </div>
@@ -34,10 +31,10 @@ export default function FindUs() {
               <button
                 key={office.name}
                 onClick={() => setActive(i)}
-                className={`text-left w-full rounded-xl px-5 py-4 border transition-all duration-200 ${
+                className={`text-left w-full px-5 py-4 border transition-all duration-200 active:scale-[0.99] ${
                   active === i
-                    ? 'bg-white border-brand-blue/30 shadow-md'
-                    : 'bg-white/50 border-white/60 hover:bg-white hover:border-brand-blue/20'
+                    ? 'bg-white border-brand-blue/40 shadow-card ring-1 ring-brand-blue/10'
+                    : 'bg-surface border-slate-200 hover:border-brand-blue/30 hover:bg-white'
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -64,12 +61,13 @@ export default function FindUs() {
           </div>
 
           {/* Map embed */}
-          <div className="lg:col-span-3 rounded-none overflow-hidden shadow-lg border-[8px] border-white w-full h-[420px]">
+          <div className="lg:col-span-3 overflow-hidden shadow-soft ring-1 ring-slate-200 bg-white p-1.5 w-full h-[420px]">
             <iframe
               key={active}
               src={OFFICES[active].embedSrc}
               width="100%"
               height="100%"
+              className=""
               style={{ border: 0, display: 'block' }}
               allowFullScreen
               loading="lazy"

@@ -6,7 +6,7 @@ function LogoCard({ name, domain }: { name: string; domain: string }) {
   const initials = name.split(' ').map((w) => w[0]).join('').slice(0, 3).toUpperCase();
 
   return (
-    <div className="shrink-0 flex items-center justify-center bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-blue/20 transition-all duration-300 w-44 h-28 px-5">
+    <div className="shrink-0 flex items-center justify-center bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-brand-blue/20 transition-all duration-300 w-44 h-28 px-5">
       {!failed ? (
         <img
           src={`https://logo.clearbit.com/${domain}`}

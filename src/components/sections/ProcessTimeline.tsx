@@ -61,26 +61,18 @@ export default function ProcessTimeline() {
 
   return (
     <section
-      className="relative md:min-h-screen flex flex-col bg-cover bg-center bg-no-repeat overflow-hidden"
-      style={{
-        backgroundImage: `url('https://images.pexels.com/photos/290386/pexels-photo-290386.jpeg?auto=compress&cs=tinysrgb&w=1600')`,
-        width: '100vw', maxWidth: '100vw', boxSizing: 'border-box',
-      }}
+      className="relative section-padding flex flex-col overflow-hidden bg-white"
+      style={{ width: '100vw', maxWidth: '100vw', boxSizing: 'border-box' }}
     >
-      <div className="absolute inset-0 bg-slate-900/75" />
-
-      <div className="relative z-10 w-full flex-1 flex flex-col py-10 md:py-28 container-custom">
+      <div className="relative z-10 w-full flex-1 flex flex-col container-custom">
 
         {/* Heading */}
-        <div className="text-center mb-8 md:mb-12">
-          <p className="text-brand-blue text-xs font-bold uppercase tracking-[0.2em] mb-3">
-            Step by Step
-          </p>
-          <h2 className="font-heading font-script tracking-tight text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+        <div className="flex flex-col items-center text-center mb-10 md:mb-14">
+          <span className="eyebrow mb-4">Step by Step</span>
+          <h2 className="font-heading tracking-tight text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-brand-dark leading-[1.08]">
             Your Journey to Studying Abroad
           </h2>
-          <div className="mx-auto mt-4 h-1 w-20 rounded-full bg-brand-blue" />
-          <p className="mt-4 text-white/60 text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+          <p className="mt-4 text-brand-gray text-base max-w-xl mx-auto leading-relaxed">
             A simple 9-step process that takes you from dreaming to achieving your international education goals.
           </p>
         </div>
@@ -104,15 +96,15 @@ export default function ProcessTimeline() {
                   >
                     <div className="flex flex-col items-center text-center gap-4 py-6">
                       {/* Icon circle */}
-                      <div className="relative flex items-center justify-center h-20 w-20 sm:h-28 sm:w-28 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white">
-                        <div className="absolute -top-1.5 -right-1.5 sm:-top-2 sm:-right-2 h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-brand-blue text-white text-xs sm:text-sm font-bold flex items-center justify-center shadow-lg">
+                      <div className="relative flex items-center justify-center h-20 w-20 sm:h-24 sm:w-24 rounded-3xl bg-white border border-slate-200/80 shadow-card text-brand-blue">
+                        <div className="absolute -top-2 -right-2 h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-brand-blue text-white text-xs sm:text-sm font-bold flex items-center justify-center ring-4 ring-surface">
                           {i + 1}
                         </div>
-                        {Icon && <Icon className="h-8 w-8 sm:h-11 sm:w-11" />}
+                        {Icon && <Icon className="h-8 w-8 sm:h-10 sm:w-10" strokeWidth={1.75} />}
                       </div>
                       <div>
-                        <h3 className="text-base sm:text-lg font-bold text-white mb-2">{step.title}</h3>
-                        <p className="text-xs sm:text-sm text-white/60 leading-relaxed max-w-[180px] sm:max-w-[220px] mx-auto">{step.description}</p>
+                        <h3 className="text-base sm:text-lg font-bold text-brand-dark mb-2">{step.title}</h3>
+                        <p className="text-xs sm:text-sm text-brand-gray leading-relaxed max-w-[180px] sm:max-w-[220px] mx-auto">{step.description}</p>
                       </div>
                     </div>
                   </div>
@@ -122,11 +114,11 @@ export default function ProcessTimeline() {
           </div>
 
           {/* Prev / Next + Dots row */}
-          <div className="flex items-center justify-center gap-4 mt-6 md:mt-10">
+          <div className="flex items-center justify-center gap-4 mt-8 md:mt-12">
             <button
               onClick={prev}
               disabled={current === 0}
-              className="flex items-center justify-center h-10 w-10 rounded-full bg-white/10 border border-white/20 text-white backdrop-blur-sm hover:bg-brand-blue/70 transition disabled:opacity-30 disabled:cursor-not-allowed shrink-0"
+              className="flex items-center justify-center h-11 w-11 border border-slate-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue hover:bg-brand-blue/5 transition disabled:opacity-30 disabled:cursor-not-allowed shrink-0 active:scale-95"
               aria-label="Previous step"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -137,7 +129,7 @@ export default function ProcessTimeline() {
                 <button
                   key={i}
                   onClick={() => setCurrent(i)}
-                  className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'w-7 bg-brand-blue' : 'w-2 bg-white/30 hover:bg-white/60'}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === current ? 'w-7 bg-brand-blue' : 'w-2 bg-slate-300 hover:bg-slate-400'}`}
                   aria-label={`Go to step ${i + 1}`}
                 />
               ))}
@@ -146,7 +138,7 @@ export default function ProcessTimeline() {
             <button
               onClick={next}
               disabled={current >= maxIndex}
-              className="flex items-center justify-center h-10 w-10 rounded-full bg-white/10 border border-white/20 text-white backdrop-blur-sm hover:bg-brand-blue/70 transition disabled:opacity-30 disabled:cursor-not-allowed shrink-0"
+              className="flex items-center justify-center h-11 w-11 border border-slate-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue hover:bg-brand-blue/5 transition disabled:opacity-30 disabled:cursor-not-allowed shrink-0 active:scale-95"
               aria-label="Next step"
             >
               <ChevronRight className="h-5 w-5" />

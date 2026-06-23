@@ -10,14 +10,16 @@
   }
 
   body {
-    @apply bg-white text-brand-dark font-body;
+    @apply bg-[#EEEDED] text-brand-dark font-body antialiased;
     overflow-x: hidden;
     max-width: 100vw;
     width: 100%;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading tracking-tight;
   }
 
   ::selection {
@@ -31,7 +33,54 @@
   }
 
   .container-custom {
-    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    @apply mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-10 xl:px-16;
+  }
+
+  /* Reusable eyebrow label */
+  .eyebrow {
+    @apply inline-flex items-center gap-2.5 text-[11px] font-bold uppercase tracking-[0.2em] text-brand-blue;
+  }
+
+  .eyebrow::before {
+    content: '';
+    @apply h-1.5 w-1.5 rounded-full bg-brand-blue;
+  }
+
+  /* Button system — consistent radius + tactile feedback */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 text-sm font-semibold
+           transition-all duration-200 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-blue text-white px-6 py-3
+           hover:bg-brand-blue-dark hover:-translate-y-0.5 hover:shadow-blue-glow;
+  }
+
+  .btn-dark {
+    @apply btn bg-brand-dark text-white px-6 py-3
+           hover:-translate-y-0.5 hover:shadow-soft;
+  }
+
+  .btn-cta {
+    @apply btn bg-brand-dark text-white px-6 py-3
+           hover:bg-brand-blue hover:-translate-y-0.5;
+  }
+
+  .btn-ghost {
+    @apply btn border border-slate-300 bg-transparent text-brand-dark px-6 py-3
+           hover:border-brand-blue hover:text-brand-blue;
+  }
+
+  .btn-light {
+    @apply btn bg-white text-brand-blue px-6 py-3
+           hover:-translate-y-0.5 hover:shadow-soft;
+  }
+
+  /* Soft card */
+  .card-soft {
+    @apply border border-slate-200/80 bg-white shadow-card
+           transition-all duration-300;
   }
 }
 

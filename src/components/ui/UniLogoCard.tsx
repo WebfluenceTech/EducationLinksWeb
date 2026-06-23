@@ -11,7 +11,7 @@ export function UniLogoCard({ name, domain, logoUrl, country }: { name: string; 
   const initials = name.split(' ').filter(Boolean).map(w => w[0]).join('').slice(0, 2).toUpperCase();
 
   return (
-    <div className="flex flex-col bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden shadow-sm h-full group">
+    <div className="flex flex-col bg-white border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden shadow-sm h-full group">
       {/* Top logo area */}
       <div className="h-28 p-5 flex items-center justify-start border-b border-gray-100 bg-white">
         {!failed ? (
@@ -35,7 +35,7 @@ export function UniLogoCard({ name, domain, logoUrl, country }: { name: string; 
         </a>
         
         <div className="mt-6 pt-1 mt-auto">
-          <a href="#inquiry" className="block w-full py-2 rounded-md bg-[#FF7A59] text-white text-[13px] font-medium hover:bg-[#f56642] transition-colors shadow-sm text-center">
+          <a href="#inquiry" className="block w-full py-2 bg-[#FF7A59] text-white text-[13px] font-medium hover:bg-[#f56642] transition-colors shadow-sm text-center">
             Apply Now
           </a>
         </div>

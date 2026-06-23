@@ -43,7 +43,7 @@ export default function LatestNews() {
             <Link
               key={item.title}
               to="/contact"
-              className={`group block bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:shadow-brand-blue/5 transition-all duration-500 ${
+              className={`group block bg-white overflow-hidden border border-gray-100 hover:shadow-xl hover:shadow-brand-blue/5 transition-all duration-500 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
               style={{ transitionDelay: isVisible ? `${i * 100}ms` : '0ms' }}

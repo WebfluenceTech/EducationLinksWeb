@@ -53,11 +53,12 @@ export default function Destinations() {
   const next = () => setIndex((i) => Math.min(i + 1, maxIndex));
 
   return (
-    <section id="destinations" className="scroll-offset section-padding bg-white overflow-hidden">
+    <section id="destinations" className="scroll-offset section-padding bg-surface overflow-hidden">
       <div className="container-custom">
         <SectionHeading
+          eyebrow="Study Destinations"
           title="Explore Your Dream Destination"
-          subtitle="Study in world-class universities across 11+ countries. Find the perfect destination for your future."
+          subtitle="Study at world-class universities across 11+ countries. Find the perfect destination for your future."
         />
 
         {/* Filter + Controls row */}
@@ -67,10 +68,10 @@ export default function Destinations() {
               <button
                 key={region}
                 onClick={() => handleRegion(region)}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
+                className={`px-5 py-2.5 text-sm font-semibold transition-all active:scale-95 ${
                   activeRegion === region
-                    ? 'bg-brand-blue text-white shadow-md shadow-brand-blue/20'
-                    : 'bg-brand-light text-brand-gray hover:bg-gray-200'
+                    ? 'bg-brand-blue text-white shadow-blue-glow'
+                    : 'bg-white text-brand-gray ring-1 ring-slate-200 hover:ring-brand-blue/40 hover:text-brand-blue'
                 }`}
               >
                 {region}
@@ -83,7 +84,7 @@ export default function Destinations() {
             <button
               onClick={prev}
               disabled={index === 0}
-              className="flex items-center justify-center h-10 w-10 rounded-full border border-gray-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="flex items-center justify-center h-11 w-11 border border-slate-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue hover:bg-brand-blue/5 disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
               aria-label="Previous"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -91,7 +92,7 @@ export default function Destinations() {
             <button
               onClick={next}
               disabled={index >= maxIndex}
-              className="flex items-center justify-center h-10 w-10 rounded-full border border-gray-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="flex items-center justify-center h-11 w-11 border border-slate-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue hover:bg-brand-blue/5 disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
               aria-label="Next"
             >
               <ChevronRight className="h-5 w-5" />
@@ -131,7 +132,7 @@ export default function Destinations() {
                     showTooltip={true}
                     displayOverlayContent={true}
                     overlayContent={
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent px-4 py-4 rounded-b-2xl">
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent px-4 py-4">
                         <p className="text-white font-bold text-sm">
                           {dest.flag} {dest.name}
                         </p>

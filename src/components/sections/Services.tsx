@@ -51,26 +51,46 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="scroll-offset md:min-h-screen flex flex-col"
-      style={{ background: '#FFE7CA', width: '100vw', maxWidth: '100vw', boxSizing: 'border-box' }}
+      className="scroll-offset section-padding bg-white"
+      style={{ width: '100vw', maxWidth: '100vw', boxSizing: 'border-box' }}
     >
-      <div className="flex-1 flex flex-col w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-20 gap-8 md:gap-12">
+      <div className="container-custom flex flex-col gap-10 md:gap-14">
 
         {/* Heading */}
-        <div className="text-center">
-          <p className="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-3">
-            What We Do
-          </p>
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-brand-dark leading-tight">
-            Our Services
-          </h2>
-          <p className="mt-3 text-sm text-brand-gray max-w-md mx-auto">
-            Everything you need to study abroad, handled by experts.
-          </p>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div className="max-w-xl">
+            <span className="eyebrow mb-4">What We Do</span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-[2.75rem] font-extrabold text-brand-dark leading-[1.08] tracking-tight">
+              Our Services
+            </h2>
+            <p className="mt-4 text-base text-brand-gray leading-relaxed">
+              Everything you need to study abroad, handled by experts who have done it 6,000+ times.
+            </p>
+          </div>
+
+          {/* Controls (desktop, aligned right) */}
+          <div className="hidden md:flex items-center gap-2 shrink-0">
+            <button
+              onClick={prev}
+              disabled={index === 0}
+              className="flex items-center justify-center h-11 w-11 border border-slate-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue hover:bg-brand-blue/5 disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
+              aria-label="Previous"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              onClick={next}
+              disabled={index === maxIndex}
+              className="flex items-center justify-center h-11 w-11 border border-slate-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue hover:bg-brand-blue/5 disabled:opacity-30 disabled:cursor-not-allowed transition-all active:scale-95"
+              aria-label="Next"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
         </div>
 
         {/* Carousel */}
-        <div className="flex-1 flex flex-col justify-center gap-6">
+        <div className="flex flex-col gap-8">
           <div className="overflow-hidden w-full">
             <div
               className="flex transition-transform duration-500 ease-in-out"
@@ -81,17 +101,17 @@ export default function Services() {
                 return (
                   <div
                     key={service.title}
-                    className="shrink-0 px-2"
+                    className="shrink-0 px-2.5"
                     style={{ width: `${100 / visibleCount}%` }}
                   >
-                    <div className="bg-white rounded-xl p-6 border border-gray-100 hover:border-brand-blue/20 hover:shadow-md transition-all duration-200 flex flex-col items-center text-center h-full">
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-blue/8 text-brand-blue shrink-0">
-                        {Icon && <Icon className="h-5 w-5" strokeWidth={1.5} />}
+                    <div className="group card-soft p-7 flex flex-col h-full hover:-translate-y-1.5 hover:shadow-card-hover hover:border-brand-blue/20">
+                      <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-blue/10 text-brand-blue shrink-0 transition-colors group-hover:bg-brand-blue group-hover:text-white">
+                        {Icon && <Icon className="h-6 w-6" strokeWidth={2} />}
                       </div>
-                      <h3 className="font-heading text-sm font-semibold text-brand-dark mb-2">
+                      <h3 className="font-heading text-lg font-bold text-brand-dark mb-2">
                         {service.title}
                       </h3>
-                      <p className="text-xs text-brand-gray leading-relaxed flex-1">
+                      <p className="text-sm text-brand-gray leading-relaxed flex-1">
                         {service.description}
                       </p>
                     </div>
@@ -101,12 +121,12 @@ export default function Services() {
             </div>
           </div>
 
-          {/* Controls */}
+          {/* Dots + mobile controls */}
           <div className="flex items-center justify-center gap-4">
             <button
               onClick={prev}
               disabled={index === 0}
-              className="flex items-center justify-center h-9 w-9 rounded-full border border-gray-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="md:hidden flex items-center justify-center h-10 w-10 border border-slate-200 bg-white text-brand-dark disabled:opacity-30 transition-all active:scale-95"
               aria-label="Previous"
             >
               <ChevronLeft className="h-4 w-4" />
@@ -117,7 +137,7 @@ export default function Services() {
                 <button
                   key={i}
                   onClick={() => setIndex(i)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${i === index ? 'w-6 bg-brand-blue' : 'w-1.5 bg-gray-300'}`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${i === index ? 'w-7 bg-brand-blue' : 'w-1.5 bg-slate-300 hover:bg-slate-400'}`}
                   aria-label={`Go to slide ${i + 1}`}
                 />
               ))}
@@ -126,7 +146,7 @@ export default function Services() {
             <button
               onClick={next}
               disabled={index === maxIndex}
-              className="flex items-center justify-center h-9 w-9 rounded-full border border-gray-200 bg-white text-brand-dark hover:border-brand-blue hover:text-brand-blue disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+              className="md:hidden flex items-center justify-center h-10 w-10 border border-slate-200 bg-white text-brand-dark disabled:opacity-30 transition-all active:scale-95"
               aria-label="Next"
             >
               <ChevronRight className="h-4 w-4" />

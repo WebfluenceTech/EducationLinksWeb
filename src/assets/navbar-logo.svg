@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" width="200" height="100">
+
+  <!-- "e" letter — white instead of blue so it's visible on blue navbar -->
+  <g>
+    <!-- outer arc of e -->
+    <path d="
+      M 22 50
+      C 22 28, 38 14, 58 14
+      C 78 14, 92 28, 92 46
+      C 92 50, 91 54, 91 54
+      L 28 54
+      C 30 66, 42 74, 58 74
+      C 68 74, 76 70, 82 62
+      L 88 70
+      C 80 80, 70 84, 57 84
+      C 36 84, 22 70, 22 50 Z
+    " fill="white"/>
+    <!-- middle cutout (the opening of the e) -->
+    <path d="
+      M 30 46
+      L 84 46
+      C 82 34, 72 24, 58 24
+      C 44 24, 32 34, 30 46 Z
+    " fill="#2F95D0"/>
+    <!-- three dots below -->
+    <circle cx="34" cy="82" r="3.5" fill="white"/>
+    <circle cx="46" cy="86" r="3.5" fill="white"/>
+    <circle cx="58" cy="88" r="3.5" fill="white"/>
+  </g>
+
+  <!-- "l" vertical bar — red, stays the same -->
+  <rect x="100" y="12" width="10" height="72" rx="5" ry="5" fill="#D0342C"/>
+
+  <!-- "]" bracket / book shape — white instead of gray -->
+  <g>
+    <!-- left edge of bracket -->
+    <rect x="118" y="14" width="8" height="68" rx="3" fill="white" opacity="0.9"/>
+    <!-- top bar -->
+    <rect x="118" y="14" width="46" height="8" rx="3" fill="white" opacity="0.9"/>
+    <!-- bottom bar -->
+    <rect x="118" y="74" width="46" height="8" rx="3" fill="white" opacity="0.9"/>
+    <!-- inner page lines to give the book look -->
+    <line x1="130" y1="30" x2="158" y2="30" stroke="#2F95D0" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+    <line x1="130" y1="40" x2="158" y2="40" stroke="#2F95D0" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+    <line x1="130" y1="50" x2="158" y2="50" stroke="#2F95D0" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+    <line x1="130" y1="60" x2="158" y2="60" stroke="#2F95D0" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  </g>
+
+</svg>

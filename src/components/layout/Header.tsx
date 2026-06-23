@@ -1,11 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useIsMobile } from '../../hooks/useIsMobile';
-import {
-  Menu, X, Phone, Mail, MapPin, ChevronDown,
-  Facebook, Instagram, Youtube,
-} from 'lucide-react';
-import logoSrc from '../../assets/footerlogo.png';
+import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
+import logoSrc from '../../assets/logo.png';
 import { COMPANY, DESTINATIONS } from '../../lib/constants';
 
 const NAV_LINKS_BEFORE_TEAM = [
@@ -30,12 +26,14 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
   const location = useLocation();
-  const isMobile = useIsMobile();
 
   useEffect(() => {
     setMobileOpen(false);
     setMegaOpen(false);
   }, [location]);
+
+  const isActive = (to: string) =>
+    to === '/' ? location.pathname === '/' : location.pathname === to;
 
   const handleNavClick = (to: string) => {
     setMobileOpen(false);
@@ -50,62 +48,40 @@ export default function Header() {
     }
   };
 
-  return (
-    <>
-      {/* Fixed wrapper: top-bar + main nav stacked with no gap */}
-      <div className="fixed top-0 left-0 right-0 z-50 font-heading" style={{ backgroundColor: '#2F95D0' }}>
-        {/* Top Bar */}
-        <div className="bg-slate-900 text-white text-sm hidden md:block">
-          <div className="container-custom flex items-center justify-between py-2">
-            <div className="flex items-center gap-6">
-              <a href={`tel:${COMPANY.whatsapp}`} className="flex items-center gap-1.5 hover:text-brand-blue-light transition-colors">
-                <Phone className="h-3.5 w-3.5" />
-                <span>{COMPANY.whatsapp}</span>
-              </a>
-              <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-1.5 hover:text-brand-blue-light transition-colors">
-                <Mail className="h-3.5 w-3.5" />
-                <span>{COMPANY.email}</span>
-              </a>
-              <span className="flex items-center gap-1.5">
-                <MapPin className="h-3.5 w-3.5" />
-                <span>Lahore | Sialkot</span>
-              </span>
-            </div>
-            <div className="flex items-center gap-4">
-              <a href={COMPANY.social.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue-light transition-colors" aria-label="Facebook"><Facebook className="h-4 w-4" /></a>
-              <a href={COMPANY.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue-light transition-colors" aria-label="Instagram"><Instagram className="h-4 w-4" /></a>
-              <a href={COMPANY.social.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-brand-blue-light transition-colors" aria-label="YouTube"><Youtube className="h-4 w-4" /></a>
-            </div>
-          </div>
-        </div>
+  const navLinkClass = (to: string) =>
+    `group flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+      isActive(to)
+        ? 'text-white bg-white/[0.10]'
+        : 'text-white/55 hover:text-white hover:bg-white/[0.06]'
+    }`;
 
-      {/* Main Nav */}
-      <header style={{ backgroundColor: '#2F95D0' }}>
-        <div className="container-custom relative flex items-center justify-between h-16 md:h-20">
+  return (
+    <header className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-4">
+      <div className="mx-auto flex max-w-6xl justify-center">
+        {/* ── Floating pill ── */}
+        <div className="flex w-full items-center gap-1.5 rounded-full bg-[#1b1b1b] p-1.5 shadow-[0_22px_50px_-18px_rgba(0,0,0,0.55)] ring-1 ring-white/[0.06] sm:p-2 lg:w-auto">
           {/* Logo */}
-          <Link to="/" className="shrink-0 flex flex-col items-center" onClick={() => handleNavClick('/')}>
-            <img src={logoSrc} alt="Education Links" className="h-12 md:h-14 w-auto object-contain" />
-            <span className="text-white text-[10px] md:text-xs font-semibold tracking-wide leading-none -mt-1">Education Links</span>
+          <Link
+            to="/"
+            onClick={() => handleNavClick('/')}
+            aria-label="Education Links — home"
+            className="flex h-10 shrink-0 items-center rounded-full bg-[#EEEDED] px-3 transition-transform duration-200 hover:scale-[1.03] sm:h-11 sm:px-4"
+          >
+            <img src={logoSrc} alt="Education Links" className="h-6 w-auto object-contain sm:h-7" />
           </Link>
 
-          {/* Certification — centered on mobile */}
-          <img src="/certification.png" alt="Certification" className="block lg:hidden absolute left-1/2 -translate-x-1/2 h-10 w-auto object-contain" />
-
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          {/* Desktop nav */}
+          <nav className="mx-1 hidden items-center lg:flex">
             {NAV_LINKS_BEFORE_TEAM.map((link) => (
-              <div key={link.label} className="relative">
-                <Link
-                  to={link.to}
-                  onClick={() => handleNavClick(link.to)}
-                  className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-white hover:bg-white/20 transition-colors"
-                >
-                  {link.label}
-                </Link>
-              </div>
+              <Link
+                key={link.label}
+                to={link.to}
+                onClick={() => handleNavClick(link.to)}
+                className={navLinkClass(link.to)}
+              >
+                {link.label}
+              </Link>
             ))}
-
-
 
             {NAV_LINKS_AFTER_TEAM.map((link) => (
               <div
@@ -117,30 +93,36 @@ export default function Header() {
                 <Link
                   to={link.to}
                   onClick={() => handleNavClick(link.to)}
-                  className="flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium text-white hover:text-white hover:bg-white/20 transition-colors"
+                  className={navLinkClass(link.to)}
                 >
                   {link.label}
-                  {link.hasMega && <ChevronDown className="h-3.5 w-3.5" />}
+                  {link.hasMega && (
+                    <ChevronDown
+                      className={`h-3.5 w-3.5 transition-transform duration-300 ${megaOpen ? 'rotate-180' : ''}`}
+                    />
+                  )}
                 </Link>
 
                 {link.hasMega && megaOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
-                    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 w-[600px]">
-                      <div className="grid grid-cols-2 gap-6">
+                  <div className="absolute left-1/2 top-full -translate-x-1/2 pt-4">
+                    <div className="w-[620px] border border-slate-100 bg-white p-6 shadow-soft animate-fade-in-up">
+                      <div className="grid grid-cols-2 gap-x-6 gap-y-5">
                         {regions.map((region) => (
                           <div key={region}>
-                            <h4 className="text-xs font-semibold text-brand-gray uppercase tracking-wider mb-3">{region}</h4>
-                            <div className="space-y-1.5">
-                              {DESTINATIONS.filter(d => d.region === region).map((dest) => (
+                            <h4 className="mb-3 text-[11px] font-bold uppercase tracking-[0.18em] text-brand-gray">
+                              {region}
+                            </h4>
+                            <div className="space-y-0.5">
+                              {DESTINATIONS.filter((d) => d.region === region).map((dest) => (
                                 <Link
                                   key={dest.name}
                                   to={`/destinations/${encodeURIComponent(dest.name)}`}
                                   onClick={() => { setMegaOpen(false); setMobileOpen(false); }}
-                                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm hover:bg-brand-light/60 transition-colors"
+                                  className="flex items-center gap-2.5 px-3 py-2 text-sm font-medium text-brand-dark transition-colors hover:bg-surface-soft hover:text-brand-blue"
                                 >
                                   <span className="text-base">{dest.flag}</span>
                                   <span>{dest.name}</span>
-                                  <span className="ml-auto text-xs text-brand-gray">{dest.universities}+</span>
+                                  <span className="ml-auto text-xs font-semibold text-brand-gray-light">{dest.universities}+</span>
                                 </Link>
                               ))}
                             </div>
@@ -154,66 +136,81 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA + Mobile Toggle */}
-          <div className="flex items-center gap-3">
-            <img src="/certification.png" alt="Certification" className="hidden lg:block h-12 w-auto object-contain" />
-            <a
-              href="/#inquiry"
-              onClick={() => handleNavClick('/#inquiry')}
-              className="hidden sm:inline-flex items-center gap-2 bg-brand-red hover:bg-red-700 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
-            >
-              Apply Now
-            </a>
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-white/20 transition-colors text-white"
-              aria-label="Toggle menu"
-            >
-              {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+          {/* push CTA / toggle to the right on mobile */}
+          <div className="flex-1 lg:hidden" />
+
+          {/* ICEF certification badge */}
+          <div className="ml-1 flex h-10 shrink-0 items-center rounded-full bg-white px-2.5 lg:hidden xl:flex sm:h-11">
+            <img
+              src="/certification.png"
+              alt="ICEF Certified Agency — REG # 3608"
+              className="h-6 w-auto object-contain sm:h-7"
+            />
           </div>
+
+          {/* CTA pill */}
+          <a
+            href="/#inquiry"
+            onClick={() => handleNavClick('/#inquiry')}
+            className="ml-1 hidden items-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#15181F] transition-colors hover:bg-brand-blue hover:text-white sm:inline-flex"
+          >
+            Apply Now
+          </a>
+
+          {/* Mobile toggle */}
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="flex h-10 w-10 items-center justify-center rounded-full text-white transition-colors hover:bg-white/10 lg:hidden"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
         </div>
-
-        {/* Mobile Drawer */}
-        <div className={`lg:hidden fixed inset-0 top-16 z-40 transition-transform duration-300 ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          <div className="absolute inset-0 bg-black/30" onClick={() => setMobileOpen(false)} />
-          <nav className="absolute right-0 top-0 bottom-0 w-80 max-w-full bg-white shadow-2xl overflow-y-auto">
-            <div className="p-6 space-y-1">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.label}
-                  to={link.to}
-                  onClick={() => handleNavClick(link.to)}
-                  className="block px-4 py-3 rounded-lg text-base font-medium text-brand-dark hover:bg-brand-light/60 transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-
-
-
-              <div className="pt-4 border-t border-gray-100 mt-4">
-                <a
-                  href="/#inquiry"
-                  onClick={() => { setMobileOpen(false); handleNavClick('/#inquiry'); }}
-                  className="block w-full text-center bg-brand-red hover:bg-red-700 text-white font-semibold px-5 py-3 rounded-lg transition-colors"
-                >
-                  Apply Now
-                </a>
-              </div>
-              <div className="pt-4 space-y-3 text-sm text-brand-gray">
-                <a href={`tel:${COMPANY.whatsapp}`} className="flex items-center gap-2">
-                  <Phone className="h-4 w-4" /> {COMPANY.whatsapp}
-                </a>
-                <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2">
-                  <Mail className="h-4 w-4" /> {COMPANY.email}
-                </a>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </header>
       </div>
-    </>
+
+      {/* Mobile drawer */}
+      <div className={`lg:hidden ${mobileOpen ? '' : 'pointer-events-none'}`}>
+        <div
+          className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-300 ${mobileOpen ? 'opacity-100' : 'opacity-0'}`}
+          onClick={() => setMobileOpen(false)}
+        />
+        <nav
+          className={`fixed right-0 top-0 bottom-0 z-40 w-80 max-w-[85%] overflow-y-auto bg-white shadow-2xl transition-transform duration-300 ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        >
+          <div className="space-y-1 p-6 pt-24">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.label}
+                to={link.to}
+                onClick={() => handleNavClick(link.to)}
+                className={`block px-4 py-3 text-base font-semibold transition-colors ${
+                  isActive(link.to) ? 'bg-surface-soft text-brand-blue' : 'text-brand-dark hover:bg-surface-soft'
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+
+            <div className="mt-4 border-t border-slate-100 pt-4">
+              <a
+                href="/#inquiry"
+                onClick={() => { setMobileOpen(false); handleNavClick('/#inquiry'); }}
+                className="btn-primary w-full"
+              >
+                Apply Now
+              </a>
+            </div>
+            <div className="space-y-3 pt-5 text-sm text-brand-gray">
+              <a href={`tel:${COMPANY.whatsapp}`} className="flex items-center gap-2.5 transition-colors hover:text-brand-blue">
+                <Phone className="h-4 w-4 text-brand-blue" /> {COMPANY.whatsapp}
+              </a>
+              <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-2.5 transition-colors hover:text-brand-blue">
+                <Mail className="h-4 w-4 text-brand-blue" /> {COMPANY.email}
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
   );
 }

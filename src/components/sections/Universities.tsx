@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, Fragment } from 'react';
 import { PARTNER_UNIVERSITIES } from '../../lib/constants';
 import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 import { useCountUp } from '../../hooks/useCountUp';
@@ -18,7 +18,7 @@ function LogoCard({ name, domain, logoUrl }: Uni) {
   const initials = name.split(' ').filter(Boolean).map((w) => w[0]).join('').slice(0, 3).toUpperCase();
 
   return (
-    <div className="shrink-0 flex flex-col items-center justify-center gap-2 bg-white border border-gray-100 rounded-xl px-3 py-3 sm:px-5 sm:py-4 md:px-8 md:py-6 w-32 h-24 sm:w-48 sm:h-32 md:w-64 md:h-36 hover:border-brand-blue/30 hover:shadow-lg transition-all duration-300">
+    <div className="shrink-0 flex flex-col items-center justify-center gap-2 bg-white border border-slate-200/70 px-3 py-3 sm:px-5 sm:py-4 md:px-8 md:py-6 w-32 h-24 sm:w-48 sm:h-32 md:w-64 md:h-36 hover:border-brand-blue/30 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300">
       {!failed ? (
         <img
           src={sources[srcIndex]}
@@ -76,14 +76,14 @@ export default function Universities() {
   const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation(0.2);
 
   return (
-    <section className="md:min-h-screen flex flex-col overflow-hidden" style={{ background: '#FFF', width: '100vw', maxWidth: '100vw', boxSizing: 'border-box' }}>
+    <section className="section-padding flex flex-col overflow-hidden bg-surface" style={{ width: '100vw', maxWidth: '100vw', boxSizing: 'border-box' }}>
 
-      <div className="flex-1 flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-12 py-10 md:py-28 px-4 sm:px-6 lg:px-8 xl:px-16">
+      <div className="flex-1 flex flex-col lg:flex-row lg:items-center gap-10 lg:gap-12 px-4 sm:px-6 lg:px-8 xl:px-16">
 
         {/* Left — heading */}
         <div className="shrink-0 lg:w-80 xl:w-96">
-          <p className="text-brand-blue text-xs font-bold uppercase tracking-[0.2em] mb-4">Our Network</p>
-          <h2 className="font-heading tracking-tight text-3xl md:text-5xl lg:text-6xl font-extrabold text-brand-dark leading-tight">
+          <span className="eyebrow mb-4">Our Network</span>
+          <h2 className="font-heading tracking-tight text-3xl md:text-4xl lg:text-5xl font-extrabold text-brand-dark leading-[1.08]">
             Trusted by 50+ Leading Universities
           </h2>
           <div className="mt-5 h-1 w-16 rounded-full bg-brand-blue" />
@@ -94,10 +94,10 @@ export default function Universities() {
           {/* Stats row */}
           <div ref={statsRef} className="mt-6 md:mt-10 flex gap-6 md:gap-8">
             {STATS.map((stat, i) => (
-              <>
-                {i > 0 && <div key={`divider-${i}`} className="w-px bg-brand-blue/20" />}
-                <AnimatedStat key={stat.label} {...stat} isVisible={statsVisible} />
-              </>
+              <Fragment key={stat.label}>
+                {i > 0 && <div className="w-px bg-brand-blue/20" />}
+                <AnimatedStat {...stat} isVisible={statsVisible} />
+              </Fragment>
             ))}
           </div>
         </div>

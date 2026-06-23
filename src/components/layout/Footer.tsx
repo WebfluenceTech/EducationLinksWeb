@@ -42,7 +42,23 @@ export default function Footer() {
   };
 
   return (
-    <footer data-fp-scrollable className="text-white h-full overflow-y-auto font-heading" style={{ backgroundColor: '#1E202C' }}>
+    <footer data-fp-scrollable className="text-white h-full overflow-y-auto font-heading border-t-2 border-brand-blue" style={{ backgroundColor: '#131820' }}>
+      {/* ── Massive display brand name ── */}
+      <div className="w-full overflow-hidden pt-10 pb-2 px-4 sm:px-6 lg:px-10 xl:px-16">
+        <p
+          className="whitespace-nowrap font-heading font-black leading-[0.9] tracking-tighter select-none"
+          style={{ fontSize: 'clamp(3.2rem, 10.5vw, 10.5rem)' }}
+        >
+          <span className="text-white/90">Education</span>
+          <span
+            className="text-brand-blue"
+            style={{ marginLeft: '0.12em', fontFamily: '"Cormorant Garamond", serif', fontStyle: 'italic', fontWeight: 600 }}
+          >
+            Links
+          </span>
+        </p>
+      </div>
+
       <div className="container-custom section-padding">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* About */}
@@ -54,13 +70,13 @@ export default function Footer() {
               Pakistan's leading study abroad consultancy since 2009. Helping students achieve their dreams of international education across 11+ destinations worldwide.
             </p>
             <div className="flex items-center gap-3">
-              <a href={COMPANY.social.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-9 w-9 rounded-lg bg-white/10 text-slate-300 hover:bg-brand-blue hover:text-white transition-colors" aria-label="Facebook">
+              <a href={COMPANY.social.facebook} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-9 w-9 bg-white/10 text-slate-300 hover:bg-brand-blue hover:text-white transition-colors" aria-label="Facebook">
                 <Facebook className="h-4 w-4" />
               </a>
-              <a href={COMPANY.social.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-9 w-9 rounded-lg bg-white/10 text-slate-300 hover:bg-brand-blue hover:text-white transition-colors" aria-label="Instagram">
+              <a href={COMPANY.social.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-9 w-9 bg-white/10 text-slate-300 hover:bg-brand-blue hover:text-white transition-colors" aria-label="Instagram">
                 <Instagram className="h-4 w-4" />
               </a>
-              <a href={COMPANY.social.youtube} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-9 w-9 rounded-lg bg-white/10 text-slate-300 hover:bg-brand-blue hover:text-white transition-colors" aria-label="YouTube">
+              <a href={COMPANY.social.youtube} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center h-9 w-9 bg-white/10 text-slate-300 hover:bg-brand-blue hover:text-white transition-colors" aria-label="YouTube">
                 <Youtube className="h-4 w-4" />
               </a>
             </div>
@@ -68,7 +84,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-base font-semibold mb-5">Quick Links</h3>
+            <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-white mb-5">Quick Links</h3>
             <ul className="space-y-2.5">
               {QUICK_LINKS.map((link) => (
                 <li key={link.label}>
@@ -83,7 +99,7 @@ export default function Footer() {
 
           {/* Offices */}
           <div>
-            <h3 className="text-base font-semibold mb-5">Our Offices</h3>
+            <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-white mb-5">Our Offices</h3>
             <ul className="space-y-4">
               {OFFICES.map((office) => (
                 <li key={office.name} className="flex gap-3 text-sm">
@@ -107,7 +123,7 @@ export default function Footer() {
 
           {/* Contact + Newsletter */}
           <div>
-            <h3 className="text-base font-semibold mb-5">Get in Touch</h3>
+            <h3 className="text-sm font-bold uppercase tracking-[0.12em] text-white mb-5">Get in Touch</h3>
             <ul className="space-y-3 mb-6">
               <li>
                 <a href={`tel:${COMPANY.whatsapp}`} className="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors">
@@ -120,7 +136,7 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-            <h4 className="text-sm font-semibold mb-3">Newsletter</h4>
+            <h4 className="text-xs font-bold uppercase tracking-[0.12em] text-white/90 mb-3">Newsletter</h4>
             <form onSubmit={handleSubscribe} className="flex">
               <input
                 type="email"
@@ -128,11 +144,11 @@ export default function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email"
                 required
-                className="flex-1 min-w-0 bg-white/10 border border-white/10 rounded-l-lg px-3 py-2.5 text-sm placeholder:text-gray-500 focus:outline-none focus:border-brand-blue transition-colors"
+                className="flex-1 min-w-0 bg-white/[0.07] border border-white/10 px-4 py-3 text-sm placeholder:text-gray-500 focus:outline-none focus:border-brand-blue focus:bg-white/10 transition-colors"
               />
               <button
                 type="submit"
-                className="bg-brand-blue hover:bg-brand-blue-light text-white px-4 rounded-r-lg transition-colors"
+                className="bg-brand-blue hover:bg-brand-blue-dark text-white px-4 transition-colors active:scale-95"
                 aria-label="Subscribe"
               >
                 <Send className="h-4 w-4" />

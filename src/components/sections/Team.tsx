@@ -28,7 +28,7 @@ const COUNSELLERS: Member[] = [
 
 function MemberCard({ member }: { member: Member }) {
   return (
-    <div className="group flex flex-col bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-gray-100 hover:border-brand-blue/30 transition-all duration-300 h-full">
+    <div className="group flex flex-col bg-white overflow-hidden shadow-sm hover:shadow-md border border-gray-100 hover:border-brand-blue/30 transition-all duration-300 h-full">
       <div className="relative overflow-hidden flex-1 bg-gray-50 min-h-[140px]">
         <img
           src={member.img}
@@ -81,7 +81,7 @@ function Carousel({ members, perPage, interval = 3500 }: { members: Member[]; pe
       {max > 0 && (
         <div className="flex items-center justify-center gap-2 shrink-0">
           <button onClick={prev} disabled={idx === 0}
-            className="flex items-center justify-center h-6 w-6 rounded-full bg-white border border-brand-blue/20 text-brand-dark shadow-sm hover:bg-brand-blue hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+            className="flex items-center justify-center h-6 w-6 bg-white border border-brand-blue/20 text-brand-dark shadow-sm hover:bg-brand-blue hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed">
             <ChevronLeft className="h-3 w-3" />
           </button>
           <div className="flex items-center gap-1">
@@ -91,7 +91,7 @@ function Carousel({ members, perPage, interval = 3500 }: { members: Member[]; pe
             ))}
           </div>
           <button onClick={next} disabled={idx >= max}
-            className="flex items-center justify-center h-6 w-6 rounded-full bg-white border border-brand-blue/20 text-brand-dark shadow-sm hover:bg-brand-blue hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+            className="flex items-center justify-center h-6 w-6 bg-white border border-brand-blue/20 text-brand-dark shadow-sm hover:bg-brand-blue hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed">
             <ChevronRight className="h-3 w-3" />
           </button>
         </div>
@@ -136,7 +136,7 @@ export default function Team() {
         <div className="flex-1 grid grid-cols-1 lg:grid-cols-[1fr_2.5fr] gap-4 md:gap-6 min-h-0">
 
           {/* LEFT — CEO tall card */}
-          <div className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-gray-100 hover:border-brand-blue/30 transition-all duration-300 flex flex-col h-full relative">
+          <div className="group bg-white overflow-hidden shadow-md hover:shadow-xl border border-gray-100 hover:border-brand-blue/30 transition-all duration-300 flex flex-col h-full relative">
             {/* CEO badge */}
             <span className="absolute top-3 left-3 z-10 bg-brand-blue text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow">
               CEO

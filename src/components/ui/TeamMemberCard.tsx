@@ -15,9 +15,9 @@ const DEFAULT_BIO =
 
 export function TeamMemberCard({ member }: { member: TeamMember }) {
   return (
-    <div className="flex flex-col bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300 overflow-hidden">
+    <div className="flex flex-col bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-brand-blue/30 transition-all duration-300 overflow-hidden">
       {/* Photo — always square, same size on every card */}
-      <div className="m-3 mb-0 rounded-xl overflow-hidden bg-brand-blue/5 shrink-0" style={{ aspectRatio: '1 / 1' }}>
+      <div className="m-3 mb-0 overflow-hidden bg-brand-blue/5 shrink-0" style={{ aspectRatio: '1 / 1' }}>
         <img
           src={member.img}
           alt={member.name}
@@ -84,7 +84,7 @@ export function TeamGrid({ members, cols = 3 }: { members: TeamMember[]; cols?: 
 
         <div className="flex items-center justify-center gap-3 mt-4">
           <button onClick={prev} disabled={idx === 0}
-            className="flex items-center justify-center h-8 w-8 rounded-full bg-white border border-brand-blue/20 shadow-sm hover:bg-brand-blue hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+            className="flex items-center justify-center h-8 w-8 bg-white border border-brand-blue/20 shadow-sm hover:bg-brand-blue hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed">
             <ChevronLeft className="h-4 w-4" />
           </button>
           <div className="flex items-center gap-1.5">
@@ -94,7 +94,7 @@ export function TeamGrid({ members, cols = 3 }: { members: TeamMember[]; cols?: 
             ))}
           </div>
           <button onClick={next} disabled={idx >= max}
-            className="flex items-center justify-center h-8 w-8 rounded-full bg-white border border-brand-blue/20 shadow-sm hover:bg-brand-blue hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed">
+            className="flex items-center justify-center h-8 w-8 bg-white border border-brand-blue/20 shadow-sm hover:bg-brand-blue hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed">
             <ChevronRight className="h-4 w-4" />
           </button>
         </div>
