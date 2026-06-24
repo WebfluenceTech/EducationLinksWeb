@@ -25,12 +25,22 @@ const regions = ['Europe', 'North America', 'Middle East', 'Oceania'] as const;
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     setMobileOpen(false);
     setMegaOpen(false);
   }, [location]);
+
+  // On mobile, the bar is hidden at the top of the page and slides down once
+  // the user starts scrolling.
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 30);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const isActive = (to: string) =>
     to === '/' ? location.pathname === '/' : location.pathname === to;
@@ -57,7 +67,11 @@ export default function Header() {
 
   return (
     <header className="fixed inset-x-0 top-3 z-50 px-3 sm:top-4 sm:px-4">
-      <div className="mx-auto flex max-w-6xl justify-center">
+      <div
+        className={`mx-auto flex max-w-6xl justify-center transition-transform duration-300 will-change-transform ${
+          scrolled || mobileOpen ? 'translate-y-0' : '-translate-y-[200%] lg:translate-y-0'
+        }`}
+      >
         {/* ── Floating pill ── */}
         <div className="flex w-full items-center gap-1.5 rounded-full bg-[#1b1b1b] p-1.5 shadow-[0_22px_50px_-18px_rgba(0,0,0,0.55)] ring-1 ring-white/[0.06] sm:p-2 lg:w-auto">
           {/* Logo */}

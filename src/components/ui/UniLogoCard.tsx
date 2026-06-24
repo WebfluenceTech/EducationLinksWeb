@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 export function UniLogoCard({ name, domain, logoUrl, country }: { name: string; domain: string; logoUrl?: string; country?: string }) {
   const sources = [
     ...(logoUrl ? [logoUrl] : []),
-    `https://logo.clearbit.com/${domain}`,
+    // Clearbit's logo API was shut down, so fall back to favicon services.
+    `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://${domain}&size=128`,
     `https://www.google.com/s2/favicons?sz=128&domain=${domain}`,
   ];
   const [srcIdx, setSrcIdx] = useState(0);

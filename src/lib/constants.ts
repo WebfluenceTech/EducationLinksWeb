@@ -55,10 +55,10 @@ export const DESTINATION_IMAGES: Record<string, string> = {
   Sweden:         'https://images.pexels.com/photos/1534411/pexels-photo-1534411.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
   Belgium:        'https://images.pexels.com/photos/1388030/pexels-photo-1388030.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
   Netherlands:    'https://images.pexels.com/photos/1414467/pexels-photo-1414467.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  France:         'https://images.pexels.com/photos/699466/pexels-photo-699466.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  France:         '/destinations/france.jpg',
   Denmark:        'https://images.pexels.com/photos/416024/pexels-photo-416024.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
   'North Cyprus': 'https://images.pexels.com/photos/2949132/pexels-photo-2949132.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
-  'South Cyprus': 'https://images.pexels.com/photos/3566207/pexels-photo-3566207.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
+  'South Cyprus': '/destinations/south-cyprus.jpg',
   UK:             'https://images.pexels.com/photos/460672/pexels-photo-460672.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
   Canada:         'https://images.pexels.com/photos/1519088/pexels-photo-1519088.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
   USA:            'https://images.pexels.com/photos/1486222/pexels-photo-1486222.jpeg?auto=compress&cs=tinysrgb&w=500&h=400&fit=crop',
@@ -115,10 +115,10 @@ export const PARTNER_UNIVERSITIES = [
   { name: 'IBDI', domain: 'ibdi.ie', logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBzf4TzmBF_NSH_IoqOO9NEHJBLneFuXF3_qsVk6MMow&s=10' },
   { name: 'University College Cork', domain: 'ucc.ie' },
   // South Korea
-  { name: 'Kangwon National University', domain: 'kangwon.ac.kr' },
-  { name: 'Inha University', domain: 'inha.ac.kr' },
-  { name: 'Catholic Kwandong University', domain: 'cku.ac.kr' },
-  { name: 'Kyungdong University', domain: 'kduniv.ac.kr' },
+  { name: 'Kangwon National University', domain: 'kangwon.ac.kr', logoUrl: '/universities/kangwon.svg' },
+  { name: 'Inha University', domain: 'inha.ac.kr', logoUrl: '/universities/inha.png' },
+  { name: 'Catholic Kwandong University', domain: 'cku.ac.kr', logoUrl: '/universities/cku.png' },
+  { name: 'Kyungdong University', domain: 'kduniv.ac.kr', logoUrl: '/universities/kyungdong.png' },
   // Finland
   { name: 'Metropolia University of Applied Sciences', domain: 'metropolia.fi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Metropolia-logo.svg' },
   { name: 'University of Vaasa', domain: 'uwasa.fi' },
@@ -146,7 +146,7 @@ export const PARTNER_UNIVERSITIES = [
   { name: 'Swedish University of Agricultural Sciences', domain: 'slu.se', logoUrl: 'https://www.freelogovectors.net/wp-content/uploads/2021/04/swedish-university-of-agricultural-sciences-logo-freelogovectors.net_.png' },
   { name: 'Linnaeus University', domain: 'lnu.se', logoUrl: 'https://imes.vse.cz/wp-content/uploads/2017/09/linnaeus-university-logo.png' },
   { name: 'University of Borås', domain: 'hb.se', logoUrl: 'https://www.hb.se/globalassets/vektorbilder/logotyper-desktop/hb_logo.png' },
-  { name: 'Luleå Tekniska Universitet', domain: 'ltu.se', logoUrl: 'https://www.ltu.se/images/18.1d2806cb1877920d9533733/1689843491541/LTU-logo.svg' },
+  { name: 'Luleå Tekniska Universitet', domain: 'ltu.se', logoUrl: '/universities/ltu.svg' },
   // Belgium
   { name: 'UCLL University of Applied Sciences', domain: 'ucll.be' },
   { name: 'Thomas More University of Applied Sciences', domain: 'thomasmore.be' },
@@ -201,7 +201,7 @@ export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: str
     { name: 'Swedish University of Agricultural Sciences', domain: 'slu.se', logoUrl: 'https://www.freelogovectors.net/wp-content/uploads/2021/04/swedish-university-of-agricultural-sciences-logo-freelogovectors.net_.png' },
     { name: 'Linnaeus University', domain: 'lnu.se', logoUrl: 'https://imes.vse.cz/wp-content/uploads/2017/09/linnaeus-university-logo.png' },
     { name: 'University of Borås', domain: 'hb.se', logoUrl: 'https://www.hb.se/globalassets/vektorbilder/logotyper-desktop/hb_logo.png' },
-    { name: 'Luleå Tekniska Universitet', domain: 'ltu.se', logoUrl: 'https://www.ltu.se/images/18.1d2806cb1877920d9533733/1689843491541/LTU-logo.svg' },
+    { name: 'Luleå Tekniska Universitet', domain: 'ltu.se', logoUrl: '/universities/ltu.svg' },
   ],
   Belgium: [
     { name: 'UCLL University of Applied Sciences', domain: 'ucll.be' },
@@ -229,7 +229,7 @@ export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: str
   ],
   'North Cyprus': [
     { name: 'Eastern Mediterranean University', domain: 'emu.edu.tr' },
-    { name: 'Near East University', domain: 'neu.edu.tr' },
+    { name: 'Near East University', domain: 'neu.edu.tr', logoUrl: '/universities/neu.png' },
     { name: 'Cyprus International University', domain: 'ciu.edu.tr' },
   ],
   'South Cyprus': [
@@ -238,22 +238,22 @@ export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: str
   ],
   UK: [
     { name: 'University of Hertfordshire', domain: 'herts.ac.uk' },
-    { name: 'Sheffield Hallam University', domain: 'shu.ac.uk' },
-    { name: 'Coventry University', domain: 'coventry.ac.uk' },
+    { name: 'Sheffield Hallam University', domain: 'shu.ac.uk', logoUrl: '/universities/shu.svg' },
+    { name: 'Coventry University', domain: 'coventry.ac.uk', logoUrl: '/universities/coventry.svg' },
     { name: 'Canterbury Christ Church Uni.', domain: 'canterbury.ac.uk' },
     { name: 'Birmingham City University', domain: 'bcu.ac.uk' },
     { name: 'University of East London', domain: 'uel.ac.uk' },
   ],
   // North America
   Canada: [
-    { name: 'University of Toronto', domain: 'utoronto.ca' },
-    { name: 'McGill University', domain: 'mcgill.ca' },
+    { name: 'University of Toronto', domain: 'utoronto.ca', logoUrl: '/universities/utoronto.svg' },
+    { name: 'McGill University', domain: 'mcgill.ca', logoUrl: '/universities/mcgill.png' },
     { name: 'University of British Columbia', domain: 'ubc.ca' },
     { name: 'University of Alberta', domain: 'ualberta.ca' },
   ],
   USA: [
     { name: 'University of California', domain: 'universityofcalifornia.edu' },
-    { name: 'New York University', domain: 'nyu.edu' },
+    { name: 'New York University', domain: 'nyu.edu', logoUrl: '/universities/nyu.svg' },
     { name: 'University of Michigan', domain: 'umich.edu' },
   ],
   // Middle East
@@ -270,10 +270,10 @@ export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: str
   ],
   // Asia
   'South Korea': [
-    { name: 'Kangwon National University', domain: 'kangwon.ac.kr' },
-    { name: 'Inha University', domain: 'inha.ac.kr' },
-    { name: 'Catholic Kwandong University', domain: 'cku.ac.kr' },
-    { name: 'Kyungdong University', domain: 'kduniv.ac.kr' },
+    { name: 'Kangwon National University', domain: 'kangwon.ac.kr', logoUrl: '/universities/kangwon.svg' },
+    { name: 'Inha University', domain: 'inha.ac.kr', logoUrl: '/universities/inha.png' },
+    { name: 'Catholic Kwandong University', domain: 'cku.ac.kr', logoUrl: '/universities/cku.png' },
+    { name: 'Kyungdong University', domain: 'kduniv.ac.kr', logoUrl: '/universities/kyungdong.png' },
   ],
 };
 

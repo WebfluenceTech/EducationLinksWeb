@@ -10,7 +10,7 @@ export default function Hero() {
     <section className="relative w-full overflow-hidden bg-[#EEEDED]">
       {/* Baked poster (headline, copy and stat cards live inside the image) */}
       <img
-        src="/hero-poster.jpg"
+        src="/hero-poster.png"
         alt="Smart learning for a smarter future — personalized courses, expert mentors and flexible learning"
         className="block w-full h-auto select-none"
         draggable={false}
