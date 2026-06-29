@@ -1,0 +1,457 @@
+{
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\.claude\\launch.json": {
+    "mtime": 1782207276.8267784,
+    "ast_hash": "8c74108062d065ead2266a7b43890f7f",
+    "semantic_hash": "8c74108062d065ead2266a7b43890f7f"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\eslint.config.js": {
+    "mtime": 1782207223.268139,
+    "ast_hash": "4225f837ef9e9b6352935d05a57f40ff",
+    "semantic_hash": "4225f837ef9e9b6352935d05a57f40ff"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\package.json": {
+    "mtime": 1782207223.2840915,
+    "ast_hash": "ba8fb5310cd570cda55c5460dd000792",
+    "semantic_hash": "ba8fb5310cd570cda55c5460dd000792"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\postcss.config.js": {
+    "mtime": 1782207223.2840915,
+    "ast_hash": "33fad9c02cb0ec6d6030369ef6347d57",
+    "semantic_hash": "33fad9c02cb0ec6d6030369ef6347d57"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\App.tsx": {
+    "mtime": 1782207277.3766284,
+    "ast_hash": "99f8a35db0a0b6586e8d483becc97457",
+    "semantic_hash": "99f8a35db0a0b6586e8d483becc97457"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\layout\\Footer.tsx": {
+    "mtime": 1782207277.391221,
+    "ast_hash": "de654398cbfb904cf88c09dae5fdf878",
+    "semantic_hash": "de654398cbfb904cf88c09dae5fdf878"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\layout\\FullPageScroll.tsx": {
+    "mtime": 1782207277.3936796,
+    "ast_hash": "718ed77e7d8fe39c6b2b87f4a3935f55",
+    "semantic_hash": "718ed77e7d8fe39c6b2b87f4a3935f55"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\layout\\FullPageSection.tsx": {
+    "mtime": 1782207277.3936796,
+    "ast_hash": "498200d1e6453b57668a6505cb820fd1",
+    "semantic_hash": "498200d1e6453b57668a6505cb820fd1"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\layout\\Header.tsx": {
+    "mtime": 1782207277.4038887,
+    "ast_hash": "def0dddf64000b594e865f51b340dbd2",
+    "semantic_hash": "def0dddf64000b594e865f51b340dbd2"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\layout\\ScrollToTop.tsx": {
+    "mtime": 1782207223.3353817,
+    "ast_hash": "2d0367f4ba66c598e7040aaa197f9800",
+    "semantic_hash": "2d0367f4ba66c598e7040aaa197f9800"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\About.tsx": {
+    "mtime": 1782207277.407991,
+    "ast_hash": "4418a60a7cc82629932da00085904de2",
+    "semantic_hash": "4418a60a7cc82629932da00085904de2"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\Destinations.tsx": {
+    "mtime": 1782207277.4116347,
+    "ast_hash": "a5e1c107469d7bbf3b01029e24f5466a",
+    "semantic_hash": "a5e1c107469d7bbf3b01029e24f5466a"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\FindUs.tsx": {
+    "mtime": 1782207277.4116347,
+    "ast_hash": "b85614dcfd6d09beac8817e8309737a0",
+    "semantic_hash": "b85614dcfd6d09beac8817e8309737a0"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\Hero.tsx": {
+    "mtime": 1782207277.419748,
+    "ast_hash": "3c633d6f407cafe1f36ab2b365d77a33",
+    "semantic_hash": "3c633d6f407cafe1f36ab2b365d77a33"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\InquiryForm.tsx": {
+    "mtime": 1782207277.4236665,
+    "ast_hash": "35581b0f9470ed21fa2d35ef10f49983",
+    "semantic_hash": "35581b0f9470ed21fa2d35ef10f49983"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\LatestNews.tsx": {
+    "mtime": 1782207277.4265592,
+    "ast_hash": "84d303e79519982b5505f2a984c86306",
+    "semantic_hash": "84d303e79519982b5505f2a984c86306"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\PartnerUniversities.tsx": {
+    "mtime": 1782207223.3529696,
+    "ast_hash": "960a455752b39317e6e081e1011430a6",
+    "semantic_hash": "960a455752b39317e6e081e1011430a6"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\ProcessTimeline.tsx": {
+    "mtime": 1782207277.4265592,
+    "ast_hash": "97bd5adc86a664efbf1f88d95b26de16",
+    "semantic_hash": "97bd5adc86a664efbf1f88d95b26de16"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\Services.tsx": {
+    "mtime": 1782207277.434583,
+    "ast_hash": "63a9d4a60924ae286c6421040e103087",
+    "semantic_hash": "63a9d4a60924ae286c6421040e103087"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\StatsBar.tsx": {
+    "mtime": 1782207277.4368231,
+    "ast_hash": "505992b72f40f79eb36a0f976017a745",
+    "semantic_hash": "505992b72f40f79eb36a0f976017a745"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\Team.tsx": {
+    "mtime": 1782207277.4411452,
+    "ast_hash": "146506354bf896f7fd765dd2ef49e41b",
+    "semantic_hash": "146506354bf896f7fd765dd2ef49e41b"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\TeamCEO.tsx": {
+    "mtime": 1782207277.4431794,
+    "ast_hash": "3ac8b9df283e3c0178229bbc33335b61",
+    "semantic_hash": "3ac8b9df283e3c0178229bbc33335b61"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\TeamCounsellers.tsx": {
+    "mtime": 1782207277.4431794,
+    "ast_hash": "ef4d17d91355e543ba746674afd689fa",
+    "semantic_hash": "ef4d17d91355e543ba746674afd689fa"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\TeamManagers.tsx": {
+    "mtime": 1782207277.4510646,
+    "ast_hash": "5968eea1c4f5a82b773cc06444efa06b",
+    "semantic_hash": "5968eea1c4f5a82b773cc06444efa06b"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\TeamSenior.tsx": {
+    "mtime": 1782207277.4522698,
+    "ast_hash": "a9f3564e5f586df68df1bd7ee77b4834",
+    "semantic_hash": "a9f3564e5f586df68df1bd7ee77b4834"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\Testimonials.tsx": {
+    "mtime": 1782207277.4585185,
+    "ast_hash": "ef66398b13c84b22358eb43b411b336b",
+    "semantic_hash": "ef66398b13c84b22358eb43b411b336b"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\sections\\Universities.tsx": {
+    "mtime": 1782207277.461879,
+    "ast_hash": "a8ec33986f2562fff75002b03af079e0",
+    "semantic_hash": "a8ec33986f2562fff75002b03af079e0"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\ui\\BackToTop.tsx": {
+    "mtime": 1782207223.370689,
+    "ast_hash": "1773a01c8513714ac9fa5c00282d76f4",
+    "semantic_hash": "1773a01c8513714ac9fa5c00282d76f4"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\ui\\ContactSVG.tsx": {
+    "mtime": 1782207277.461879,
+    "ast_hash": "4d8fab875051476c22f8335851b81a99",
+    "semantic_hash": "4d8fab875051476c22f8335851b81a99"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\ui\\EducationSVG.tsx": {
+    "mtime": 1782207277.4664576,
+    "ast_hash": "c91b1d8d2af8ee0727d266faee81ba33",
+    "semantic_hash": "c91b1d8d2af8ee0727d266faee81ba33"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\ui\\SectionHeading.tsx": {
+    "mtime": 1782207277.4664576,
+    "ast_hash": "cef896481616535921a705f31c572034",
+    "semantic_hash": "cef896481616535921a705f31c572034"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\ui\\SkylineSVG.tsx": {
+    "mtime": 1782207277.4745865,
+    "ast_hash": "521866ef4940c3d1bdad0e568f7c94a1",
+    "semantic_hash": "521866ef4940c3d1bdad0e568f7c94a1"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\ui\\TeamMemberCard.tsx": {
+    "mtime": 1782207277.4782588,
+    "ast_hash": "d2e3da565e553daf6cb8b79682de09ff",
+    "semantic_hash": "d2e3da565e553daf6cb8b79682de09ff"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\ui\\TiltedCard.tsx": {
+    "mtime": 1782207277.4840233,
+    "ast_hash": "8570c736ce90afac426bca074a1c32e9",
+    "semantic_hash": "8570c736ce90afac426bca074a1c32e9"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\ui\\Toast.tsx": {
+    "mtime": 1782207223.3825886,
+    "ast_hash": "dad26d2788edcf89acabd566dcae7de9",
+    "semantic_hash": "dad26d2788edcf89acabd566dcae7de9"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\components\\ui\\UniLogoCard.tsx": {
+    "mtime": 1782207277.4840233,
+    "ast_hash": "6cd796210af3fd54e6405dd93889e2fa",
+    "semantic_hash": "6cd796210af3fd54e6405dd93889e2fa"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\hooks\\useCountUp.ts": {
+    "mtime": 1782207223.3866444,
+    "ast_hash": "0128ef3a85f5e2bc0641f65f7e17c16e",
+    "semantic_hash": "0128ef3a85f5e2bc0641f65f7e17c16e"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\hooks\\useIsMobile.ts": {
+    "mtime": 1782207277.4840233,
+    "ast_hash": "fc5f1368e59a1fde6d040e330039e70c",
+    "semantic_hash": "fc5f1368e59a1fde6d040e330039e70c"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\hooks\\useScrollAnimation.ts": {
+    "mtime": 1782207223.388673,
+    "ast_hash": "9c68ab76a8df627a4001d45fd025b686",
+    "semantic_hash": "9c68ab76a8df627a4001d45fd025b686"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\lib\\constants.ts": {
+    "mtime": 1782207277.4958558,
+    "ast_hash": "5fa86ad06bd80bbf4bbc0dc2d3ff0374",
+    "semantic_hash": "5fa86ad06bd80bbf4bbc0dc2d3ff0374"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\lib\\supabase.ts": {
+    "mtime": 1782207223.400567,
+    "ast_hash": "80775f7bea9d71ae27075839a59505a2",
+    "semantic_hash": "80775f7bea9d71ae27075839a59505a2"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\main.tsx": {
+    "mtime": 1782207223.4025898,
+    "ast_hash": "5539db94cfd8fad79e48b35f3ea25429",
+    "semantic_hash": "5539db94cfd8fad79e48b35f3ea25429"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\pages\\ApplyPage.tsx": {
+    "mtime": 1782207277.4958558,
+    "ast_hash": "dfdbeb2ed4d5c3b4376942898ec822fe",
+    "semantic_hash": "dfdbeb2ed4d5c3b4376942898ec822fe"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\pages\\ContactPage.tsx": {
+    "mtime": 1782207277.4958558,
+    "ast_hash": "e4da3cf2f0a67abe50e98f75b58482be",
+    "semantic_hash": "e4da3cf2f0a67abe50e98f75b58482be"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\pages\\DestinationPage.tsx": {
+    "mtime": 1782207277.5055425,
+    "ast_hash": "22892ee2d56be76fb67e23a3f0e5979d",
+    "semantic_hash": "22892ee2d56be76fb67e23a3f0e5979d"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\pages\\GalleryPage.tsx": {
+    "mtime": 1782207277.5076673,
+    "ast_hash": "6bcc43c3c45fa1d5778e0adac76be593",
+    "semantic_hash": "6bcc43c3c45fa1d5778e0adac76be593"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\pages\\HomePage.tsx": {
+    "mtime": 1782207277.510921,
+    "ast_hash": "1327434c866ef62d48d372d78710e08b",
+    "semantic_hash": "1327434c866ef62d48d372d78710e08b"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\pages\\TeamPage.tsx": {
+    "mtime": 1782207277.510921,
+    "ast_hash": "fe67fff9ac0743f9e2824acffc59a4d8",
+    "semantic_hash": "fe67fff9ac0743f9e2824acffc59a4d8"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\pages\\UniversitiesPage.tsx": {
+    "mtime": 1782207277.5125744,
+    "ast_hash": "a78229d498435e30168c52fe79c1c3a6",
+    "semantic_hash": "a78229d498435e30168c52fe79c1c3a6"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\vite-env.d.ts": {
+    "mtime": 1782207223.4201276,
+    "ast_hash": "8f68c27c3fc38817b2726b20e2d4f1ee",
+    "semantic_hash": "8f68c27c3fc38817b2726b20e2d4f1ee"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\supabase\\.temp\\linked-project.json": {
+    "mtime": 1782207277.542722,
+    "ast_hash": "32a62541387a4cbf28c163d7c98d82b5",
+    "semantic_hash": "32a62541387a4cbf28c163d7c98d82b5"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\supabase\\migrations\\20240101000000_create_inquiries.sql": {
+    "mtime": 1782207277.542722,
+    "ast_hash": "ef518a560e1e944aa9e9c55a6f659bf5",
+    "semantic_hash": "ef518a560e1e944aa9e9c55a6f659bf5"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\supabase\\migrations\\20260423124908_create_applications_table.sql": {
+    "mtime": 1782207223.426285,
+    "ast_hash": "e9a333ee1de3a5f22d222b6316fc3f1d",
+    "semantic_hash": "e9a333ee1de3a5f22d222b6316fc3f1d"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\supabase\\migrations\\20260423124926_create_inquiries_and_newsletter_tables.sql": {
+    "mtime": 1782207223.426285,
+    "ast_hash": "c02f990a2c947a945c7eb57a2bd44b86",
+    "semantic_hash": "c02f990a2c947a945c7eb57a2bd44b86"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\supabase\\migrations\\20260517000000_add_other_qualifications_to_inquiries.sql": {
+    "mtime": 1782207277.542722,
+    "ast_hash": "2344a1b7c429bec02468b28e46dd9198",
+    "semantic_hash": "2344a1b7c429bec02468b28e46dd9198"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\tailwind.config.js": {
+    "mtime": 1782207277.5523975,
+    "ast_hash": "e62ef04b20ae449e0d48c48c7c8c1980",
+    "semantic_hash": "e62ef04b20ae449e0d48c48c7c8c1980"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\tsconfig.app.json": {
+    "mtime": 1782207223.4347706,
+    "ast_hash": "c8a06a5c7d728682ef4bc91ffd488149",
+    "semantic_hash": "c8a06a5c7d728682ef4bc91ffd488149"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\tsconfig.json": {
+    "mtime": 1782207223.4347706,
+    "ast_hash": "852c3a5df14a4b43ac28e9554ebedf4a",
+    "semantic_hash": "852c3a5df14a4b43ac28e9554ebedf4a"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\tsconfig.node.json": {
+    "mtime": 1782207223.4347706,
+    "ast_hash": "e980c1dd3d183c0e364644efa7aaf82f",
+    "semantic_hash": "e980c1dd3d183c0e364644efa7aaf82f"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\vite.config.ts": {
+    "mtime": 1782207223.4447863,
+    "ast_hash": "5f69b8c4436c0b014b37e6732c0b4b43",
+    "semantic_hash": "5f69b8c4436c0b014b37e6732c0b4b43"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\index.html": {
+    "mtime": 1782207276.8267784,
+    "ast_hash": "d75caa417d5df0ab0df5da55838b8bd5",
+    "semantic_hash": "d75caa417d5df0ab0df5da55838b8bd5"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\001.jpg": {
+    "mtime": 1782207276.8574688,
+    "ast_hash": "1d6f3ddbcc2662eafcf29f71fba7c864",
+    "semantic_hash": "1d6f3ddbcc2662eafcf29f71fba7c864"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\002.jpg": {
+    "mtime": 1782207276.9033785,
+    "ast_hash": "ed898ba32265e7e6010a94480b888024",
+    "semantic_hash": "ed898ba32265e7e6010a94480b888024"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\003.jpg": {
+    "mtime": 1782207276.9357405,
+    "ast_hash": "04684d7255367fbf149e169811a6cf94",
+    "semantic_hash": "04684d7255367fbf149e169811a6cf94"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\004.jpg": {
+    "mtime": 1782207276.9492786,
+    "ast_hash": "fb7f29661f3382d94447dc904fdb5a92",
+    "semantic_hash": "fb7f29661f3382d94447dc904fdb5a92"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\005.jpg": {
+    "mtime": 1782207276.9737709,
+    "ast_hash": "ab14bf5dc3993e6303ece55c1e48f47f",
+    "semantic_hash": "ab14bf5dc3993e6303ece55c1e48f47f"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\006.jpg": {
+    "mtime": 1782207276.9905071,
+    "ast_hash": "39faa8ee297d25e97c97201e3f645c97",
+    "semantic_hash": "39faa8ee297d25e97c97201e3f645c97"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\007.jpg": {
+    "mtime": 1782207277.0237117,
+    "ast_hash": "bbae759c13b6c2e74b592d6cb9108f1c",
+    "semantic_hash": "bbae759c13b6c2e74b592d6cb9108f1c"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\008.jpg": {
+    "mtime": 1782207277.0679557,
+    "ast_hash": "45712c9c189279f98c77b25d5f003ec1",
+    "semantic_hash": "45712c9c189279f98c77b25d5f003ec1"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\009.jpg": {
+    "mtime": 1782207277.103217,
+    "ast_hash": "29f3d2e1be4dc407dc7a7048a535725d",
+    "semantic_hash": "29f3d2e1be4dc407dc7a7048a535725d"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\010.jpg": {
+    "mtime": 1782207277.119652,
+    "ast_hash": "f8fc335d50d0168ed1820e55a4909ce3",
+    "semantic_hash": "f8fc335d50d0168ed1820e55a4909ce3"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\011.jpg": {
+    "mtime": 1782207277.1427257,
+    "ast_hash": "f6fc327e61d1fc0539c7275cbccecc62",
+    "semantic_hash": "f6fc327e61d1fc0539c7275cbccecc62"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\SuccessStories\\image copy 2.png": {
+    "mtime": 1782207277.157068,
+    "ast_hash": "1e09616ef32259d1b290fd929c830ce9",
+    "semantic_hash": "1e09616ef32259d1b290fd929c830ce9"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\SuccessStories\\image copy 3.png": {
+    "mtime": 1782207277.157068,
+    "ast_hash": "0b31ad10397391f89e89eaf5a654a3e2",
+    "semantic_hash": "0b31ad10397391f89e89eaf5a654a3e2"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\SuccessStories\\image copy 4.png": {
+    "mtime": 1782207277.1903026,
+    "ast_hash": "c2ac57f6bad8ed81526050d4c39f50f1",
+    "semantic_hash": "c2ac57f6bad8ed81526050d4c39f50f1"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\SuccessStories\\image copy 5.png": {
+    "mtime": 1782207277.2070675,
+    "ast_hash": "502d8975c94dc3ecd597cf4035add951",
+    "semantic_hash": "502d8975c94dc3ecd597cf4035add951"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\SuccessStories\\image copy 6.png": {
+    "mtime": 1782207277.2236838,
+    "ast_hash": "79967a9e8d7b8bad8451cbf9043aeb40",
+    "semantic_hash": "79967a9e8d7b8bad8451cbf9043aeb40"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\SuccessStories\\image copy 7.png": {
+    "mtime": 1782207277.2403414,
+    "ast_hash": "fa1c407683b79d9db1e19758dd2c2397",
+    "semantic_hash": "fa1c407683b79d9db1e19758dd2c2397"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\SuccessStories\\image copy 8.png": {
+    "mtime": 1782207277.2403414,
+    "ast_hash": "74c46407b92a36223b5a580562fa5c30",
+    "semantic_hash": "74c46407b92a36223b5a580562fa5c30"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\SuccessStories\\image copy 9.png": {
+    "mtime": 1782207277.2570202,
+    "ast_hash": "f7f0400a4cc9b345eb05b1b24154bfc3",
+    "semantic_hash": "f7f0400a4cc9b345eb05b1b24154bfc3"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\SuccessStories\\image copy.png": {
+    "mtime": 1782207277.2692368,
+    "ast_hash": "f25a28b8800ae223daff9df46363691e",
+    "semantic_hash": "f25a28b8800ae223daff9df46363691e"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\SuccessStories\\image.png": {
+    "mtime": 1782207277.284093,
+    "ast_hash": "ad7ccb2e3b63352bf678498f6690316e",
+    "semantic_hash": "ad7ccb2e3b63352bf678498f6690316e"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\certification.png": {
+    "mtime": 1782207277.284093,
+    "ast_hash": "d189dd8f17a9b0d7e0ed39b6688b9d0a",
+    "semantic_hash": "d189dd8f17a9b0d7e0ed39b6688b9d0a"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\footerlogo.png": {
+    "mtime": 1782207223.2840915,
+    "ast_hash": "6459b27bc7ee25ab0a7046e5f231dbe5",
+    "semantic_hash": "6459b27bc7ee25ab0a7046e5f231dbe5"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\universities\\image copy 2.png": {
+    "mtime": 1782207277.2920418,
+    "ast_hash": "2c008c1365efba8e4fa70d02c9d0f54e",
+    "semantic_hash": "2c008c1365efba8e4fa70d02c9d0f54e"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\universities\\image copy 3.png": {
+    "mtime": 1782207277.3015866,
+    "ast_hash": "536ac783b9c03dc97030bac21e31151b",
+    "semantic_hash": "536ac783b9c03dc97030bac21e31151b"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\universities\\image copy.png": {
+    "mtime": 1782207277.3510876,
+    "ast_hash": "ff16ef5a6fb0abd8f943bd9bc6c769a7",
+    "semantic_hash": "ff16ef5a6fb0abd8f943bd9bc6c769a7"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\universities\\image.png": {
+    "mtime": 1782207277.3706098,
+    "ast_hash": "2379ff1bd600085ec3eb374dca73c3bf",
+    "semantic_hash": "2379ff1bd600085ec3eb374dca73c3bf"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\public\\world-map.svg": {
+    "mtime": 1782207223.3175218,
+    "ast_hash": "ac441ce6d54a66587219123ba982bd9e",
+    "semantic_hash": "ac441ce6d54a66587219123ba982bd9e"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\assets\\footerlogo.png": {
+    "mtime": 1782207277.3864202,
+    "ast_hash": "9209da5760bec287b90e380a700108dd",
+    "semantic_hash": "9209da5760bec287b90e380a700108dd"
+  },
+  "C:\\Users\\HP 840 G7\\Documents\\Projects\\EducationLinksWeb\\src\\assets\\logo.png": {
+    "mtime": 1782207223.3175218,
+    "ast_hash": "483780a0f9f3795a621e5b4f4989b48b",
+    "semantic_hash": "483780a0f9f3795a621e5b4f4989b48b"
+  }
+}
