@@ -8,6 +8,7 @@ import Destinations from '../components/sections/Destinations';
 import ProcessTimeline from '../components/sections/ProcessTimeline';
 import Universities from '../components/sections/Universities';
 import Testimonials from '../components/sections/Testimonials';
+import Announcements from '../components/sections/Announcements';
 import InquiryForm from '../components/sections/InquiryForm';
 import FindUs from '../components/sections/FindUs';
 
@@ -33,6 +34,7 @@ export default function HomePage() {
       <ProcessTimeline />
       <Universities />
       <Testimonials />
+      <Announcements />
       <InquiryForm />
       <FindUs />
     </>

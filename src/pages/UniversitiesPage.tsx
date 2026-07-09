@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { EducationSVG } from '../components/ui/EducationSVG';
-import { DESTINATIONS, UNIVERSITIES_BY_COUNTRY } from '../lib/constants';
+import { DESTINATIONS, UNIVERSITIES_BY_COUNTRY, FEATURED_PARTNER_UNIVERSITIES } from '../lib/constants';
 import InquiryForm from '../components/sections/InquiryForm';
 import { UniLogoCard } from '../components/ui/UniLogoCard';
 
@@ -11,14 +11,25 @@ export default function UniversitiesPage() {
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
-  // build flat list of { country, flag, ...uni }
-  const allEntries = DESTINATIONS.flatMap(dest =>
-    (UNIVERSITIES_BY_COUNTRY[dest.name] ?? []).map(uni => ({
+  // build flat list of { country, flag, ...uni }.
+  // Partner universities are merged into their matching country (deduped by
+  // domain/name) so any school featured as a partner also appears in the
+  // filterable country list below — automatically, for future additions too.
+  const allEntries = DESTINATIONS.flatMap(dest => {
+    const merged = [...(UNIVERSITIES_BY_COUNTRY[dest.name] ?? [])];
+    FEATURED_PARTNER_UNIVERSITIES
+      .filter(p => p.country === dest.name)
+      .forEach(p => {
+        if (!merged.some(u => u.domain === p.domain || u.name === p.name)) {
+          merged.push({ name: p.name, domain: p.domain, logoUrl: p.logoUrl });
+        }
+      });
+    return merged.map(uni => ({
       ...uni,
       country: dest.name,
       flag: dest.flag,
-    }))
-  );
+    }));
+  });
 
   const filtered = allEntries.filter(u => {
     const matchCountry = selectedCountry === 'All' || u.country === selectedCountry;
@@ -86,7 +97,7 @@ export default function UniversitiesPage() {
         </div>
 
         {/* ── Results bar + Search ── */}
-        <div className="mx-auto px-4 max-w-6xl mt-10 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="mx-auto px-4 max-w-6xl mt-14 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <p className="text-sm text-[#5E6C84]">
             Showing <span className="font-bold text-[#172B4D]">{totalCount}</span> {totalCount === 1 ? 'university' : 'universities'} in{' '}
             <span className="font-bold text-[#2F95D0]">{countryLabel}</span>

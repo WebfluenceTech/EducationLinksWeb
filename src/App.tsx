@@ -8,6 +8,7 @@ import ContactPage from './pages/ContactPage';
 import GalleryPage from './pages/GalleryPage';
 import TeamPage from './pages/TeamPage';
 import UniversitiesPage from './pages/UniversitiesPage';
+import PartnerUniversitiesPage from './pages/PartnerUniversitiesPage';
 import DestinationPage from './pages/DestinationPage';
 import { useIsMobile } from './hooks/useIsMobile';
 
@@ -25,6 +26,7 @@ function AppLayout() {
             <Route path="/" element={<HomePage />} />
             <Route path="/team" element={<TeamPage />} />
             <Route path="/universities" element={<UniversitiesPage />} />
+            <Route path="/partner-universities" element={<PartnerUniversitiesPage />} />
             <Route path="/destinations/:countryName" element={<DestinationPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/gallery" element={<GalleryPage />} />

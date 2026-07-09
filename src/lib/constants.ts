@@ -32,7 +32,7 @@ export const OFFICES = [
 ];
 
 export const DESTINATIONS = [
-  { name: 'Ireland', flag: '\u{1F1EE}\u{1F1EA}', region: 'Europe', universities: 11 },
+  { name: 'Ireland', flag: '\u{1F1EE}\u{1F1EA}', region: 'Europe', universities: 9 },
   { name: 'Finland', flag: '\u{1F1EB}\u{1F1EE}', region: 'Europe', universities: 13 },
   { name: 'Sweden', flag: '\u{1F1F8}\u{1F1EA}', region: 'Europe', universities: 9 },
   { name: 'Belgium', flag: '\u{1F1E7}\u{1F1EA}', region: 'Europe', universities: 4 },
@@ -94,8 +94,8 @@ export const FEATURED_UNIVERSITIES = [
   { name: 'Metropolia University of Applied Sciences', domain: 'metropolia.fi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Metropolia-logo.svg' },
   { name: 'LUT University', domain: 'lut.fi', logoUrl: 'https://www.freelogovectors.net/wp-content/uploads/2021/04/lut-university-logo-freelogovectors.net_.png' },
   { name: 'University of Turku', domain: 'utu.fi' },
-  { name: 'Halmstad University', domain: 'hh.se', logoUrl: 'https://www.hh.se/images/18.4ad3d9ee1656d0f05ef643a3/1550842090193/hh-logo.svg' },
-  { name: 'University West', domain: 'hv.se', logoUrl: 'https://www.hv.se/assets/img/framework/hv-logo-small-new.png' },
+  { name: 'Halmstad University', domain: 'hh.se', logoUrl: '/universities/halmstad.svg' },
+  { name: 'University West', domain: 'hv.se', logoUrl: '/universities/university-west.png' },
   { name: 'Uppsala Universitet', domain: 'uu.se', logoUrl: 'https://www.uu.se/images/18.17dda5f1791cdbd287d9b55/1622452923523/uu-logo-red.svg' },
   { name: 'University of Borås', domain: 'hb.se', logoUrl: 'https://www.hb.se/globalassets/vektorbilder/logotyper-desktop/hb_logo.png' },
   { name: 'Neapolis University Pafos', domain: 'nup.ac.cy' },
@@ -107,11 +107,9 @@ export const PARTNER_UNIVERSITIES = [
   { name: 'Dublin City University', domain: 'dcu.ie', logoUrl: 'https://www.dcu.ie/sites/default/files/dcu_logo_web_0.png' },
   { name: 'University College Dublin', domain: 'ucd.ie' },
   { name: 'Dublin Business School', domain: 'dbs.ie' },
-  { name: 'TU Dublin', domain: 'tudublin.ie', logoUrl: 'https://www.tudublin.ie/media/images/TUDublin-Email-182x100.png' },
-  { name: 'Atlantic Technological University', domain: 'atu.ie' },
   { name: 'Griffith College', domain: 'griffith.ie' },
   { name: 'TUS – Technological University of the Shannon', domain: 'tus.ie' },
-  { name: 'Independent College Dublin', domain: 'independentcollege.ie', logoUrl: 'https://www.educationinireland.com/resource/blob/176718/b8adc23e4d5552b05c9072bb08e61bd6/logo-data.png' },
+  { name: 'Independent College Dublin', domain: 'independentcollege.ie', logoUrl: '/universities/independent-college.svg' },
   { name: 'IBDI', domain: 'ibdi.ie', logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBzf4TzmBF_NSH_IoqOO9NEHJBLneFuXF3_qsVk6MMow&s=10' },
   { name: 'University College Cork', domain: 'ucc.ie' },
   // South Korea
@@ -121,10 +119,10 @@ export const PARTNER_UNIVERSITIES = [
   { name: 'Kyungdong University', domain: 'kduniv.ac.kr', logoUrl: '/universities/kyungdong.png' },
   // Finland
   { name: 'Metropolia University of Applied Sciences', domain: 'metropolia.fi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Metropolia-logo.svg' },
-  { name: 'University of Vaasa', domain: 'uwasa.fi' },
+  { name: 'University of Vaasa', domain: 'uwasa.fi', logoUrl: '/universities/vaasa.svg' },
   { name: 'Karelia University of Applied Sciences', domain: 'karelia.fi' },
   { name: 'LAB University of Applied Sciences', domain: 'lab.fi' },
-  { name: 'Turku University of Applied Sciences', domain: 'turkuamk.fi' },
+  { name: 'Turku University of Applied Sciences', domain: 'turkuamk.fi', logoUrl: '/universities/turku-uas.png' },
   { name: 'University of Turku', domain: 'utu.fi' },
   { name: 'LUT University', domain: 'lut.fi', logoUrl: 'https://www.freelogovectors.net/wp-content/uploads/2021/04/lut-university-logo-freelogovectors.net_.png' },
   { name: 'XAMK – South-Eastern Finland UAS', domain: 'xamk.fi', logoUrl: 'https://www.xamk.fi/app/uploads/sites/2/2024/02/xamklogo_tiivis-320x126.png' },
@@ -138,18 +136,18 @@ export const PARTNER_UNIVERSITIES = [
   { name: 'University of Southern Denmark', domain: 'sdu.dk', logoUrl: 'https://sdunet.dk/-/media/sdunet/billeder/servicesider/kommunikation/2025/sdu-logo-730x250.png' },
   { name: 'Technical University of Denmark', domain: 'dtu.dk', logoUrl: 'https://www.freelogovectors.net/wp-content/uploads/2019/01/dtu-logo.png' },
   // Sweden
-  { name: 'University West', domain: 'hv.se', logoUrl: 'https://www.hv.se/assets/img/framework/hv-logo-small-new.png' },
+  { name: 'University West', domain: 'hv.se', logoUrl: '/universities/university-west.png' },
   { name: 'Blekinge Institute of Technology', domain: 'bth.se', logoUrl: 'https://www.thenaturalstep.de/wp-content/uploads/partner-logo-Blekinge-BTH.jpg' },
-  { name: 'University of Skövde', domain: 'his.se', logoUrl: 'https://www.interaliamag.org/wp-content/uploads/2017/03/University-of-Skovde-logo.jpg' },
-  { name: 'Halmstad University', domain: 'hh.se', logoUrl: 'https://www.hh.se/images/18.4ad3d9ee1656d0f05ef643a3/1550842090193/hh-logo.svg' },
+  { name: 'University of Skövde', domain: 'his.se', logoUrl: '/universities/skovde.png' },
+  { name: 'Halmstad University', domain: 'hh.se', logoUrl: '/universities/halmstad.svg' },
   { name: 'Uppsala Universitet', domain: 'uu.se', logoUrl: 'https://www.uu.se/images/18.17dda5f1791cdbd287d9b55/1622452923523/uu-logo-red.svg' },
   { name: 'Swedish University of Agricultural Sciences', domain: 'slu.se', logoUrl: 'https://www.freelogovectors.net/wp-content/uploads/2021/04/swedish-university-of-agricultural-sciences-logo-freelogovectors.net_.png' },
   { name: 'Linnaeus University', domain: 'lnu.se', logoUrl: 'https://imes.vse.cz/wp-content/uploads/2017/09/linnaeus-university-logo.png' },
   { name: 'University of Borås', domain: 'hb.se', logoUrl: 'https://www.hb.se/globalassets/vektorbilder/logotyper-desktop/hb_logo.png' },
   { name: 'Luleå Tekniska Universitet', domain: 'ltu.se', logoUrl: '/universities/ltu.svg' },
   // Belgium
-  { name: 'UCLL University of Applied Sciences', domain: 'ucll.be' },
-  { name: 'Thomas More University of Applied Sciences', domain: 'thomasmore.be' },
+  { name: 'UCLL University of Applied Sciences', domain: 'ucll.be', logoUrl: '/universities/ucll.svg' },
+  { name: 'Thomas More University of Applied Sciences', domain: 'thomasmore.be', logoUrl: '/universities/thomas-more.svg' },
   { name: 'KdG University of Applied Sciences and Arts', domain: 'kdg.be' },
   { name: 'UBI Business School', domain: 'ubi.edu' },
   // Cyprus
@@ -162,6 +160,35 @@ export const PARTNER_UNIVERSITIES = [
   { name: 'Middlesex University Dubai', domain: 'mdx.ac.ae' },
 ];
 
+// Featured partner universities highlighted in their own section on the
+// Universities page (self-hosted logos live in /public/universities).
+export const FEATURED_PARTNER_UNIVERSITIES: { name: string; domain: string; logoUrl?: string; country: string }[] = [
+  // UK
+  { name: 'Bloomsbury Institute London', domain: 'bil.ac.uk', logoUrl: '/universities/bloomsbury.png', country: 'UK' },
+  { name: 'University of South Wales', domain: 'southwales.ac.uk', logoUrl: '/universities/south-wales.jpg', country: 'UK' },
+  { name: 'University of Lincoln', domain: 'lincoln.ac.uk', logoUrl: '/universities/lincoln.png', country: 'UK' },
+  { name: 'Middlesex University', domain: 'mdx.ac.uk', logoUrl: '/universities/middlesex.svg', country: 'UK' },
+  // South Korea
+  { name: 'Kyungdong University', domain: 'kduniv.ac.kr', logoUrl: '/universities/kyungdong.png', country: 'South Korea' },
+  { name: 'Catholic Kwandong University', domain: 'cku.ac.kr', logoUrl: '/universities/cku.png', country: 'South Korea' },
+  { name: 'Kangwon National University', domain: 'kangwon.ac.kr', logoUrl: '/universities/kangwon.svg', country: 'South Korea' },
+  { name: 'Korean Bible University', domain: 'bible.ac.kr', logoUrl: '/universities/korean-bible.png', country: 'South Korea' },
+  // Dubai
+  { name: 'Rochester Institute of Technology Dubai', domain: 'ritdubai.ae', logoUrl: '/universities/rit-dubai.webp', country: 'Dubai' },
+  // Ireland
+  { name: 'Independent College Dublin', domain: 'independentcollege.ie', logoUrl: '/universities/independent-college.svg', country: 'Ireland' },
+  // Belgium
+  { name: 'UCLL University of Applied Sciences', domain: 'ucll.be', logoUrl: '/universities/ucll.svg', country: 'Belgium' },
+  { name: 'Thomas More University of Applied Sciences', domain: 'thomasmore.be', logoUrl: '/universities/thomas-more.svg', country: 'Belgium' },
+  // Sweden
+  { name: 'University West', domain: 'hv.se', logoUrl: '/universities/university-west.png', country: 'Sweden' },
+  { name: 'University of Skövde', domain: 'his.se', logoUrl: '/universities/skovde.png', country: 'Sweden' },
+  { name: 'Halmstad University', domain: 'hh.se', logoUrl: '/universities/halmstad.svg', country: 'Sweden' },
+  // Finland
+  { name: 'Turku University of Applied Sciences', domain: 'turkuamk.fi', logoUrl: '/universities/turku-uas.png', country: 'Finland' },
+  { name: 'University of Vaasa', domain: 'uwasa.fi', logoUrl: '/universities/vaasa.svg', country: 'Finland' },
+];
+
 export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: string; logoUrl?: string }[]> = {
   // Europe
   Ireland: [
@@ -169,20 +196,18 @@ export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: str
     { name: 'Dublin City University', domain: 'dcu.ie', logoUrl: 'https://www.dcu.ie/sites/default/files/dcu_logo_web_0.png' },
     { name: 'University College Dublin', domain: 'ucd.ie' },
     { name: 'Dublin Business School', domain: 'dbs.ie' },
-    { name: 'TU Dublin', domain: 'tudublin.ie', logoUrl: 'https://www.tudublin.ie/media/images/TUDublin-Email-182x100.png' },
-    { name: 'Atlantic Technological University', domain: 'atu.ie' },
     { name: 'Griffith College', domain: 'griffith.ie' },
     { name: 'TUS – Technological University of the Shannon', domain: 'tus.ie' },
-    { name: 'Independent College Dublin', domain: 'independentcollege.ie', logoUrl: 'https://www.educationinireland.com/resource/blob/176718/b8adc23e4d5552b05c9072bb08e61bd6/logo-data.png' },
+    { name: 'Independent College Dublin', domain: 'independentcollege.ie', logoUrl: '/universities/independent-college.svg' },
     { name: 'IBDI', domain: 'ibdi.ie', logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBzf4TzmBF_NSH_IoqOO9NEHJBLneFuXF3_qsVk6MMow&s=10' },
     { name: 'University College Cork', domain: 'ucc.ie' },
   ],
   Finland: [
     { name: 'Metropolia University of Applied Sciences', domain: 'metropolia.fi', logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/08/Metropolia-logo.svg' },
-    { name: 'University of Vaasa', domain: 'uwasa.fi' },
+    { name: 'University of Vaasa', domain: 'uwasa.fi', logoUrl: '/universities/vaasa.svg' },
     { name: 'Karelia University of Applied Sciences', domain: 'karelia.fi' },
     { name: 'LAB University of Applied Sciences', domain: 'lab.fi' },
-    { name: 'Turku University of Applied Sciences', domain: 'turkuamk.fi' },
+    { name: 'Turku University of Applied Sciences', domain: 'turkuamk.fi', logoUrl: '/universities/turku-uas.png' },
     { name: 'University of Turku', domain: 'utu.fi' },
     { name: 'LUT University', domain: 'lut.fi', logoUrl: 'https://www.freelogovectors.net/wp-content/uploads/2021/04/lut-university-logo-freelogovectors.net_.png' },
     { name: 'XAMK – South-Eastern Finland UAS', domain: 'xamk.fi', logoUrl: 'https://www.xamk.fi/app/uploads/sites/2/2024/02/xamklogo_tiivis-320x126.png' },
@@ -193,10 +218,10 @@ export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: str
     { name: 'Helsingin yliopisto', domain: 'helsinki.fi', logoUrl: 'https://cdn.worldvectorlogo.com/logos/university-of-helsinki-1.svg' },
   ],
   Sweden: [
-    { name: 'University West', domain: 'hv.se', logoUrl: 'https://www.hv.se/assets/img/framework/hv-logo-small-new.png' },
+    { name: 'University West', domain: 'hv.se', logoUrl: '/universities/university-west.png' },
     { name: 'Blekinge Institute of Technology', domain: 'bth.se', logoUrl: 'https://www.thenaturalstep.de/wp-content/uploads/partner-logo-Blekinge-BTH.jpg' },
-    { name: 'University of Skövde', domain: 'his.se', logoUrl: 'https://www.interaliamag.org/wp-content/uploads/2017/03/University-of-Skovde-logo.jpg' },
-    { name: 'Halmstad University', domain: 'hh.se', logoUrl: 'https://www.hh.se/images/18.4ad3d9ee1656d0f05ef643a3/1550842090193/hh-logo.svg' },
+    { name: 'University of Skövde', domain: 'his.se', logoUrl: '/universities/skovde.png' },
+    { name: 'Halmstad University', domain: 'hh.se', logoUrl: '/universities/halmstad.svg' },
     { name: 'Uppsala Universitet', domain: 'uu.se', logoUrl: 'https://www.uu.se/images/18.17dda5f1791cdbd287d9b55/1622452923523/uu-logo-red.svg' },
     { name: 'Swedish University of Agricultural Sciences', domain: 'slu.se', logoUrl: 'https://www.freelogovectors.net/wp-content/uploads/2021/04/swedish-university-of-agricultural-sciences-logo-freelogovectors.net_.png' },
     { name: 'Linnaeus University', domain: 'lnu.se', logoUrl: 'https://imes.vse.cz/wp-content/uploads/2017/09/linnaeus-university-logo.png' },
@@ -204,8 +229,8 @@ export const UNIVERSITIES_BY_COUNTRY: Record<string, { name: string; domain: str
     { name: 'Luleå Tekniska Universitet', domain: 'ltu.se', logoUrl: '/universities/ltu.svg' },
   ],
   Belgium: [
-    { name: 'UCLL University of Applied Sciences', domain: 'ucll.be' },
-    { name: 'Thomas More University of Applied Sciences', domain: 'thomasmore.be' },
+    { name: 'UCLL University of Applied Sciences', domain: 'ucll.be', logoUrl: '/universities/ucll.svg' },
+    { name: 'Thomas More University of Applied Sciences', domain: 'thomasmore.be', logoUrl: '/universities/thomas-more.svg' },
     { name: 'KdG University of Applied Sciences and Arts', domain: 'kdg.be' },
     { name: 'UBI Business School', domain: 'ubi.edu', logoUrl: 'https://ubi.edu/wp-content/uploads/2021/03/ubi-logo.png' },
   ],
