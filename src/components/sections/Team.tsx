@@ -9,7 +9,7 @@ const MANAGERS: Member[] = [
   { name: 'Dilawar Hussain', role: 'Branch Manager Sialkot',       img: '/001.webp' },
   { name: 'Basit Ahmed',     role: 'Manager Head Office Lahore',    img: '/006.webp' },
   { name: 'Nadia Nazir',     role: 'Manager, Business Development', img: '/009.webp' },
-  { name: 'Saba Shafique',   role: 'Branch Manager DHA Lahore',     img: '/010.webp' },
+  { name: 'Saba Shafique',   role: 'Chief Admission Officer', img: '/010.webp' },
 ];
 
 const SENIOR: Member[] = [

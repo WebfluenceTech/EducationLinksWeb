@@ -14,7 +14,7 @@ const TEAM_HIERARCHY = [
       { name: 'Dilawar Hussain', role: 'Branch Manager Sialkot', img: '/001.webp', color: '#00E676' }, // Green
       { name: 'Basit Ahmed', role: 'Manager Head Office Lahore', img: '/006.webp', color: '#FF8A65' }, // Salmon
       { name: 'Nadia Nazir', role: 'Manager, Business Development', img: '/009.webp', color: '#1DE9B6' }, // Mint
-      { name: 'Saba Shafique', role: 'Branch Manager DHA Lahore', img: '/010.webp', color: '#2979FF' } // Blue
+      { name: 'Saba Shafique', role: 'Chief Admission Officer', img: '/010.webp', color: '#2979FF' } // Blue
     ]
   },
   {

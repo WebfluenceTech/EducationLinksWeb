@@ -5,7 +5,7 @@ const MANAGERS: TeamMember[] = [
   { name: 'Dilawar Hussain', role: 'Branch Manager Sialkot',       img: '/001.webp', bio: 'Leading our Sialkot branch with dedication, ensuring every student receives top-tier guidance and placement support.' },
   { name: 'Basit Ahmed',     role: 'Manager Head Office Lahore',    img: '/006.webp', bio: 'Overseeing head office operations in Lahore, driving excellence in student services and team performance.' },
   { name: 'Nadia Nazir',     role: 'Manager, Business Development', img: '/009.webp', bio: 'Expanding our partnerships and outreach to bring more opportunities and university connections to our students.' },
-  { name: 'Saba Shafique',   role: 'Branch Manager DHA Lahore',     img: '/010.webp', bio: 'Managing the DHA Lahore branch with a focus on personalised counselling and exceptional student outcomes.' },
+  { name: 'Saba Shafique',   role: 'Chief Admission Officer', img: '/010.webp', bio: 'Managing the DHA Lahore branch with a focus on personalised counselling and exceptional student outcomes.' },
 ];
 
 export default function TeamManagers() {
