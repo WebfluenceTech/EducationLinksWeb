@@ -2,9 +2,9 @@ import { TeamGrid } from '../ui/TeamMemberCard';
 import type { TeamMember } from '../ui/TeamMemberCard';
 
 const SENIOR: TeamMember[] = [
-  { name: 'Usman Munir',     role: 'Senior Counseller & Visa Processing', img: '/002.jpg', bio: 'Specialising in Ireland, Usman has guided hundreds of students through successful university admissions and visa approvals.' },
-  { name: 'M. Rizwan Azeem', role: 'Senior Education Counseller',         img: '/003.jpg', bio: 'Expert in admissions and visa processing, Rizwan ensures a seamless journey from application to departure.' },
-  { name: 'Abu Talha',       role: 'Senior Counseller — UK & Ireland',    img: '/004.jpg', bio: 'Specialising in UK and Ireland pathways, Abu Talha brings deep expertise in visa processing and university selection.' },
+  { name: 'Usman Munir',     role: 'Senior Counseller & Visa Processing', img: '/002.webp', bio: 'Specialising in Ireland, Usman has guided hundreds of students through successful university admissions and visa approvals.' },
+  { name: 'M. Rizwan Azeem', role: 'Senior Education Counseller',         img: '/003.webp', bio: 'Expert in admissions and visa processing, Rizwan ensures a seamless journey from application to departure.' },
+  { name: 'Abu Talha',       role: 'Senior Counseller — UK & Ireland',    img: '/004.webp', bio: 'Specialising in UK and Ireland pathways, Abu Talha brings deep expertise in visa processing and university selection.' },
 ];
 
 export default function TeamSenior() {

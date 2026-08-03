@@ -5,11 +5,15 @@ import InquiryForm from '../components/sections/InquiryForm';
 import { UniLogoCard } from '../components/ui/UniLogoCard';
 
 /* ---------- page ---------- */
-export default function UniversitiesPage() {
-  const [selectedCountry, setSelectedCountry] = useState('All');
+export default function UniversitiesPage({ defaultCountry }: { defaultCountry?: string }) {
+  const [selectedCountry, setSelectedCountry] = useState(defaultCountry ?? 'All');
   const [search, setSearch] = useState('');
 
   useEffect(() => { window.scrollTo(0, 0); }, []);
+
+  // Keep the filter in sync when navigating between country-specific routes
+  // (e.g. /finland -> /ireland) without a full remount.
+  useEffect(() => { setSelectedCountry(defaultCountry ?? 'All'); }, [defaultCountry]);
 
   // build flat list of { country, flag, ...uni }.
   // Partner universities are merged into their matching country (deduped by
@@ -69,10 +73,16 @@ export default function UniversitiesPage() {
           <div className="relative z-10 mx-auto px-4 max-w-3xl text-center mt-4">
             <p className="text-white/70 text-sm font-semibold uppercase tracking-widest mb-3">Our Network</p>
             <h1 className="text-[2.4rem] md:text-5xl font-extrabold text-white mb-4 leading-tight">
-              List of Top Universities<br />To Study Abroad
+              {defaultCountry ? (
+                <>Top Universities<br />in {defaultCountry}</>
+              ) : (
+                <>List of Top Universities<br />To Study Abroad</>
+              )}
             </h1>
             <p className="text-[1.05rem] text-white/85 max-w-xl mx-auto leading-relaxed">
-              Choose a university that fuels your passion &amp; purpose and that quenches your academic &amp; career pursuits.
+              {defaultCountry
+                ? `Explore our partner universities in ${defaultCountry} and find the program that fuels your passion & purpose.`
+                : 'Choose a university that fuels your passion & purpose and that quenches your academic & career pursuits.'}
             </p>
           </div>
         </div>

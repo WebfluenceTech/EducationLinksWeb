@@ -5,32 +5,32 @@ const TEAM_HIERARCHY = [
   {
     category: 'Founder & CEO',
     members: [
-      { name: 'Sidique Minhas', role: 'Founder & CEO', img: '/005.jpg', color: '#FFC400' } // Yellow
+      { name: 'Sidique Minhas', role: 'Founder & CEO', img: '/005.webp', color: '#FFC400' } // Yellow
     ]
   },
   {
     category: 'Management Team',
     members: [
-      { name: 'Dilawar Hussain', role: 'Branch Manager Sialkot', img: '/001.jpg', color: '#00E676' }, // Green
-      { name: 'Basit Ahmed', role: 'Manager Head Office Lahore', img: '/006.jpg', color: '#FF8A65' }, // Salmon
-      { name: 'Nadia Nazir', role: 'Manager, Business Development', img: '/009.jpg', color: '#1DE9B6' }, // Mint
-      { name: 'Saba Shafique', role: 'Branch Manager DHA Lahore', img: '/010.jpg', color: '#2979FF' } // Blue
+      { name: 'Dilawar Hussain', role: 'Branch Manager Sialkot', img: '/001.webp', color: '#00E676' }, // Green
+      { name: 'Basit Ahmed', role: 'Manager Head Office Lahore', img: '/006.webp', color: '#FF8A65' }, // Salmon
+      { name: 'Nadia Nazir', role: 'Manager, Business Development', img: '/009.webp', color: '#1DE9B6' }, // Mint
+      { name: 'Saba Shafique', role: 'Branch Manager DHA Lahore', img: '/010.webp', color: '#2979FF' } // Blue
     ]
   },
   {
     category: 'Senior Counsellers & Visa Processing Officers',
     members: [
-      { name: 'Usman Munir', role: 'Senior Counseller & Visa Processing', img: '/002.jpg', color: '#FFC400' },
-      { name: 'M. Rizwan Azeem', role: 'Senior Education Counseller', img: '/003.jpg', color: '#FF8A65' },
-      { name: 'Abu Talha', role: 'Senior Counseller — UK & Ireland', img: '/004.jpg', color: '#00E676' },
+      { name: 'Usman Munir', role: 'Senior Counseller & Visa Processing', img: '/002.webp', color: '#FFC400' },
+      { name: 'M. Rizwan Azeem', role: 'Senior Education Counseller', img: '/003.webp', color: '#FF8A65' },
+      { name: 'Abu Talha', role: 'Senior Counseller — UK & Ireland', img: '/004.webp', color: '#00E676' },
     ]
   },
   {
     category: 'Student Counsellers',
     members: [
-      { name: 'Noor Fatima', role: 'Student Counseller — Finland', img: '/007.jpg', color: '#2979FF' },
-      { name: 'Maryam Khan', role: 'Student Counseller — France & Belgium', img: '/008.jpg', color: '#1DE9B6' },
-      { name: 'Sadia', role: 'Student Counseller — Finland', img: '/011.jpg', color: '#FFC400' },
+      { name: 'Noor Fatima', role: 'Student Counseller — Finland', img: '/007.webp', color: '#2979FF' },
+      { name: 'Maryam Khan', role: 'Student Counseller — France & Belgium', img: '/008.webp', color: '#1DE9B6' },
+      { name: 'Sadia', role: 'Student Counseller — Finland', img: '/011.webp', color: '#FFC400' },
     ]
   }
 ];
@@ -118,6 +118,8 @@ export default function TeamPage() {
                           src={member.img}
                           alt={member.name}
                           className="w-full h-full object-cover object-top mix-blend-normal transition-transform duration-500 group-hover:scale-[1.03]"
+                          loading="lazy"
+                          decoding="async"
                         />
                       </div>
                       <h3 className="text-xl font-bold text-[#172B4D] mb-1.5">{member.name}</h3>

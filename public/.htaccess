@@ -1,0 +1,89 @@
+# ============================================================
+# Education Links — Apache config for the Vite/React SPA
+# Requires: mod_rewrite, mod_mime, mod_deflate, mod_expires, mod_headers
+# (all enabled by default on virtually every shared/cPanel host)
+# ============================================================
+
+# ---- 1. React Router fallback ------------------------------
+# Any request that isn't a real file/directory on disk gets
+# served index.html so client-side routing (react-router-dom)
+# can take over — e.g. /our-team, /contact-us, /finland, /services.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# ---- 2. Force HTTPS -----------------------------------------
+# Uncomment once SSL is active on the domain.
+# <IfModule mod_rewrite.c>
+#   RewriteCond %{HTTPS} off
+#   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# ---- 3. Correct MIME types ------------------------------------
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType image/svg+xml .svg
+  AddType font/woff2 .woff2
+  AddType text/javascript .js .mjs
+  AddType application/json .json
+</IfModule>
+
+# ---- 4. Gzip compression ---------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff2 application/font-woff2
+</IfModule>
+
+# ---- 5. Browser caching ------------------------------------------
+# index.html is never cached so a new deploy is picked up immediately.
+# JS/CSS are content-hashed by Vite (e.g. index-DS3fP6rp.js), so they're
+# safe to cache for a full year. Images/fonts in /public keep fixed
+# filenames, so they get a shorter, revalidating cache instead.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|mjs)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(webp|jpe?g|png|svg)$">
+    Header set Cache-Control "public, max-age=2592000, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.woff2$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ---- 6. Basic security headers ------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ---- 7. Disable directory listing ----------------------------------
+Options -Indexes

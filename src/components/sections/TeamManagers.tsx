@@ -2,10 +2,10 @@ import { TeamGrid } from '../ui/TeamMemberCard';
 import type { TeamMember } from '../ui/TeamMemberCard';
 
 const MANAGERS: TeamMember[] = [
-  { name: 'Dilawar Hussain', role: 'Branch Manager Sialkot',       img: '/001.jpg', bio: 'Leading our Sialkot branch with dedication, ensuring every student receives top-tier guidance and placement support.' },
-  { name: 'Basit Ahmed',     role: 'Manager Head Office Lahore',    img: '/006.jpg', bio: 'Overseeing head office operations in Lahore, driving excellence in student services and team performance.' },
-  { name: 'Nadia Nazir',     role: 'Manager, Business Development', img: '/009.jpg', bio: 'Expanding our partnerships and outreach to bring more opportunities and university connections to our students.' },
-  { name: 'Saba Shafique',   role: 'Branch Manager DHA Lahore',     img: '/010.jpg', bio: 'Managing the DHA Lahore branch with a focus on personalised counselling and exceptional student outcomes.' },
+  { name: 'Dilawar Hussain', role: 'Branch Manager Sialkot',       img: '/001.webp', bio: 'Leading our Sialkot branch with dedication, ensuring every student receives top-tier guidance and placement support.' },
+  { name: 'Basit Ahmed',     role: 'Manager Head Office Lahore',    img: '/006.webp', bio: 'Overseeing head office operations in Lahore, driving excellence in student services and team performance.' },
+  { name: 'Nadia Nazir',     role: 'Manager, Business Development', img: '/009.webp', bio: 'Expanding our partnerships and outreach to bring more opportunities and university connections to our students.' },
+  { name: 'Saba Shafique',   role: 'Branch Manager DHA Lahore',     img: '/010.webp', bio: 'Managing the DHA Lahore branch with a focus on personalised counselling and exceptional student outcomes.' },
 ];
 
 export default function TeamManagers() {

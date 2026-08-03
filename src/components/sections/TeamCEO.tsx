@@ -23,10 +23,12 @@ export default function TeamCEO() {
             style={{ width: '62%', aspectRatio: '3 / 4' }}
           >
             <img
-              src="/005.jpg"
+              src="/005.webp"
               alt="Sidique Minhas"
               className="w-full h-full object-cover object-top"
               style={{ transform: 'translateZ(0)' }}
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>

@@ -2,9 +2,9 @@ import { TeamGrid } from '../ui/TeamMemberCard';
 import type { TeamMember } from '../ui/TeamMemberCard';
 
 const COUNSELLERS: TeamMember[] = [
-  { name: 'Noor Fatima', role: 'Student Counseller — Finland',          img: '/007.jpg', bio: 'Helping students navigate Finnish universities with expert advice on applications, scholarships, and student life.' },
-  { name: 'Maryam Khan', role: 'Student Counseller — France & Belgium', img: '/008.jpg', bio: 'Guiding students to top universities in France and Belgium, with a passion for European education pathways.' },
-  { name: 'Sadia',       role: 'Student Counseller — Finland',          img: '/011.jpg', bio: 'Committed to making the Finland study journey smooth and successful for every student she works with.' },
+  { name: 'Noor Fatima', role: 'Student Counseller — Finland',          img: '/007.webp', bio: 'Helping students navigate Finnish universities with expert advice on applications, scholarships, and student life.' },
+  { name: 'Maryam Khan', role: 'Student Counseller — France & Belgium', img: '/008.webp', bio: 'Guiding students to top universities in France and Belgium, with a passion for European education pathways.' },
+  { name: 'Sadia',       role: 'Student Counseller — Finland',          img: '/011.webp', bio: 'Committed to making the Finland study journey smooth and successful for every student she works with.' },
 ];
 
 export default function TeamCounsellers() {

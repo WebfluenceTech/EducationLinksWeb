@@ -21,6 +21,8 @@ export function UniLogoCard({ name, domain, logoUrl, country }: { name: string; 
             alt={name}
             onError={() => setSrcIdx(i => i + 1)}
             className="max-h-full max-w-[80%] object-contain mix-blend-multiply"
+            loading="lazy"
+            decoding="async"
           />
         ) : (
            <span className="text-[#2F95D0] font-extrabold text-2xl tracking-widest">{initials}</span>

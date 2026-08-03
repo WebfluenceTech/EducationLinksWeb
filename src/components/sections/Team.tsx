@@ -3,25 +3,25 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 type Member = { name: string; role: string; img: string };
 
-const CEO: Member = { name: 'Sidique Minhas', role: 'Founder & CEO', img: '/005.jpg' };
+const CEO: Member = { name: 'Sidique Minhas', role: 'Founder & CEO', img: '/005.webp' };
 
 const MANAGERS: Member[] = [
-  { name: 'Dilawar Hussain', role: 'Branch Manager Sialkot',       img: '/001.jpg' },
-  { name: 'Basit Ahmed',     role: 'Manager Head Office Lahore',    img: '/006.jpg' },
-  { name: 'Nadia Nazir',     role: 'Manager, Business Development', img: '/009.jpg' },
-  { name: 'Saba Shafique',   role: 'Branch Manager DHA Lahore',     img: '/010.jpg' },
+  { name: 'Dilawar Hussain', role: 'Branch Manager Sialkot',       img: '/001.webp' },
+  { name: 'Basit Ahmed',     role: 'Manager Head Office Lahore',    img: '/006.webp' },
+  { name: 'Nadia Nazir',     role: 'Manager, Business Development', img: '/009.webp' },
+  { name: 'Saba Shafique',   role: 'Branch Manager DHA Lahore',     img: '/010.webp' },
 ];
 
 const SENIOR: Member[] = [
-  { name: 'Usman Munir',     role: 'Senior Counseller & Visa Processing — Finland',   img: '/002.jpg' },
-  { name: 'M. Rizwan Azeem', role: 'Senior Education Counseller & Visa Processing',   img: '/003.jpg' },
-  { name: 'Abu Talha',       role: 'Senior Counseller & Visa Officer — UK & Ireland', img: '/004.jpg' },
+  { name: 'Usman Munir',     role: 'Senior Counseller & Visa Processing — Finland',   img: '/002.webp' },
+  { name: 'M. Rizwan Azeem', role: 'Senior Education Counseller & Visa Processing',   img: '/003.webp' },
+  { name: 'Abu Talha',       role: 'Senior Counseller & Visa Officer — UK & Ireland', img: '/004.webp' },
 ];
 
 const COUNSELLERS: Member[] = [
-  { name: 'Noor Fatima', role: 'Student Counseller — Finland',          img: '/007.jpg' },
-  { name: 'Maryam Khan', role: 'Student Counseller — France & Belgium', img: '/008.jpg' },
-  { name: 'Sadia',       role: 'Student Counseller — Finland',          img: '/011.jpg' },
+  { name: 'Noor Fatima', role: 'Student Counseller — Finland',          img: '/007.webp' },
+  { name: 'Maryam Khan', role: 'Student Counseller — France & Belgium', img: '/008.webp' },
+  { name: 'Sadia',       role: 'Student Counseller — Finland',          img: '/011.webp' },
 ];
 
 // ─── Card ─────────────────────────────────────────────────────────────────────
@@ -34,6 +34,8 @@ function MemberCard({ member }: { member: Member }) {
           src={member.img}
           alt={member.name}
           className="w-full h-full object-contain object-top group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+          decoding="async"
         />
       </div>
       <div className="px-3 py-2 text-center shrink-0 border-t border-gray-100">
@@ -147,6 +149,8 @@ export default function Team() {
                 src={CEO.img}
                 alt={CEO.name}
                 className="w-full h-full object-contain object-top group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             {/* Name at bottom */}

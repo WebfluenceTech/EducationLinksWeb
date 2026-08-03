@@ -13,6 +13,8 @@ function LogoCard({ name, domain }: { name: string; domain: string }) {
           alt={name}
           onError={() => setFailed(true)}
           className="max-h-14 max-w-[130px] object-contain"
+          loading="lazy"
+          decoding="async"
         />
       ) : (
         <span className="text-xs font-bold text-brand-blue text-center leading-snug">{initials}</span>

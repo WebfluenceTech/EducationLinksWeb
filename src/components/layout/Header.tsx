@@ -14,8 +14,8 @@ type NavLink = {
 const NAV_LINKS_BEFORE_TEAM: NavLink[] = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/#about' },
-  { label: 'Services', to: '/#services' },
-  { label: 'Our Team', to: '/team' },
+  { label: 'Services', to: '/services' },
+  { label: 'Our Team', to: '/our-team' },
 ];
 
 const NAV_LINKS_AFTER_TEAM: NavLink[] = [
@@ -29,7 +29,7 @@ const NAV_LINKS_AFTER_TEAM: NavLink[] = [
   },
   { label: 'Destinations', to: '/#destinations', hasMega: true },
   { label: 'Gallery', to: '/gallery' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Contact', to: '/contact-us' },
 ];
 
 const NAV_LINKS = [...NAV_LINKS_BEFORE_TEAM, ...NAV_LINKS_AFTER_TEAM];

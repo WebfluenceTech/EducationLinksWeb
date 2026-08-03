@@ -23,6 +23,8 @@ export function TeamMemberCard({ member }: { member: TeamMember }) {
           alt={member.name}
           className="w-full h-full object-cover object-top"
           style={{ transform: 'translateZ(0)' }}
+          loading="lazy"
+          decoding="async"
         />
       </div>
 

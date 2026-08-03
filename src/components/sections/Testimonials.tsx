@@ -3,16 +3,16 @@ import Marquee from 'react-fast-marquee';
 import { X } from 'lucide-react';
 
 const successImages = [
-  '/SuccessStories/image.png',
-  '/SuccessStories/image copy.png',
-  '/SuccessStories/image copy 2.png',
-  '/SuccessStories/image copy 3.png',
-  '/SuccessStories/image copy 4.png',
-  '/SuccessStories/image copy 5.png',
-  '/SuccessStories/image copy 6.png',
-  '/SuccessStories/image copy 7.png',
-  '/SuccessStories/image copy 8.png',
-  '/SuccessStories/image copy 9.png',
+  '/SuccessStories/success-01.webp',
+  '/SuccessStories/success-02.webp',
+  '/SuccessStories/success-03.webp',
+  '/SuccessStories/success-04.webp',
+  '/SuccessStories/success-05.webp',
+  '/SuccessStories/success-06.webp',
+  '/SuccessStories/success-07.webp',
+  '/SuccessStories/success-08.webp',
+  '/SuccessStories/success-09.webp',
+  '/SuccessStories/success-10.webp',
 ];
 
 export default function Testimonials() {
@@ -52,6 +52,8 @@ export default function Testimonials() {
               src={src}
               alt={`Success story ${i + 1}`}
               className="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         ))}

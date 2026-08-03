@@ -13,11 +13,11 @@ import Toast from '../ui/Toast';
 const QUICK_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/#about' },
-  { label: 'Services', to: '/#services' },
+  { label: 'Services', to: '/services' },
   { label: 'Study Destinations', to: '/#destinations' },
   { label: 'Apply Online', to: '/apply' },
   { label: 'Gallery', to: '/gallery' },
-  { label: 'Contact Us', to: '/contact' },
+  { label: 'Contact Us', to: '/contact-us' },
 ];
 
 export default function Footer() {
@@ -64,7 +64,7 @@ export default function Footer() {
           {/* About */}
           <div>
             <Link to="/" className="inline-block mb-5">
-              <img src={footerLogoSrc} alt="Education Links" className="h-16 w-auto object-contain" />
+              <img src={footerLogoSrc} alt="Education Links" className="h-16 w-auto object-contain" loading="lazy" decoding="async" />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
               Pakistan's leading study abroad consultancy since 2009. Helping students achieve their dreams of international education across 11+ destinations worldwide.

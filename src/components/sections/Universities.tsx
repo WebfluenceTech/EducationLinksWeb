@@ -25,6 +25,8 @@ function LogoCard({ name, domain, logoUrl }: Uni) {
           alt={name}
           onError={() => setSrcIndex((i) => i + 1)}
           className="max-h-8 sm:max-h-12 md:max-h-14 max-w-[70px] sm:max-w-[110px] md:max-w-[140px] object-contain"
+          loading="lazy"
+          decoding="async"
         />
       ) : (
         <span className="text-sm font-extrabold text-brand-blue tracking-wide text-center">
