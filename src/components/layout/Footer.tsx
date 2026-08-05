@@ -159,9 +159,20 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="container-custom py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-gray-500">
+      <div className="border-t border-white/10 bg-black/20">
+        <div className="container-custom py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-gray-400">
           <span>&copy; {new Date().getFullYear()} Education Links. All rights reserved.</span>
+          <span>
+            Developed &amp; Maintained by{' '}
+            <a
+              href="https://www.webfluence.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-brand-blue-light font-medium transition-colors underline underline-offset-4 decoration-brand-blue/50"
+            >
+              Team Webfluence
+            </a>
+          </span>
           <span>Pakistan's Trusted Study Abroad Partner Since 2009</span>
         </div>
       </div>
